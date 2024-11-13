@@ -1,0 +1,24 @@
+🍉🍉🍉🍉🍉🍉🍉🍉🍉🍉🍉🍉🍉
+🍉  Requerimientos generales  🍉
+🍉🍉🍉🍉🍉🍉🍉🍉🍉🍉🍉🍉🍉
+
+
+
+
+-BASE DE DATOS ❌
+-AUTENTIFICACION Y AUTORIZACION ❌
+-ROLES ❌
+-ADMINISTRADOR PRECARGADO ❌
+-INTEGRIDAD REFERENCIAL EN  EL GESTION DE ENTIDADES ❌
+-INTERFAZ INTUITIVA, DISEÑO HOMOGENEO Y RESPONSIVO ❌
+
+
+🌸🌸🌸🌸🌸🌸🌸 
+🌸  Pendiente  🌸
+🌸🌸🌸🌸🌸🌸🌸
+
+
+
+
+-Paleta de Colores ❌
+-Inicio Pagina ❌
