@@ -1,0 +1,61 @@
+body {
+    margin: 0;
+}
+.aside-nav-section {
+    width: 280px;
+    height: 97vh;
+    margin-top: 1vh;
+    border: 2px solid gray;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.nav-options {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-element {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    margin-left: 25%;
+}
+
+.nav-element:hover .button-nav-element {
+    background-color: #0055ff;
+}
+
+
+.nav-element:hover .icon {
+    stroke: white;
+}
+
+
+.icon{
+    transition: stroke 0.5s;
+}
+
+.button-nav-element {
+    background: none;
+    border: none;
+    cursor: pointer;
+    background-color: rgb(243, 227, 227);
+    height: fit-content;
+    border-radius: 10px;
+    transition: background-color 0.5s;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.user-menu{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+nav hr{
+    width: 90%;
+}
