@@ -32,7 +32,7 @@
             </a>
         </li>
         <li>
-            <h4> Jose Angel</h4>
+            <h4> Jose Angel Torres Hernandez</h4>
         </li>
         <li>
             <a href="https://github.com/alexamh24"> 
@@ -41,7 +41,7 @@
         </li>
         <li>
             <a href="https://github.com/luisPosadas3"> 
-                <h4> Luis Angel </h4>
+                <h4> Luis Angel Posadas Del Toro</h4>
             </a>
         </li>
         <li>
