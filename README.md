@@ -32,7 +32,9 @@
             </a>
         </li>
         <li>
-            <h4> Jose Angel Torres Hernandez</h4>
+            <a href=""> 
+                <h4>Jose Angel Torres Hernandez</h4>
+            </a>
         </li>
         <li>
             <a href="https://github.com/alexamh24"> 
