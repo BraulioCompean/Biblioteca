@@ -32,8 +32,8 @@
             </a>
         </li>
         <li>
-            <a href=""> 
-                <h4>Jose Angel Torres Hernandez</h4>
+            <a href="https://github.com/ispepe050"> 
+                <h4>José Angel Torres Hernández</h4>
             </a>
         </li>
         <li>
