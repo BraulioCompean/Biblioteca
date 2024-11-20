@@ -1,0 +1,81 @@
+:root{
+    --apricot: #ffcdb2ff;
+    --melon: #ffb4a2ff;
+    --salmon-pink: #e5989bff;
+    --old-rose: #b5838dff;
+    --dim-gray: #6d6875ff;
+
+    --black: #070707ff;
+    --violet-jtc: #553555ff;
+    --eggplant: #755b69ff;
+    --cambridge-blue: #96c5b0ff;
+    --aquamarine: #adf1d2ff;
+}
+
+.container {
+    display: block;
+    gap: 10px;
+    width: 50px;
+    margin: 50px;
+    padding: 20px;
+    border: 10px outset  var(--salmon-pink);
+    border-radius: 8px;   
+}
+
+.titulo{
+    text-align: center;
+
+}
+
+.logo{
+    /* display: flex; */
+    width: 40%;
+    height: 40%;
+    padding: 5px;
+    padding: 10px 20px 30px 40px;
+}
+
+.botones{
+    display: flex;
+    text-align: center;
+}
+
+input[type="text"]:focus, input[type="password"]:focus{
+    display: flex;
+    box-shadow: 0 4px 8px var(--apricot);
+}
+
+#iniciarsesion:focus{
+    /* display: flex; */
+    box-shadow: 2px 2px 2px var(--apricot);
+    background-color: var(--cambridge-blue);
+    transform: scale(1.1);
+    transition: background-color 0.1s, transform 0.3s;
+    /* margin-right: 10px; */
+}
+
+#registrarse:focus{
+    display: flex;
+    box-shadow: 2px 2px 2px var(--apricot);
+    background-color: var(--cambridge-blue);
+    transform: scale(1.1);
+    transition: background-color 0.1s, transform 0.3s;
+}
+
+.user{
+    display: flex;
+}
+
+.contraseña{
+    display: flex;
+}
+
+.imagenp{
+    display: flex;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+.botones{
+    margin-right: 10%;
+}

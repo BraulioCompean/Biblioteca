@@ -1,24 +1,41 @@
-
 :root{
-    --cherry-blossom-pink: #edafb8ff;
-    --champagne-pink: #f7e1d7ff;
-    --timberwolf: #dedbd2ff;
-    --ash-gray: #b0c4b1ff;
-    --outer-space: #4a5759ff;
-    /* propuesta paleta */
+    --apricot: #ffcdb2ff;
+    --melon: #ffb4a2ff;
+    --salmon-pink: #e5989bff;
+    --old-rose: #b5838dff;
+    --dim-gray: #6d6875ff;
+
+    --black: #070707ff;
+    --violet-jtc: #553555ff;
+    --eggplant: #755b69ff;
+    --cambridge-blue: #96c5b0ff;
+    --aquamarine: #adf1d2ff;
 }
 
+body{
+    display: flex;
+}
+
+.lib{
+    text-align: center;
+}
 
 body {
+    display: flex;
     margin: 0;
 }
+
 .aside-nav-section {
     width: 280px;
     height: 97vh;
     margin-top: 1vh;
-    border: 2px solid gray;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border: 4px solid var(--black);
+    background-color: var(--salmon-pink);
+    border-radius:10px ;
+    margin: 10px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    /* border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px; */
 }
 
 .nav-options {
@@ -69,4 +86,70 @@ body {
 }
 nav hr{
     width: 90%;
+}
+
+body{
+    display: flex;
+}
+
+.navegar{
+    width: none;
+    border: 4px solid var(--black);  
+    border-radius: 10px;
+    margin-left: 30px; 
+    margin-right: 30px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+
+    
+}
+
+.recomendados{
+    width: none;
+    border: 4px solid var(--black);  
+    border-radius: 10px;
+    margin-left: 25px; 
+    margin-right: 15px;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+
+}
+
+.categorias{
+    width: none;
+    border: 4px solid var(--black);  
+    border-radius: 10px;
+    margin-left: 25px; 
+    margin-right: 15px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+
+}
+
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10%, 10%));
+    gap: 10px;
+}
+
+.galeria img {
+    width: 50%;
+    height: 50%;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+}
+
+.galeria img:hover {
+    transform: scale(1.05);
+}
+
+.libro1{
+    display: block;
+    box-shadow: 0 4px 8px var(--violet-jtc);
+    border: 5px solid var(--aquamarine);
+    text-align: center;
 }
