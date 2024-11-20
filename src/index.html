@@ -5,131 +5,187 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="styles/index.css" />
         <title>Libreria</title>
+        <link rel="icon" href="assets/logo1.webp">
     </head>
     <body>
         <aside class="aside-nav-section">
             <div class="lib">
-                <h1>Libreria</h1>
+                <h1>Librería</h1>
             </div>
             <nav class="nav-section">
-                <ul class="nav-options">
-                    <li class="nav-element">
-                        <button class="button-nav-element">
-                            <svg
-                                id="home-svg"
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                class="icon icon-tabler icons-tabler-outline icon-tabler-home"
-                            >
-                                <path
-                                    stroke="none"
-                                    d="M0 0h24v24H0z"
-                                    fill="none"
-                                />
-                                <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
-                                <path
-                                    d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"
-                                />
-                                <path
-                                    d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"
-                                />
-                            </svg>
-                        </button>
-                        <h4>Home</h4>
-                    </li>
-                    <li class="nav-element">
-                        <button class="button-nav-element">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                class="icon icon-tabler icons-tabler-outline icon-tabler-book"
-                            >
-                                <path
-                                    stroke="none"
-                                    d="M0 0h24v24H0z"
-                                    fill="none"
-                                />
-                                <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
-                                <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
-                                <path d="M3 6l0 13" />
-                                <path d="M12 6l0 13" />
-                                <path d="M21 6l0 13" />
-                            </svg>
-                        </button>
-                        <h4>Mi libreria</h4>
-                    </li>
-                    <li class="nav-element">
-                        <button class="button-nav-element">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                class="icon icon-tabler icons-tabler-outline icon-tabler-heart"
-                            >
-                                <path
-                                    stroke="none"
-                                    d="M0 0h24v24H0z"
-                                    fill="none"
-                                />
-                                <path
-                                    d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"
-                                />
-                            </svg>
-                        </button>
-                        <h4>Favoritos</h4>
-                    </li>
-                </ul>
-                <hr />
-                <ul class="user-menu">
-                    <li class="nav-element">
-                        <button class="button-nav-element">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                class="icon icon-tabler icons-tabler-outline icon-tabler-settings"
-                            >
-                                <path
-                                    stroke="none"
-                                    d="M0 0h24v24H0z"
-                                    fill="none"
-                                />
-                                <path
-                                    d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z"
-                                />
-                                <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
-                            </svg>
-                        </button>
-                        <h4>Configuracion</h4>
+                        <ul class="nav-options">
+                            <li class="nav-element">
+                                <button class="button-nav-element">
+                                    <svg
+                                        id="home-svg"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="icon icon-tabler icons-tabler-outline icon-tabler-home"
+                                    >
+                                        <path
+                                            stroke="none"
+                                            d="M0 0h24v24H0z"
+                                            fill="none"
+                                        />
+                                        <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
+                                        <path
+                                            d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"
+                                        />
+                                        <path
+                                            d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"
+                                        />
+                                    </svg>
+                                </button>
+                                <h4>Home</h4>
+                            </li>
+                            <li class="nav-element">
+                                <button>
+                                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-world-search"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M21 12a9 9 0 1 0 -9 9" /><path d="M3.6 9h16.8" /><path d="M3.6 15h7.9" /><path d="M11.5 3a17 17 0 0 0 0 18" /><path d="M12.5 3a16.984 16.984 0 0 1 2.574 8.62" /><path d="M18 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M20.2 20.2l1.8 1.8" /></svg>
+                                </button>
+                                <h4>Explorar</h4>
+                            </li>
+                            <li class="nav-element">
+                                <button>
+                                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-bookmark-question"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 19l-3 -2l-6 4v-14a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v4" /><path d="M19 22v.01" /><path d="M19 19a2.003 2.003 0 0 0 .914 -3.782a1.98 1.98 0 0 0 -2.414 .483" /></svg>
+                                </button>
+                                <h4> Sugeridos </h4>
+                            </li>
+                            <li class="nav-element">
+                                <button class="button-nav-element">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="icon icon-tabler icons-tabler-outline icon-tabler-book"
+                                    >
+                                        <path
+                                            stroke="none"
+                                            d="M0 0h24v24H0z"
+                                            fill="none"
+                                        />
+                                        <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+                                        <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+                                        <path d="M3 6l0 13" />
+                                        <path d="M12 6l0 13" />
+                                        <path d="M21 6l0 13" />
+                                    </svg>
+                                </button>
+                                <h4>Mi libreria</h4>
+                            </li>
+                            <li class="nav-element">
+                                <button class="button-nav-element">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="icon icon-tabler icons-tabler-outline icon-tabler-heart"
+                                    >
+                                        <path
+                                            stroke="none"
+                                            d="M0 0h24v24H0z"
+                                            fill="none"
+                                        />
+                                        <path
+                                            d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"
+                                        />
+                                    </svg>
+                                </button>
+                                <h4>Favoritos</h4>
+                            </li>
+                        </ul>
+                        <hr />
+                        <ul class="user-menu">
+                            <li class="nav-element">
+                                <button class="button-nav-element">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="icon icon-tabler icons-tabler-outline icon-tabler-settings"
+                                    >
+                                        <path
+                                            stroke="none"
+                                            d="M0 0h24v24H0z"
+                                            fill="none"
+                                        />
+                                        <path
+                                            d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z"
+                                        />
+                                        <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+                                    </svg>
+                                </button>
+                                <h4>Configuración</h4>
+                            </li>
+                            <li class="nav-element">
+                                <button class="button-nav-element">
+                                    <svg 
+                                    xmlns="http://www.w3.org/2000/svg" 
+                                    width="24"  height="24"  viewBox="0 0 24 24"
+                                    fill="none"  stroke="currentColor"  stroke-width="2" 
+                                    stroke-linecap="round"  stroke-linejoin="round"  
+                                    class="icon icon-tabler icons-tabler-outline icon-tabler-logout-2"
+                                    ><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path 
+                                    d="M10 8v-2a2 2 0 0 1 2 -2h7a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-7a2 2 0 0 1 -2 -2v-2"
+                                        /><path d="M15 12h-12l3 -3" /><path d="M6 15l-3 -3" /></svg>
+                                </button>
+                        <h4> Cerrar Sesión </h4>
                     </li>
                 </ul>
             </nav>
         </aside>
+        <main>
+            <div class="navegar">
+                <h2> Navegar </h2> 
+            </div>
+            <div class="recomendados">
+                <h2> Recomendados</h2>
+                <div></div>
+                <div>
+                    <div class="galeria">
+                        <div class="libro1">
+                            <img src="assets/body.jpg" alt="Imagen 1">
+                            <h3> Jardín</h3>
+                            <p> BLE BLE </p>
+                        </div>
+                        <img src="assets/login.jpg" alt="Imagen 2">
+                        <img src="imagen3.jpg" alt="Imagen 3">
+                        <img src="imagen4.jpg" alt="Imagen 4">
+                        <img src="imagen5.jpg" alt="Imagen 5">
+                        <img src="imagen6.jpg" alt="Imagen 6">
+                      </div>
+                </div>
+            </div>
+            <div class="categorias">
+                <h2> Categorías </h2>
+                <h3>
+
+                </h3>
+            </div>
+        </main>
     </body>
 </html>
