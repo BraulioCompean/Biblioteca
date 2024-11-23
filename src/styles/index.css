@@ -14,6 +14,7 @@
 
 body {
     display: flex;
+    overflow: hidden;
 }
 
 .lib {
@@ -156,12 +157,14 @@ nav hr {
 
 main {
     width: 100%;
-    height: 100%;
+    height: 100vh;
+    max-height: 100vh;
     padding-top: 20px;
     padding-right: 20px;
     display: flex;
     flex-direction: column;
     gap: 50px;
+    overflow-y: scroll;
 }
 
 #input-search-books {
