@@ -33,12 +33,11 @@ body {
     background-color: #eceff5;
 }
 
-.lib {
-    text-align: center;
+.library-title {
     display: flex;
-    font-family: "Luckiest Guy";
+    justify-content: center;
 }
-#imgL{
+#imgL {
     text-align: center;
     margin: 8px;
     width: 50px;
@@ -74,13 +73,11 @@ body {
     gap: 10px;
     cursor: pointer;
     margin-left: 25%;
-    color: var(--vanilla);
-    font-family: "Sour Gummy";
+    color: black;
 }
 
 .nav-element:hover .button-nav-element {
-    /* background-color: #0055ff; */
-    background-color: var(--chestnut);
+    background-color: #0055ff;
 }
 
 .nav-element:hover .icon {
@@ -110,9 +107,6 @@ body {
 }
 nav hr {
     width: 90%;
-    height: 3px;
-    background-color: var(--rosy-brown);
-    border-color: var(--rosy-brown);
 }
 
 .navegar {
@@ -143,15 +137,13 @@ nav hr {
     display: flex;
     gap: 20px;
 }
-.book-name:hover{
+.book-name:hover {
     color: blue;
     text-decoration: underline;
 }
 .categorias {
-    /* border: 1px solid var(--black); */
-    border: 3px solid var(--golden-brown);
+    border: 1px solid var(--black);
     border-radius: 10px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
     width: 96%;
     background-color: white;
     margin-left: 30px;
@@ -165,22 +157,22 @@ nav hr {
     gap: 10px;
 }
 
-.categories-header{
+.categories-header {
     margin-bottom: 24px;
 }
 
-.category-btn:hover{
+.category-btn:hover {
     color: blue;
     text-decoration: underline;
 }
 
-.category-btn:active{
+.category-btn:active {
     width: 100px;
     height: 30px;
     font-size: 20px;
     background-color: var(--vanilla);
 }
-.category-btn{
+.category-btn {
     border-radius: 500px;
 }
 
@@ -188,14 +180,13 @@ nav hr {
     display: flex;
     align-items: center;
 }
-.login-link:hover{
+.login-link:hover {
     color: blue;
     text-decoration: underline;
 }
 .login-section h3 {
     margin-right: 50px;
 }
-
 
 main {
     width: 100%;
@@ -216,7 +207,6 @@ main {
     font-size: 20px;
     background-color: #eff1f5;
     height: 45px;
-
 }
 
 .img-book-card {
@@ -227,8 +217,6 @@ main {
     margin: none;
     margin: 0;
 }
-
-
 
 .book-card {
     padding: 5px;
@@ -246,7 +234,7 @@ main {
     transition: scale 1s;
 }
 
-.book-card:hover{
+.book-card:hover {
     scale: 1.05;
 }
 
@@ -275,7 +263,6 @@ main {
     border-left: 1px solid gray;
     border-right: 1px solid gray;
     border-bottom: 1px solid gray;
-
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
 }
@@ -299,7 +286,7 @@ main {
     align-items: center;
 }
 
-#see-all:hover{
+#see-all:hover {
     background-color: rgb(184, 192, 240);
 }
 
@@ -317,13 +304,12 @@ main {
     padding: 0;
 }
 
-
-.categories-btns-container{
+.categories-btns-container {
     display: flex;
     gap: 20px;
 }
 
-.category-btn{
+.category-btn {
     font-size: medium;
     border-radius: 10px;
     background: none;
@@ -332,14 +318,43 @@ main {
     background-color: rgb(243, 227, 227);
     padding: 9px;
     height: fit-content;
-    transition: background-color 0.5s ,color 1s;
+    transition: background-color 0.5s, color 1s;
 }
 
-.category-btn:hover{
+.category-btn:hover {
     background-color: #0055ff;
     color: white;
 }
 
-.category-btn h4{
+.category-btn h4 {
     margin: 0;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+.modal-content{
+    display: flex;
+    margin: auto;
+    background-color: white;
+    height: 700px;
+    width: 1000px;
+    border: 1px solid gray;
+    padding: 30px;
+}
+
+
+.book-info-container{
+    display: flex;
+    flex-direction: column;
+    margin-left: 100px;
 }
