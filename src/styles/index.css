@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
 :root {
     --apricot: #ffcdb2ff;
     --melon: #ffb4a2ff;
@@ -13,8 +15,10 @@
 }
 
 body {
+    font-family: "Host Grotesk";
     display: flex;
     overflow: hidden;
+    background-color: #eceff5;
 }
 
 .lib {
@@ -28,12 +32,10 @@ body {
 
 .aside-nav-section {
     width: 280px;
-    height: 97vh;
-    margin-top: 1vh;
+    height: 100vh;
     border: 1px solid var(--black);
-    background-color: var(--salmon-pink);
-    border-radius: 10px;
-    margin: 10px;
+    background-color: white;
+    /* border-radius: 10px; */
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
     /* border-top-right-radius: 10px;
     border-bottom-right-radius: 10px; */
@@ -89,24 +91,27 @@ nav hr {
 
 .navegar {
     border: 1px solid var(--black);
-    border-radius: 10px;
     width: 100%;
     height: 60px;
-
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    /* box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); */
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: white;
 }
 
 .recomendados {
-    width: 97%;
+    width: 96%;
     border: 1px solid var(--black);
     border-radius: 10px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
     padding: 20px;
     display: flex;
     flex-direction: column;
+    background-color: white;
+    margin-left: 30px;
+    margin-top: 20px;
 }
 .recommended-books {
     display: flex;
@@ -115,10 +120,12 @@ nav hr {
 .categorias {
     border: 1px solid var(--black);
     border-radius: 10px;
-    margin-top: 10px;
-    margin-bottom: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-    width: 100%;
+    width: 96%;
+    background-color: white;
+    margin-left: 30px;
+    margin-top: 20px;
+    padding: 20px;
 }
 
 .galeria {
@@ -159,19 +166,22 @@ main {
     width: 100%;
     height: 100vh;
     max-height: 100vh;
-    padding-top: 20px;
     padding-right: 20px;
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 10px;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 #input-search-books {
+    width: 600px;
     border-radius: 5px;
     margin-left: 15px;
-    font-size: larger;
+    font-size: 20px;
     background-color: #eff1f5;
+    height: 45px;
+
 }
 
 .img-book-card {
@@ -180,7 +190,10 @@ main {
     width: 150px;
     border: none;
     margin: none;
+    margin: 0;
 }
+
+
 
 .book-card {
     padding: 5px;
@@ -193,6 +206,13 @@ main {
     justify-content: center;
     align-items: center; */
     border: none;
+    height: auto;
+    cursor: pointer;
+    transition: scale 1s;
+}
+
+.book-card:hover{
+    scale: 1.05;
 }
 
 .book-card-info-container h4 {
@@ -202,6 +222,7 @@ main {
     overflow: hidden;
     white-space: nowrap;
     text-align: center;
+    padding: 1px;
 }
 
 .book-card-info-container h5 {
@@ -234,9 +255,20 @@ main {
     height: fit-content;
     border: 1px solid gray;
     padding: 5px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background-color 1s;
+    font-weight: bolder;
+    color: rgb(58, 58, 211);
+    display: flex;
+    align-items: center;
 }
 
-.login-btn{
+#see-all:hover{
+    background-color: rgb(184, 192, 240);
+}
+
+.login-btn {
     display: flex;
     background: none;
     align-items: center;
@@ -245,7 +277,34 @@ main {
     width: fit-content;
 }
 
-.login-btn h3{
+.login-btn h3 {
     margin: 0;
     padding: 0;
+}
+
+
+.categories-btns-container{
+    display: flex;
+    gap: 20px;
+}
+
+.category-btn{
+    font-size: medium;
+    border-radius: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    background-color: rgb(243, 227, 227);
+    padding: 9px;
+    height: fit-content;
+    transition: background-color 0.5s ,color 1s;
+}
+
+.category-btn:hover{
+    background-color: #0055ff;
+    color: white;
+}
+
+.category-btn h4{
+    margin: 0;
 }
