@@ -27,8 +27,13 @@ ______              _ _            _
 
 
 
+-   Pagina principal (INDEX) 🟡
+-   Recomendados 🟡
+-   Favoritos 🔴
+-   Configuracion 🔴
+-   Explorar 🔴
+-   Paleta de Colores 🟡
+-   Resultados Busqueda
 
--Paleta de Colores 🟡
--Inicio Pagina 🔴
 
 
