@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&family=Bungee+Spice&family=Bungee+Tint&family=Honk&family=Kalnia+Glaze:wght@100..700&family=Luckiest+Guy&family=Molle&family=Nabla&family=Nosifer&family=Sixtyfour+Convergence&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&family=Stylish&display=swap');
+
 :root {
     --apricot: #ffcdb2ff;
     --melon: #ffb4a2ff;
@@ -10,15 +12,36 @@
     --eggplant: #755b69ff;
     --cambridge-blue: #96c5b0ff;
     --aquamarine: #adf1d2ff;
+
+    --nyanza: #eaf4d3ff;
+    --vanilla: #dbd8aeff;
+    --rosy-brown: #ca907eff;
+    --chestnut: #994636ff;
+    --golden-brown: #895b1eff;
+
+    --eggplant: #533747ff;
+    --english-violet: #5f506bff;
+    --paynes-gray: #6a6b83ff;
+    --cadet-gray: #76949fff;
+    --tiffany-blue: #86bbbdff;
 }
 
 body {
     display: flex;
     overflow: hidden;
+    background-color: var(--melon);
 }
 
 .lib {
     text-align: center;
+    display: flex;
+    font-family: "Luckiest Guy";
+}
+#imgL{
+    text-align: center;
+    margin: 8px;
+    width: 50px;
+    height: 50px;
 }
 
 body {
@@ -27,16 +50,14 @@ body {
 }
 
 .aside-nav-section {
-    width: 280px;
+    width: 380px;
     height: 97vh;
     margin-top: 1vh;
-    border: 1px solid var(--black);
-    background-color: var(--salmon-pink);
+    border: 5px solid var(--black);
+    background-color: var(--golden-brown);
     border-radius: 10px;
     margin: 10px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-    /* border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px; */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);   
 }
 
 .nav-options {
@@ -52,10 +73,13 @@ body {
     gap: 10px;
     cursor: pointer;
     margin-left: 25%;
+    color: var(--vanilla);
+    font-family: "Sour Gummy";
 }
 
 .nav-element:hover .button-nav-element {
-    background-color: #0055ff;
+    /* background-color: #0055ff; */
+    background-color: var(--chestnut);
 }
 
 .nav-element:hover .icon {
@@ -85,10 +109,13 @@ body {
 }
 nav hr {
     width: 90%;
+    height: 3px;
+    background-color: var(--rosy-brown);
+    border-color: var(--rosy-brown);
 }
 
 .navegar {
-    border: 1px solid var(--black);
+    border: 3px solid var(--golden-brown);
     border-radius: 10px;
     width: 100%;
     height: 60px;
@@ -97,63 +124,79 @@ nav hr {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 10px;
+    padding: 20px;
+}
+
+#input-search-books{
+    text-align: center;
 }
 
 .recomendados {
-    width: 97%;
-    border: 1px solid var(--black);
+    width: 100%; 
+    border: 3px solid var(--golden-brown);
+    /* border: 1px solid var(--black); */
     border-radius: 10px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
     padding: 20px;
     display: flex;
     flex-direction: column;
+    margin: 10px;
+}
+#see-all:hover{
+    color: blue;
 }
 .recommended-books {
     display: flex;
-    gap: 10px;
+    gap: 20px;
+}
+.book-name:hover{
+    color: blue;
+    text-decoration: underline;
 }
 .categorias {
-    border: 1px solid var(--black);
+    /* border: 1px solid var(--black); */
+    border: 3px solid var(--golden-brown);
     border-radius: 10px;
     margin-top: 10px;
     margin-bottom: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-    width: 100%;
+    width: 90%;
+    margin: 10px;
+    padding: 20px;
 }
 
-.galeria {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(10%, 10%));
-    gap: 10px;
+.categories-header{
+    margin-bottom: 24px;
 }
 
-.galeria img {
-    width: 50%;
-    height: 50%;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s;
+.category-btn:hover{
+    color: blue;
+    text-decoration: underline;
 }
 
-.galeria img:hover {
-    transform: scale(1.05);
+.category-btn:active{
+    width: 100px;
+    height: 30px;
+    font-size: 20px;
+    background-color: var(--vanilla);
 }
-
-.libro1 {
-    display: block;
-    box-shadow: 0 4px 8px var(--violet-jtc);
-    border: 5px solid var(--aquamarine);
-    text-align: center;
+.category-btn{
+    border-radius: 500px;
 }
 
 .login-section {
     display: flex;
     align-items: center;
 }
-
+.login-link:hover{
+    color: blue;
+    text-decoration: underline;
+}
 .login-section h3 {
     margin-right: 50px;
 }
+
 
 main {
     width: 100%;
@@ -248,4 +291,19 @@ main {
 .login-btn h3{
     margin: 0;
     padding: 0;
+}
+
+.book-info{
+    margin: 10px;
+    padding: 10px;
+    background-color: var(--paynes-gray);
+    width: 500px;
+    height: 97vh;
+    text-align: center;
+}
+.book-info-h3{
+    font-family: "Slylish";
+}
+.book-info-container{
+    font-family: "Sour Gummy";
 }
