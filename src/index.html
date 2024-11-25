@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="styles/index.css" />
         <title>Libreria</title>
         <link rel="icon" href="assets/logo1.webp" />
+        <script src="scripts/index.js" defer></script>
     </head>
     <body>
         <aside class="aside-nav-section">
@@ -80,7 +81,7 @@
                         </button>
                         <h4>Explorar</h4>
                     </li>
-                    <li class="nav-element">
+                    <li class="nav-element" id="recommended-page">
                         <button class="button-nav-element">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -102,13 +103,14 @@
                                 <path
                                     d="M15 19l-3 -2l-6 4v-14a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v4"
                                 />
+                                c
                                 <path d="M19 22v.01" />
                                 <path
                                     d="M19 19a2.003 2.003 0 0 0 .914 -3.782a1.98 1.98 0 0 0 -2.414 .483"
                                 />
                             </svg>
                         </button>
-                        <h4>Sugeridos</h4>
+                        <h4>Recomendados</h4>
                     </li>
                     <li class="nav-element">
                         <button class="button-nav-element">
@@ -257,8 +259,8 @@
                     <input type="text" placeholder="Buscar libros"
                     id="input-search-books">
                 </div>
-                <div class="login-section">
-                    <button class="login-btn" onclick="window.location = './pages/login.html'">
+                <div class="login-section" >
+                    <button class="login-btn" id="login-container">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="24"
@@ -286,6 +288,21 @@
                     <h2>Recomendados</h2>
                     <a href="pages/recommended-books.html" id="see-all">
                         Ver todos
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"
+                        >
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M9 6l6 6l-6 6" />
+                        </svg>
                     </a>
                 </div>
                 <div class="recommended-books">
@@ -360,15 +377,19 @@
             <div class="categorias">
                 <div class="categories-header">
                     <h2>Categorías</h2>
-                    
-                    <div>
-                        <button class="category-btn">All</button>
-                        <button class="category-btn">Sci-Fi</button>
-                        <button class="category-btn">Fantasy</button>
-                        <button class="category-btn">Drama</button>
-                        <button class="category-btn">Education</button>
-                        <button class="category-btn">Business</button>
-                    
+                    <div class="categories-btns-container">
+                        <button class="category-btn">
+                            <h4>All</h4>
+                        </button>
+                        <button class="category-btn">
+                            <h4>Sci-Fi</h4>
+                        </button>
+                        <button class="category-btn">
+                            <h4>Fantasy</h4>
+                        </button>
+                        <button class="category-btn"><h4>Drama</h4></button>
+                        <button class="category-btn"><h4>Education</h4></button>
+                        <button class="category-btn"><h4>Business</h4></button>
                     </div>
                 </div>
                 <div class="books-by-category-container">
