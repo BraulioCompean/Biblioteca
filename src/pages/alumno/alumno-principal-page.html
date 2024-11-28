@@ -3,15 +3,15 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="styles/index.css" />
+        <link rel="stylesheet" href="../../styles/alumno/alumno-principal-page.css" />
         <title>Libreria</title>
         <link rel="icon" href="assets/logo1.webp" />
-        <script src="scripts/index.js" defer></script>
+        <script src="../../scripts/alumno/alumno-principal-page.js" defer></script>
     </head>
     <body>
         <aside class="aside-nav-section">
             <div class="library-title">
-                <img src="assets/logo1.webp" alt="" id="imgL" />
+                <img src="../assets/logo1.webp" alt="" id="imgL" />
                 <h1>Librería</h1>
             </div>
             <nav class="nav-section">
@@ -332,7 +332,7 @@
             <div class="recomendados">
                 <div class="header-recommended">
                     <h2>Recomendados</h2>
-                    <a href="pages/recommended-books.html" id="see-all">
+                    <a href="../pages/recommended-books.html" id="see-all">
                         Ver todos
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -354,7 +354,7 @@
                 <div class="recommended-books">
                     <div class="book-card">
                         <img
-                            src="assets/jardinmariposas.jpg"
+                            src="../assets/jardinmariposas.jpg"
                             alt=""
                             class="img-book-card"
                         />
@@ -367,7 +367,7 @@
                     </div>
                     <div class="book-card">
                         <img
-                            src="assets/jardinmariposas.jpg"
+                            src="../assets/jardinmariposas.jpg"
                             alt=""
                             class="img-book-card"
                         />
@@ -380,7 +380,7 @@
                     </div>
                     <div class="book-card">
                         <img
-                            src="assets/jardinmariposas.jpg"
+                            src="../assets/jardinmariposas.jpg"
                             alt=""
                             class="img-book-card"
                         />
@@ -393,7 +393,7 @@
                     </div>
                     <div class="book-card">
                         <img
-                            src="assets/jardinmariposas.jpg"
+                            src="../assets/jardinmariposas.jpg"
                             alt=""
                             class="img-book-card"
                         />
@@ -406,7 +406,7 @@
                     </div>
                     <div class="book-card">
                         <img
-                            src="assets/jardinmariposas.jpg"
+                            src="../assets/jardinmariposas.jpg"
                             alt=""
                             class="img-book-card"
                         />
@@ -419,7 +419,7 @@
                     </div>
                     <div class="book-card">
                         <img
-                            src="assets/jardinmariposas.jpg"
+                            src="../assets/jardinmariposas.jpg"
                             alt=""
                             class="img-book-card"
                         />
@@ -453,7 +453,7 @@
                 <div class="books-by-category-container">
                     <div class="book-card">
                         <img
-                            src="assets/jardinmariposas.jpg"
+                            src="../assets/jardinmariposas.jpg"
                             alt=""
                             class="img-book-card"
                         />
@@ -470,17 +470,107 @@
         <div class="modal" id="modal">
             <div class="modal-content">
                 <div class="image-modal-book-container">
-                    <img src="assets/jardinmariposas.jpg" alt="" />
+                    <img
+                        src="../assets/jardinmariposas.jpg"
+                        class="modal-img-book"
+                        alt=""
+                    />
+                    <div class="modal-btns-interactive">
+                        <button class="btns-modal" id="add-favorites-btn">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="icon icon-tabler icons-tabler-outline icon-tabler-heart"
+                            >
+                                <path
+                                    stroke="none"
+                                    d="M0 0h24v24H0z"
+                                    fill="none"
+                                />
+                                <path
+                                    d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"
+                                />
+                            </svg>
+                            Agregar a Favoritos
+                        </button>
+                        <button class="btns-modal" id="recommended-btn">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="icon icon-tabler icons-tabler-outline icon-tabler-thumb-up"
+                            >
+                                <path
+                                    stroke="none"
+                                    d="M0 0h24v24H0z"
+                                    fill="none"
+                                />
+                                <path
+                                    d="M7 11v8a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1v-7a1 1 0 0 1 1 -1h3a4 4 0 0 0 4 -4v-1a2 2 0 0 1 4 0v5h3a2 2 0 0 1 2 2l-1 5a2 3 0 0 1 -2 2h-7a3 3 0 0 1 -3 -3"
+                                />
+                            </svg>
+                            Recomendar
+                        </button>
+                    </div>
                 </div>
                 <div class="book-info-container">
-                    <h1>El Jardin De Las Mariposas</h1>
-                    <h3 class="book-info-h3">Dot Hutchison</h3>
-                    <h3 class="book-info-h3">Planeta</h3>
-                    <h3 class="book-info-h3">123 456 789</h3>
-                    <h3 class="book-info-h3">24</h3>
-                    <h3 class="book-info-h3">
-                        Suspense y misterio Novela negra
-                    </h3>
+                    <div class="title-modal-container">
+                        <h2>Titulo</h2>
+                        <h3>El Jardin De Las Mariposas</h3>
+                    </div>
+                    <div>
+                        <h2>Autor</h2>
+                        <h3 class="book-info-h3">Dot Hutchison</h3>
+                    </div>
+                    <div class="editorial-modal-container">
+                        <h2>Editorial</h2>
+                        <h3 class="book-info-h3">Planeta</h3>
+                    </div>
+
+                    <div class="categories-modal-container">
+                        <h2>Categorias</h2>
+                        <div class="categories-modal-second-container">
+                            <h3>Suspenso</h3>
+                            <h3>Misterio</h3>
+                            <h3>Novela</h3>
+                        </div>
+                    </div>
+                    <div class="synopsis-modal-container">
+                        <h2>Sinopsis</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Cras sollicitudin eget dui vel mattis. Mauris
+                            dictum urna nulla, in semper quam lobortis quis.
+                            Nunc vitae est pulvinar, aliquet magna et, commodo
+                            odio. Nam volutpat nec dui at posuere. Quisque
+                            pretium turpis sit amet ipsum lobortis, nec congue
+                            arcu pulvinar. Suspendisse orci nisi, rhoncus
+                            venenatis ultricies sit amet, maximus lobortis
+                            velit. Ut quis accumsan felis, quis tincidunt dui.
+                            Integer ullamcorper ex commodo risus auctor feugiat.
+                            Pellentesque sollicitudin metus vel justo tristique
+                            commodo. Morbi lacus neque, rutrum ut ligula eu,
+                            ultrices faucibus quam. Sed mollis rhoncus laoreet.
+                            Nunc a lectus a ipsum fermentum congue. Nulla vel
+                            mollis lorem, id laoreet mauris. Orci varius natoque
+                            penatibus et magnis dis parturient montes, nascetur
+                            ridiculus mus. Fusce commodo rutrum tortor sed
+                            dignissim.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

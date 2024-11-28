@@ -30,7 +30,7 @@ body {
     font-family: "Host Grotesk";
     display: flex;
     overflow: hidden;
-    background-color: #eceff5;
+    background-color: #40598a;
 }
 
 .library-title {
@@ -357,4 +357,77 @@ main {
     display: flex;
     flex-direction: column;
     margin-left: 100px;
+}
+
+.modal-img-book{
+    width: 400px;
+}
+
+.image-modal-book-container{
+    display: flex;
+    flex-direction: column;
+}
+.modal-btns-interactive{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 20px;
+}
+
+.btns-modal{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+}
+
+
+#add-favorites-btn{
+    transition: background-color 1s , color 1s;
+}
+#add-favorites-btn:hover{
+    background-color: red;
+    color: white;
+}
+
+
+#add-favorites-btn:hover .icon{
+    stroke: white;
+}
+
+
+#recommended-btn{
+    transition: background-color 1s , color 1s;
+}
+#recommended-btn:hover{
+    background-color: rgb(7, 91, 16);
+    color: white;
+}
+
+
+
+
+#recommended-btn:hover .icon{
+    stroke: white;
+}
+
+.categories-modal-second-container{
+    display: flex;
+    gap: 10px;
+}
+.categories-modal-second-container h3{
+    border: 1px solid gray;
+    width: fit-content;
+    margin: 0;
+    padding: 5px;
+    border-radius: 5px;
+
+}
+
+
+.book-info-container h2,
+.book-info-container h3 {
+    margin: 0;
 }
