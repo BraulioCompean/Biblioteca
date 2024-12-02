@@ -4,7 +4,6 @@
   --salmon-pink: #e5989bff;
   --old-rose: #b5838dff;
   --dim-gray: #6d6875ff;
-
   --black: #070707ff;
   --violet-jtc: #553555ff;
   --eggplant: #755b69ff;
@@ -26,14 +25,20 @@ html{
 }
 
 body {
-  background-image: url(../assets/bg4.jpg);
-  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background: linear-gradient(150deg, #b5838dff, #ffcdb2ff);
   background-repeat: no-repeat;
+<<<<<<< HEAD
   background-position: center;
   background-attachment: fixed;
   color: var(--dim-gray);
   height: 100%;
   height: 100%;
+=======
+  background-size: cover;
+>>>>>>> ac4f6a4ebab0d0e7c8dcdbe83eb2896306f80649
 }
 
 main {
@@ -50,26 +55,20 @@ main {
 }
 
 .caja__trasera {
+<<<<<<< HEAD
   width: 100%;
   height: 600px;
   padding: 10px 20px;
+=======
+>>>>>>> ac4f6a4ebab0d0e7c8dcdbe83eb2896306f80649
   display: flex;
   justify-content: center;
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  background: linear-gradient(
-    145deg,
-    var(--violet-jtc),
-    var(--eggplant),
-    rgba(0, 0, 0, 0.3)
-  );
-  border-radius: 15px;
+  width: 100%;
 }
 
 .caja__trasera div {
-  margin: 100px 40px;
-  color: var(--aquamarine);
-  transition: all 500ms;
+  margin: 140px 40px;
+  color: white;
 }
 
 .caja__trasera div p,
@@ -82,26 +81,16 @@ main {
   font-size: 26px;
 }
 
-.caja__trasera div p {
-  font-size: 16px;
-  font-weight: 300;
-}
-
 .caja__trasera button {
   padding: 10px 40px;
-  border: 2px solid var(--aquamarine);
+  border: 2px solid var(--apricot);
   font-size: 14px;
   background: transparent;
   font-weight: 600;
   cursor: pointer;
-  color: var(--aquamarine);
+  color: white;
   outline: none;
   transition: all 300ms;
-}
-
-.caja__trasera button:hover {
-  background: var(--aquamarine);
-  color: var(--black);
 }
 
 .contenedor__login-register {
@@ -117,7 +106,7 @@ main {
 
 .contenedor__login-register form {
   width: 100%;
-  padding: 80px 20px;
+  padding: 50px 20px;
   background: var(--apricot);
   position: absolute;
   border-radius: 20px;
@@ -136,7 +125,7 @@ main {
   margin-top: 20px;
   padding: 10px;
   border: none;
-  background: var(--salmon-pink);
+  background: var(--apricot);
   color: var(--black);
   font-size: 16px;
   outline: none;
@@ -171,6 +160,12 @@ main {
   display: none;
 }
 
+/* Hacer que las cajas traseras estén al mismo nivel */
+.caja__trasera-login, .caja__trasera-register {
+  width: 50%; /* Asegura que ambas cajas tengan el mismo ancho */
+  position: relative;
+}
+
 @media screen and (max-width: 850px) {
   main {
     margin-top: 50px;
@@ -201,13 +196,15 @@ main {
 
 /* Estilo del selector */
 select {
-  background-color: aquamarine;
+  background-color: var(--apricot);
   color: #333;
-  appearance: none; /* Oculta la flecha predeterminada */
+  appearance: none;
   cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  font-size: large;
 }
 
 select:focus {
   outline: none;
-  border-color: #007bff;
+  background-color: bisque;
 }
