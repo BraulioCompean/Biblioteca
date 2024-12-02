@@ -1,11 +1,10 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "/src/pages/presentation-site.php",
-      "use": "@vercel/static"
+  "functions":{
+    "src/pages/presentation-site.php":{
+      "runtime":"php"
     }
-  ],
+  },
   "routes": [
     {
       "src": "/",
