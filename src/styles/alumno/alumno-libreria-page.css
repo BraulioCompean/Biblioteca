@@ -1,0 +1,252 @@
+@import url("https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+/* VARIABLES GLOBALES */
+:root {
+    --apricot: #ffcdb2ff;
+    --melon: #ffb4a2ff;
+    --salmon-pink: #e5989bff;
+    --old-rose: #b5838dff;
+    --dim-gray: #6d6875ff;
+
+    --black: #070707ff;
+    --violet-jtc: #553555ff;
+    --eggplant: #755b69ff;
+    --cambridge-blue: #96c5b0ff;
+    --aquamarine: #adf1d2ff;
+
+    --nyanza: #eaf4d3ff;
+    --vanilla: #dbd8aeff;
+    --rosy-brown: #ca907eff;
+    --chestnut: #994636ff;
+    --golden-brown: #895b1eff;
+
+    --eggplant: #533747ff;
+    --english-violet: #5f506bff;
+    --paynes-gray: #6a6b83ff;
+    --cadet-gray: #76949fff;
+    --tiffany-blue: #86bbbdff;
+}
+/* ------------------------------------------ */
+
+/* ESTILOS GENERALES */
+
+/* ------------------------------------------ */
+
+
+
+body {
+    font-family: "Host Grotesk";
+    display: flex;
+    overflow: hidden;
+    background-color: white;
+    display: flex;
+    margin: 0;
+}
+main {
+    width: 100%;
+    height: 100vh;
+    max-height: 100vh;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-left: 10px;
+}
+
+nav hr {
+    width: 90%;
+}
+
+a:visited{
+    color: black;
+}
+
+
+
+
+
+/* ------------------------------------------ */
+/* SCROLLBAR ESTILOS */
+/* ------------------------------------------ */
+
+main::-webkit-scrollbar{
+    width: 5px;
+}
+
+main::-webkit-scrollbar-track{
+    background-color: transparent;
+}
+main::-webkit-scrollbar-thumb{
+    background-color: rgb(155, 149, 149);
+    border-radius: 20px;
+}
+
+
+
+
+/* ------------------------------------------ */
+/* ASIDE MENU - ESTILOS */
+/* ------------------------------------------ */
+
+
+.aside-nav-section {
+    width: 280px;
+    height: 100vh;
+    border: 1px solid var(--black);
+    background-color: white;
+    /* border-radius: 10px; */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    /* border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px; */
+}
+
+
+
+.nav-options-list {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.nav-element {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 25%;
+    color: black;
+}
+
+
+
+
+.nav-element:hover .icon {
+    stroke: white;
+}
+
+.library-title {
+    display: flex;
+    justify-content: center;
+}
+#imgL {
+    text-align: center;
+    margin: 8px;
+    width: 50px;
+    height: 50px;
+}
+
+
+.user-menu {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.nav-element a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 10px;
+}
+
+
+.nav-element a svg{
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: rgb(218, 199, 199);
+    padding: 5px;
+}
+
+
+.nav-element:hover .icon {
+    stroke: white;
+    background-color: #0055ff;
+}
+
+
+.nav-element a h4{
+    margin: 0;
+}
+
+
+
+/* ----------------------------------- */
+/* SECTION : Mi libreria*/
+/* ----------------------------------- */
+
+
+.mi-libreria{
+    margin-top: 10px;
+    border: 1px solid gray;
+    margin-bottom:10px;
+    border-radius: 10px;
+    padding: 10px;
+    height: 95%;
+}
+
+
+.books-container{
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+
+
+/* ----------------------------------- */
+/* BOOK CARD                            */
+/* ----------------------------------- */
+
+.book-card {
+    padding: 5px;
+    width: 150px;
+    max-width: 150px;
+    border: none;
+    height: auto;
+    cursor: pointer;
+}
+
+.book-card-img{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 150px;
+    border: none;
+    margin: none;
+    margin: 0;
+}
+.book-card-info h4 {
+    margin: 0;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+    padding: 1px;
+}
+
+.book-card-info h5 {
+    margin: 0;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+    padding: 0;
+}
+
+.book-card-info {
+    padding: 0;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    border-bottom: 1px solid gray;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}

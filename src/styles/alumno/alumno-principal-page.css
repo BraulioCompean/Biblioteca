@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-
+/* VARIABLES GLOBALES */
 :root {
     --apricot: #ffcdb2ff;
     --melon: #ffb4a2ff;
@@ -25,12 +25,81 @@
     --cadet-gray: #76949fff;
     --tiffany-blue: #86bbbdff;
 }
+/* ------------------------------------------ */
+
+/* ESTILOS GENERALES */
+
+/* ------------------------------------------ */
+
 
 body {
     font-family: "Host Grotesk";
     display: flex;
     overflow: hidden;
-    background-color: #40598a;
+    background-color: white;
+    display: flex;
+    margin: 0;
+}
+main {
+    width: 100%;
+    height: 100vh;
+    max-height: 100vh;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+nav hr {
+    width: 90%;
+}
+
+a:visited{
+    color: black;
+}
+
+/* ------------------------------------------ */
+/* ASIDE MENU - ESTILOS */
+/* ------------------------------------------ */
+.aside-nav-section {
+    width: 280px;
+    height: 100vh;
+    border: 1px solid var(--black);
+    background-color: white;
+    /* border-radius: 10px; */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    /* border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px; */
+}
+
+
+
+.nav-options-list {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.nav-element {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 25%;
+    color: black;
+}
+
+
+
+
+.nav-element:hover .icon {
+    stroke: white;
 }
 
 .library-title {
@@ -44,70 +113,79 @@ body {
     height: 50px;
 }
 
-body {
-    display: flex;
-    margin: 0;
-}
-
-.aside-nav-section {
-    width: 280px;
-    height: 100vh;
-    border: 1px solid var(--black);
-    background-color: white;
-    /* border-radius: 10px; */
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-    /* border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px; */
-}
-
-.nav-options {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-element {
-    display: flex;
-    width: fit-content;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-    margin-left: 25%;
-    color: black;
-}
-
-.nav-element:hover .button-nav-element {
-    background-color: #0055ff;
-}
-
-.nav-element:hover .icon {
-    stroke: white;
-}
-
-.icon {
-    transition: stroke 0.5s;
-}
-
-.button-nav-element {
-    background: none;
-    border: none;
-    cursor: pointer;
-    background-color: rgb(243, 227, 227);
-    height: fit-content;
-    border-radius: 10px;
-    transition: background-color 0.5s;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
 
 .user-menu {
     width: 100%;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
-nav hr {
-    width: 90%;
+
+.nav-element a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 10px;
 }
+
+
+.nav-element a svg{
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: rgb(218, 199, 199);
+    padding: 5px;
+}
+
+
+.nav-element:hover .icon {
+    stroke: white;
+    background-color: #0055ff;
+}
+
+
+.nav-element a h4{
+    margin: 0;
+}
+/* ------------------------------------------ */
+/* SECCION - RECOMENDADOS ESTILOS */
+
+
+
+.recomendados {
+    width: 96%;
+    border: 1px solid var(--black);
+    border-radius: 10px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin-left: 15px;
+    margin-top: 20px;
+}
+
+
+.recommended-books {
+    display: flex;
+    gap: 20px;
+}
+/* ------------------------------------------ */
+
+
+
+
+
+.icon {
+    stroke: black;
+    transition: stroke 0.5s,background-color 0.5s;
+
+}
+
+
+
+
 
 .navegar {
     border: 1px solid var(--black);
@@ -121,84 +199,37 @@ nav hr {
     background-color: white;
 }
 
-.recomendados {
-    width: 96%;
-    border: 1px solid var(--black);
-    border-radius: 10px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    margin-left: 30px;
-    margin-top: 20px;
-}
-.recommended-books {
-    display: flex;
-    gap: 20px;
-}
-.book-name:hover {
-    color: blue;
-    text-decoration: underline;
-}
-.categorias {
+.favorites {
     border: 1px solid var(--black);
     border-radius: 10px;
     width: 96%;
     background-color: white;
-    margin-left: 30px;
-    margin-top: 20px;
+    margin-left: 15px;
     padding: 20px;
+    margin-bottom: 20px;
 }
 
-.galeria {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(10%, 10%));
-    gap: 10px;
-}
-
-.categories-header {
+.favorites-header {
     margin-bottom: 24px;
 }
 
-.category-btn:hover {
-    color: blue;
-    text-decoration: underline;
-}
 
-.category-btn:active {
-    width: 100px;
-    height: 30px;
-    font-size: 20px;
-    background-color: var(--vanilla);
-}
-.category-btn {
-    border-radius: 500px;
+.favorites-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .login-section {
     display: flex;
     align-items: center;
 }
-.login-link:hover {
-    color: blue;
-    text-decoration: underline;
-}
+
 .login-section h3 {
     margin-right: 50px;
 }
 
-main {
-    width: 100%;
-    height: 100vh;
-    max-height: 100vh;
-    padding-right: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    overflow-y: scroll;
-    overflow-x: hidden;
-}
+
 
 #input-search-books {
     width: 600px;
@@ -222,21 +253,11 @@ main {
     padding: 5px;
     width: 150px;
     max-width: 150px;
-    /* border: 1px solid gray;
-    border-radius: 10px; */
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; */
     border: none;
     height: auto;
     cursor: pointer;
-    transition: scale 1s;
 }
 
-.book-card:hover {
-    scale: 1.05;
-}
 
 .book-card-info-container h4 {
     margin: 0;
@@ -304,22 +325,7 @@ main {
     padding: 0;
 }
 
-.categories-btns-container {
-    display: flex;
-    gap: 20px;
-}
 
-.category-btn {
-    font-size: medium;
-    border-radius: 10px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    background-color: rgb(243, 227, 227);
-    padding: 9px;
-    height: fit-content;
-    transition: background-color 0.5s, color 1s;
-}
 
 .category-btn:hover {
     background-color: #0055ff;
@@ -398,36 +404,40 @@ main {
 }
 
 
-#recommended-btn{
-    transition: background-color 1s , color 1s;
-}
-#recommended-btn:hover{
-    background-color: rgb(7, 91, 16);
-    color: white;
-}
-
-
-
-
-#recommended-btn:hover .icon{
-    stroke: white;
-}
-
-.categories-modal-second-container{
+.categories-modal-list{
     display: flex;
     gap: 10px;
+    list-style: none;
 }
-.categories-modal-second-container h3{
+.categories-modal-list li{
     border: 1px solid gray;
     width: fit-content;
-    margin: 0;
     padding: 5px;
     border-radius: 5px;
 
+}
+
+.categories-modal-list li h3{
+    margin: 0;
 }
 
 
 .book-info-container h2,
 .book-info-container h3 {
     margin: 0;
+}
+
+/* --------------------------------------- */
+/* SCROLLBAR ESTILOS */
+/* --------------------------------------- */
+main::-webkit-scrollbar{
+    width: 5px;
+}
+
+main::-webkit-scrollbar-track{
+    background-color: transparent;
+}
+main::-webkit-scrollbar-thumb{
+    background-color: rgb(155, 149, 149);
+    border-radius: 20px;
 }
