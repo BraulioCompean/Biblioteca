@@ -2,7 +2,7 @@
   "version": 2,
   "functions":{
     "src/pages/presentation-site.php":{
-      "runtime":"php"
+      "runtime":"now-php@1.0.0"
     }
   },
   "routes": [
