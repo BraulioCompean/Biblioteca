@@ -1,19 +1,28 @@
-const modal = document.getElementById("modal")
 const añadirBtn = document.getElementById("agregar")
-
-function openModalWindow(){
-    modal.style.display = "flex"
-}
-function closeModalWindow(){
-    modal.style.display = "none"
-}
-
+const eliminarBtn = document.getElementById("eliminar")
+const modalAddBook = document.getElementById("modal-add-book")
+const modalDeleteBook = document.getElementById("modal-delete-book")
+const buscarLibroDeleteBtn = document.getElementById("buscar-libro-delete-btn")
+const modalShowInfoDeleteBook = document.getElementById("modal-show-info-delete-book")
+eliminarBtn.addEventListener("click",()=>{
+    modalDeleteBook.style.display = "flex"
+})
 añadirBtn.addEventListener("click",()=>{
-    openModalWindow()
+    modalAddBook.style.display = "flex"
 })
 window.addEventListener("click" ,function(event){
-    if(event.target == modal){
-        closeModalWindow()
+    if(event.target === modalAddBook){
+        modalAddBook.style.display =  "none"
+    }
+    if(event.target === modalDeleteBook){
+        modalDeleteBook.style.display =  "none"
+    }
+    if(event.target  === modalShowInfoDeleteBook){
+        modalShowInfoDeleteBook.style.display = "none"
     }
 })
-// 
+
+buscarLibroDeleteBtn.addEventListener("click",()=>{
+    modalDeleteBook.style.display = "none"
+    modalShowInfoDeleteBook.style.display = "flex"
+})

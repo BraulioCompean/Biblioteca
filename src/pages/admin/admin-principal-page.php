@@ -104,10 +104,10 @@
                 </button>
             </div>
         </div>
-        <div class="agregar-libros">
-            <div class="header-agregar-libros">
+        <div class="agregar-libros main-section-card">
+            <div class="header-agregar-libros header-main-section-card">
                 <h2>Agregar Libro</h2>
-                <button id="agregar">
+                <button id="agregar" class="header-btn-main-section-card">
                     <h3>Agregar</h3>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-plus">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -118,7 +118,18 @@
             </div>
             <p>Añade libros al catalogo</p>
         </div>
-
+        <div class="eliminar-libros main-section-card">
+            <div class="header-eliminar-libros header-main-section-card">
+                <h2>Eliminar Libro</h2>
+                <button id="eliminar" class="header-btn-main-section-card">
+                    <h3>Eliminar</h3>
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-trash"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 7l16 0" /><path d="M10 11l0 6" /><path d="M14 11l0 6" /><path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" /><path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" /></svg>
+                </button>
+            </div>
+            <p>
+                Elimina libros del catalogo
+            </p>
+        </div>
         <?php
 
         $dsn = "pgsql:host=ep-quiet-frost-a5om3mkk.us-east-2.aws.neon.tech;port=5432;dbname=neondb;sslmode=require";
@@ -168,60 +179,146 @@
 
     </main>
 
-        
-    <dialog class="modal" id="modal">
-        <div class="modal-content">
+
+    <dialog class="modal" id="modal-add-book">
+        <div class="modal-content-add-book" id="modal-content-add-book">
             <form action="" class="form-add-book" method="post">
-                <label for="titulo-libro">Titulo del Libro</label>
-                <input type="text"
-                    id="titulo-libro"
-                    name="titulo-libro" />
-                <label for="autor-libro">Autor del Libro</label>
-                <input type="text"
-                    id="autor-libro"
-                    name="autor-libro" />
-                <label for="isbn-libro">ISBN</label>
-                <input type="number"
-                    name="isbn-libro"
-                    id="isbn-libro" />
-                <label for="url-cover-libro">URL Portada</label>
-                <input
-                    type="url"
-                    name="url-cover-libro"
-                    id="url-cover-libro" />
-                <label for="editorial-libro">Editorial</label>
-                <input
-                    type="text"
-                    name="editorial-libro"
-                    id="editorial-libro" />
-                <label for="">Año de Publicacion</label>
-                <input
-                    type="number"
-                    name="anio-publicacion-libro"
-                    id="anio-publicacion-libro" />
-                <label for="cantidad-disponibles-libro">Cantidad disponible</label>
-                <input
-                    type="number"
-                    name="cantidad-disponibles-libro"
-                    id="cantidad-disponibles-libro" />
-                <label for="categoria-libro">Categoria</label>
-                <input
-                    type="text"
-                    name="categoria-libro"
-                    id="categoria-libro" />
-                <label for="numero-paginas-libro">Numero de paginas</label>
-                <input type="text" name="numero-paginas-libro" id="numero-paginas-libro">
-                <label for="sinopsis-libro">Sinopsis</label>
-                <textarea
-                    name="sinopsis-libro"
-                    id="sinopsis-libro"></textarea>
-                <button>Enviar</button>
+                <div class="container-input">
+                    <label for="titulo-libro">Titulo del Libro</label>
+                    <input type="text"
+                        id="titulo-libro"
+                        name="titulo-libro" />
+                </div>
+
+                <div class="container-input">
+                    <label for=" autor-libro">Autor del Libro</label>
+                    <input type="text"
+                        id="autor-libro"
+                        name="autor-libro" />
+                </div>
+                <div class="container-input">
+                    <label for=" isbn-libro">ISBN</label>
+                    <input type="text"
+                        name="isbn-libro"
+                        id="isbn-libro" />
+                </div>
+                <div class="container-input">
+                    <label for=" url-cover-libro">URL Portada</label>
+                    <input
+                        type="url"
+                        name="url-cover-libro"
+                        id="url-cover-libro" />
+                </div>
+                <div class="container-input">
+                    <label for=" editorial-libro">Editorial</label>
+                    <input
+                        type="text"
+                        name="editorial-libro"
+                        id="editorial-libro" />
+                </div>
+                <div class="container-input">
+                    <label for="">Año de Publicacion</label>
+                    <input
+                        type=" number"
+                        name="anio-publicacion-libro"
+                        id="anio-publicacion-libro" />
+                </div>
+                <div class="container-input">
+                    <label for=" cantidad-disponibles-libro">Cantidad disponible</label>
+                    <input
+                        type="number"
+                        name="cantidad-disponibles-libro"
+                        id="cantidad-disponibles-libro" />
+                </div>
+                <div class="container-input">
+                    <label for=" categoria-libro">Categoria</label>
+                    <input
+                        type="text"
+                        name="categoria-libro"
+                        id="categoria-libro" />
+                </div>
+                <div class="container-input">
+                    <label for=" numero-paginas-libro">Numero de paginas</label>
+                    <input type="text" name="numero-paginas-libro" id="numero-paginas-libro">
+                </div>
+                <div class="container-input">
+                    <label for=" sinopsis-libro">Sinopsis</label>
+                    <textarea
+                        name="sinopsis-libro"
+                        id="sinopsis-libro"></textarea>
+                </div >
+                 <button id="send-btn" value="form1">Enviar</button>
             </form>
-            
+        </div>
+    </dialog>
+    <dialog class="modal" id="modal-delete-book">
+        <div class="modal-content-delete-book">
+                <div class="search-book-delete">
+                    <label for="">Buscar libro a eliminar(ISBN)</label>
+                    <input type="text" id="search-book-delete" name="search-book-delete-isbn">
+                </div>
+                <button id="buscar-libro-delete-btn" value="form2">Buscar</button>
+        </div>
+    </dialog>
+    <dialog class="modal" id="modal-show-info-delete-book">
+        <div class="modal-content-show-info-delete-book">
+            <section class="image-modal-book-container">
+                <img
+                    src="../../assets/jardinmariposas.jpg"
+                    class="modal-img-book"
+                    alt=""
+                    id="modal-img"
+                />
+                <div class="modal-btns-interactive">
+                    <button class="btns-modal" id="add-favorites-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-heart" > <path stroke="none" d="M0 0h24v24H0z" fill="none" /> <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" /> </svg>
+                        <span>Agregar a Favoritos</span>
+                    </button>
+                </div>
+            </section>
+            <section class="book-info-container">
+                <div class="title-modal-container">
+                    <h2>Titulo</h2>
+                    <h3 id="book-title">El Jardin De Las Mariposas</h3>
+                </div>
+                <div>
+                    <h2>Autor</h2>
+                    <h3 class="book-info-h3" id="book-author">Dot Hutchison</h3>
+                </div>
+                <div class="editorial-modal-container">
+                    <h2>Editorial</h2>
+                    <h3 class="book-info-h3" id="book-editorial">Planeta</h3>
+                </div>
 
-
+                <div class="categories-modal-container">
+                    <h2>Categoria</h2>
+                    <h3 id="book-category">Novela</h3>
+                </div>
+                <div class="synopsis-modal-container">
+                    <h2>Sinopsis</h2>
+                    <p id="book-synopsis">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing
+                        elit. Cras sollicitudin eget dui vel mattis. Mauris
+                        dictum urna nulla, in semper quam lobortis quis.
+                        Nunc vitae est pulvinar, aliquet magna et, commodo
+                        odio. Nam volutpat nec dui at posuere. Quisque
+                        pretium turpis sit amet ipsum lobortis, nec congue
+                        arcu pulvinar. Suspendisse orci nisi, rhoncus
+                        venenatis ultricies sit amet, maximus lobortis
+                        velit. Ut quis accumsan felis, quis tincidunt dui.
+                        Integer ullamcorper ex commodo risus auctor feugiat.
+                        Pellentesque sollicitudin metus vel justo tristique
+                        commodo. Morbi lacus neque, rutrum ut ligula eu,
+                        ultrices faucibus quam. Sed mollis rhoncus laoreet.
+                        Nunc a lectus a ipsum fermentum congue. Nulla vel
+                        mollis lorem, id laoreet mauris. Orci varius natoque
+                        penatibus et magnis dis parturient montes, nascetur
+                        ridiculus mus. Fusce commodo rutrum tortor sed
+                        dignissim.
+                    </p>
+                </div>
+            </section>
         </div>
     </dialog>
 </body>
-
 </html>
