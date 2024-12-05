@@ -100,7 +100,7 @@
                         <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
                         <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
                     </svg>
-                    <h3 class="login-link">Iniciar Sesión</h3>
+                    <h3 class="login-link">Administrador</h3>
                 </button>
             </div>
         </div>
@@ -128,6 +128,17 @@
             </div>
             <p>
                 Elimina libros del catalogo
+            </p>
+        </div>
+        <div class="registrar-usuarios main-section-card">
+            <div class="header-registrar-usuarios header-main-section-card">
+                <h2>Registrar Usuario</h2>
+                <button id="registrar" class="header-btn-main-section-card">
+                    <h3>Registrar</h3>
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-user-plus"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" /><path d="M16 19h6" /><path d="M19 16v6" /><path d="M6 21v-2a4 4 0 0 1 4 -4h4" /></svg>                </button>
+            </div>
+            <p>
+                Registra a usuarios (alumnos , profesores) en el sistema
             </p>
         </div>
         <?php
@@ -247,7 +258,9 @@
                         name="sinopsis-libro"
                         id="sinopsis-libro"></textarea>
                 </div >
-                 <button id="send-btn" value="form1">Enviar</button>
+                 <button id="send-btn" value="form1">Enviar 
+                 <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-send-2"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4.698 4.034l16.302 7.966l-16.302 7.966a.503 .503 0 0 1 -.546 -.124a.555 .555 0 0 1 -.12 -.568l2.468 -7.274l-2.468 -7.274a.555 .555 0 0 1 .12 -.568a.503 .503 0 0 1 .546 -.124z" /><path d="M6.5 12h14.5" /></svg>
+                 </button>
             </form>
         </div>
     </dialog>
@@ -318,6 +331,63 @@
                     </p>
                 </div>
             </section>
+        </div>
+    </dialog>
+    <dialog class="modal" id="modal-opciones-registrar-usuario">
+        <div class="modal-content-opciones-registrar-usuario">
+            <h2>¿Que clase de Usuario desea registrar?</h2>
+            <div id="container-btns-opciones-registrar">
+                <button id="estudiante">Estudiante</button> 
+                <button id="profesor">Profesor</button>
+            </div>
+        </div>
+    </dialog>
+    <dialog class="modal" id="modal-registrar-usuario-estudiante">
+        <div class="modal-content-registrar-usuario-estudiante">
+            <h2>Registrar estudiante</h2>
+            <form action="">
+                <label for="">Nombre</label>
+                <input type="text" name="nombre-estudiante" id="nombre-estudiante">
+                <label for="">Apellidos</label>
+                <input type="text" name="apellidos-estudiante" id="apellidos-estudiante">
+                <label for="">Correo</label>
+                <input type="email" name="correo-estudiante" id="correo-estudiante">
+                <label for="">Telefono</label>
+                <input type="tel" name="telefono-estudiante" id="telefono-estudiante">
+                <label for="">Direccion</label>
+                <input type="text" name="direccion-estudiante" id="direccion-estudiante">
+                <label for="">Carrera</label>
+                <input type="text" name="carrera-estudiante" id="carrera-estudiante">
+                <label for="">Semestre</label>
+                <input type="number" name="semestre-estudiante" id="semestre-estudiante">
+                <label for="">Contraseña</label>
+                <input type="password" name="contraseña-estudiante" id="contraseña-estudiante">
+            </form>
+            <button id="registrar-estudiante-btn">Registrar</button>
+        </div>
+    </dialog>
+    <dialog class="modal" id="modal-registrar-usuario-profesor">
+    <div class="modal-content-registrar-usuario-profesor">
+            <h2>Registrar profesor</h2>
+            <form action="">
+                <label for="">Nombre</label>
+                <input type="text" name="nombre-profesor" id="nombre-profesor">
+                <label for="">Apellidos</label>
+                <input type="text" name="apellidos-profesor" id="apellidos-profesor">
+                <label for="">Correo</label>
+                <input type="email" name="correo-profesor" id="correo-profesor">
+                <label for="">Telefono</label>
+                <input type="tel" name="telefono-profesor" id="telefono-profesor">
+                <label for="">Direccion</label>
+                <input type="text" name="direccion-profesor" id="direccion-profesor">
+                <label for="">Rol</label>
+                <input type="text" name="rol-profesor" id="rol-profesor">
+                <label for="">Departamento</label>
+                <input type="number" name="departamento-profesor" id="departamento-profesor">
+                <label for="">Contraseña</label>
+                <input type="password" name="contraseña-profesor" id="contraseña-profesor">
+            </form>
+            <button id="registrar-profesor-btn">Registrar</button>
         </div>
     </dialog>
 </body>

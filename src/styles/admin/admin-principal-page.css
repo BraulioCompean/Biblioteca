@@ -318,12 +318,20 @@ a:visited{
     cursor: pointer;
     transition: background-color 0.5s,color 0.5s;
     margin-top: 20px;
+    display: flex;
+    align-items: center;
 }
 
 #send-btn:hover{
     background-color: #0055ff;
     color: white;
 }
+
+
+#send-btn:hover .icon {
+    stroke: white;
+}
+
 
 
 .modal-content-delete-book{
@@ -377,12 +385,167 @@ a:visited{
 }
 
 .modal-content-show-info-delete-book{
-        display: flex;
-        margin: auto;
-        background-color: white;
-        height: 700px;
-        width: 1000px;
-        border: 1px solid gray;
-        padding: 30px;
-    
+    display: flex;
+    margin: auto;
+    background-color: white;
+    height: 700px;
+    width: 1000px;
+    border: 1px solid gray;
+    padding: 30px;
+}
+
+
+.modal-content-opciones-registrar-usuario{
+    display: flex;
+    margin: auto;
+    border-radius: 10px;
+    border: 1px solid gray;
+    width: 500px;
+    height: fit-content;
+    background-color: white;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal-content-opciones-registrar-usuario h2{
+    margin: 0;
+    width: fit-content;
+}
+
+
+.modal-content-registrar-usuario-estudiante{
+    display: flex;
+    background-color: white;
+    border:1px solid gray;
+    border-radius: 10px;
+    width:500px ;
+    height: fit-content;
+    margin: auto;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    justify-content: center;
+}
+
+
+.modal-content-registrar-usuario-estudiante form{
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content-registrar-usuario-estudiante form input{
+    width: 300px;
+    font-size: larger;
+}
+
+#registrar-estudiante-btn{
+    background: none;
+    display: flex;
+    align-items: center;
+    border: none;
+    border: 1px solid gray;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 10px;
+    transition: background-color 0.5s,color 0.5s;
+    width: fit-content;
+    margin-top: 15px;
+}
+
+#registrar-estudiante-btn:hover{
+    background-color: #0055ff;
+    color: white;
+}
+
+#estudiante{
+    background: none;
+    border: none;
+    border: 1px solid gray;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 10px;
+    transition: background-color 0.5s,color 0.5s;
+    width: fit-content;
+    margin-top: 15px;
+}
+
+#estudiante:hover{
+    background-color: #0055ff;
+    color: white;
+}
+
+
+#profesor{
+    background: none;
+    border: none;
+    border: 1px solid gray;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 10px;
+    transition: background-color 0.5s,color 0.5s;
+    width: fit-content;
+    margin-top: 15px;
+}
+
+#profesor:hover{
+    background-color: #0055ff;
+    color: white;
+}
+
+#container-btns-opciones-registrar{
+    width: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+
+
+.modal-content-registrar-usuario-profesor{
+    display: flex;
+    background-color: white;
+    border:1px solid gray;
+    border-radius: 10px;
+    width:500px ;
+    height: fit-content;
+    margin: auto;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    justify-content: center;
+}
+
+
+.modal-content-registrar-usuario-profesor form{
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content-registrar-usuario-profesor form input{
+    width: 300px;
+    font-size: larger;
+}
+
+
+#registrar-profesor-btn{
+    background: none;
+    display: flex;
+    align-items: center;
+    border: none;
+    border: 1px solid gray;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 10px;
+    transition: background-color 0.5s,color 0.5s;
+    width: fit-content;
+    margin-top: 15px;
+}
+
+
+#registrar-profesor-btn:hover{
+    background-color: #0055ff;
+    color: white;
 }

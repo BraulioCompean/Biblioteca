@@ -126,6 +126,9 @@
                             <h5>15/12/2024</h5>
                         </div>
                     </div>
+                    <div>
+                        <h5>Solicitante: </h5>
+                    </div>
                 </article>
                 <article class="prestamo-card prestamo-devuelto">
                     <div class="id-prestamo-container">
@@ -137,7 +140,7 @@
                     <div class="info-prestamo-container">
                         <div>
                             <h5>Se presto el:</h5>
-                            <h5>04/12/2024</h5>
+                            <h5>04/12/2024</h5> 
                         </div>
                         <div>
                             <h5>Hasta: </h5>
