@@ -59,4 +59,4 @@ window.addEventListener("click" ,function(event){
 buscarLibroDeleteBtn.addEventListener("click",()=>{
     modalDeleteBook.style.display = "none"
     modalShowInfoDeleteBook.style.display = "flex"
-})
+})  
