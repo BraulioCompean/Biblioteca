@@ -65,6 +65,6 @@ document.addEventListener("visibilitychange",()=>{
 
 generateBook()
 
-setInterval(generateBook,4000)
+setInterval(generateBook,5000)
 
 
