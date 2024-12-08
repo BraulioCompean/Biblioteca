@@ -3,16 +3,22 @@ session_start();
 $_SESSION['idUsuario'] = "P0000001";
 ?>
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="../../styles/profesor/profesor-libreria-page.css">
-    <script src="../../scripts/profesor/profesor-libreria-page.js" defer></script>
+    <meta
+        name="viewport"
+        content="width=
+    , initial-scale=1.0" />
+    <link rel="stylesheet" href="../../styles/profesor/profesor-explorar-page.css" />
+    <script src="../../scripts/profesor/profesor-explorar-page.js" defer></script>
+    <title>Historial de Prestamos</title>
 </head>
+
 
 <body>
 
@@ -36,13 +42,19 @@ $_SESSION['idUsuario'] = "P0000001";
                     alt=""
                     id="modal-img-libro" />
                 <div class="modal-btns-interactive">
-                    <button class="btns-modal" id="devolver-libro-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-back-up">
+                    <button class="btns-modal" id="tramitar-prestamo-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-building-bank">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path d="M9 14l-4 -4l4 -4" />
-                            <path d="M5 10h11a4 4 0 1 1 0 8h-1" />
+                            <path d="M3 21l18 0" />
+                            <path d="M3 10l18 0" />
+                            <path d="M5 6l7 -3l7 3" />
+                            <path d="M4 10l0 11" />
+                            <path d="M20 10l0 11" />
+                            <path d="M8 14l0 3" />
+                            <path d="M12 14l0 3" />
+                            <path d="M16 14l0 3" />
                         </svg>
-                        <span>Devolver libro</span>
+                        <span>Tramitar prestamo</span>
                     </button>
                 </div>
             </section>
@@ -66,25 +78,31 @@ $_SESSION['idUsuario'] = "P0000001";
         </div>
     </dialog>
 
-    <dialog class="modal" id="modal-devolver-libro">
-        <div class="modal-content" id="modal-content-devolver">
-            <div id="form-container-devolver-libro">
-                <h2>¿Estas seguro que deseas devolver este libro?</h2>
-                <form action="../../db/devolver-libro.php" id="form-devolver-libro" method="post">
-                    <input type="hidden" id="isbn-devolver-libro-modal" name="isbn-devolver-libro">
-                    <input type="hidden" id="id-usuario-devolver-libro" name="id-usuario-devolver-libro" value="<?php echo $_SESSION['idUsuario']; ?>">
-                    <button class="btn-devolver-prestamo" id="confirmar-devolver-btn">Confirmar</button>
-                    <button class="btn-devolver-prestamo" id="cancelar-devolver-btn">Cancelar</button>
+    <!-- ---------------------------------------------------------------- -->
+    <!-- MODAL TRAMITAR PRESTAMO -->
+    <!-- ---------------------------------------------------------------- -->
+    <dialog class="modal" id="modal-prestamo">
+        <div class="modal-content" id="modal-content-prestamo">
+            <div class="info-libro-prestamo">
+                <img src="" alt=""
+                    class="modal-img-libro"
+                    id="imagen-libro-prestamo">
+                <h4 id="titulo-libro-prestamo"></h4>
+                <h5 id="autor-libro-prestamo"></h5>
+            </div>
+            <div id="data-container" style="text-align: center; justify-content: center; align-items: center; display: flex; ">
+                <form action="" id="form-prestamo" method="post">
+                    <h1>Vas a tramitar este libro</h1>
+                    <input type="hidden" value="<?php echo $_SESSION['idUsuario']; ?>" id="id-usuario-prestamo-libro" name="id-usuario-prestamo-libro">
+                    <input type="hidden" id="isbn-prestamo-libro" name="isbn-prestamo-libro">
+                    <label for="fecha-esperada-entrega">¿Que dia planeas devolver el libro?</label>
+                    <input type="date" id="fecha-esperada-entrega-input" name="fecha-esperada-entrega" max="2025-12-31" required>
+                    <button id="confirmar-prestamo-btn" class="btns-modal">Confirmar prestamo</button>
                 </form>
+                <div id="mensaje-container-prestamo"></div>
             </div>
-            <div id="container-mensaje-devolver-libro">
-            </div>
-        </div>
-        <div id="container-mensaje-devolver-libro">
-
         </div>
     </dialog>
-
     <aside class="aside-nav-section">
         <div class="library-title">
             <img src="../../assets/logo1.webp" alt="" id="imgL" />
@@ -105,7 +123,16 @@ $_SESSION['idUsuario'] = "P0000001";
                 </li>
                 <li class="nav-element">
                     <a href="../profesor/profesor-explorar-page.php">
-                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-world-search"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M21 12a9 9 0 1 0 -9 9" /><path d="M3.6 9h16.8" /><path d="M3.6 15h7.9" /><path d="M11.5 3a17 17 0 0 0 0 18" /><path d="M12.5 3a16.984 16.984 0 0 1 2.574 8.62" /><path d="M18 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M20.2 20.2l1.8 1.8" /></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-world-search">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M21 12a9 9 0 1 0 -9 9" />
+                            <path d="M3.6 9h16.8" />
+                            <path d="M3.6 15h7.9" />
+                            <path d="M11.5 3a17 17 0 0 0 0 18" />
+                            <path d="M12.5 3a16.984 16.984 0 0 1 2.574 8.62" />
+                            <path d="M18 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                            <path d="M20.2 20.2l1.8 1.8" />
+                        </svg>
                         <h4>Explorar</h4>
                     </a>
                 </li>
@@ -178,61 +205,67 @@ $_SESSION['idUsuario'] = "P0000001";
         </nav>
     </aside>
     <main>
-        <section class="mi-libreria">
-            <header>
-                <h1>Mi libreria</h1>
+        <section class="explorar-libros">
+            <header class="header-explorar">
+                <h1>Explorar Libros</h1>
+                <form action="" method="get">
+                    <input type="text" placeholder="Buscar libro" name="busqueda">
+
+                </form>
             </header>
-            <div class="books-container">
+            <div class="explorar-container">
+
                 <?php
-
                 require_once '../../db/Database.php';
-                $db = new Database();
-                $pdo = $db->getConnection();
-                $idUsuario = $_SESSION['idUsuario'];
-                // $idusuarioactual = "00000001";
-                $sql = "SELECT isbn FROM prestamos WHERE id_profesor = :idusuario AND fecha_entrega IS NULL";
+                try {
+                    $db = new Database();
+                    $pdo = $db->getConnection();
 
-                $stmt = $pdo->prepare($sql);
+                    // Obtener el término de búsqueda, si existe
+                    $busqueda = isset($_GET['busqueda']) ? trim($_GET['busqueda']) : '';
+                    $sql = "SELECT isbn, imagen, titulo, autor FROM libros";
 
-                $stmt->bindParam(":idusuario", $idUsuario, PDO::PARAM_STR);
-                $stmt->execute();
+                    // Solo agregar filtro si hay un término de búsqueda
+                    if (!empty($busqueda)) {
+                        $sql .= " WHERE isbn LIKE :busqueda 
+                              OR titulo LIKE :busqueda 
+                              OR autor LIKE :busqueda";
+                    }
 
-                $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                if (count($result) > 0) {
+                    $stmt = $pdo->prepare($sql);
 
-                    for ($i = 0; $i < count($result); $i++) {
-                        $isbn = $result[$i]['isbn'];
+                    // Si hay término de búsqueda, vincular parámetro
+                    if (!empty($busqueda)) {
+                        $searchParam = '%' . $busqueda . '%';
+                        $stmt->bindParam(':busqueda', $searchParam, PDO::PARAM_STR);
+                    }
 
-                        $sql_datos_libro = "SELECT isbn,titulo,autor,imagen FROM libros WHERE isbn = :isbn";
-                        $stmt_libro = $pdo->prepare($sql_datos_libro);
-                        $stmt_libro->bindParam(":isbn", $isbn, PDO::PARAM_STR);
-                        $stmt_libro->execute();
+                    $stmt->execute();
+                    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-
-                        $libro = $stmt_libro->fetch(PDO::FETCH_ASSOC);
-
-                        if ($libro) {
-                            echo '<div class="book-card" id = "' . $libro['isbn'] . '">
+                    if (count($result) == 0) {
+                        echo '<h4 style="text-align:center;">No se encontraron libros</h4>';
+                    } else {
+                        foreach ($result as $libro) {
+                            echo '<div class="book-card" id="' . htmlspecialchars($libro['isbn']) . '">
                             <img
-                                src="' . $libro['imagen'] . '"
+                                src="' . htmlspecialchars($libro['imagen']) . '"
                                 alt=""
                                 class="img-book-card"
                             />
                             <div class="book-card-info-container">
                                 <h4 class="book-name">
-                                   ' . $libro['titulo'] . '
+                                    ' . htmlspecialchars($libro['titulo']) . '
                                 </h4>
-                                <h5>' . $libro['autor'] . '</h5>
+                                <h5>' . htmlspecialchars($libro['autor']) . '</h5>
                             </div>
                         </div>';
                         }
                     }
-                } else {
-                    echo '<h4 style>No haz añadido ningun libro a tu libreria</h4>';
+                } catch (PDOException $e) {
+                    echo '<h4 style="text-align:center;">Error en la consulta: ' . $e->getMessage() . '</h4>';
                 }
-
                 ?>
-
             </div>
         </section>
 

@@ -13,37 +13,30 @@ const modalShowBookSynopsis = document.getElementById("book-synopsis");
 
 const isbnModalBook = document.getElementById("isbn-book-modal");
 
-
-
 //MODAL -> SHOW BOOK -BUTTONS
-const tramitarPrestamoBtn = document.getElementById("tramitar-prestamo-btn")
+const tramitarPrestamoBtn = document.getElementById("tramitar-prestamo-btn");
 
-
-tramitarPrestamoBtn.addEventListener("click",()=>{
+tramitarPrestamoBtn.addEventListener("click", () => {
     // const isbnLibro = document.getElementById("isbn-book-modal").value
-    modalShowBook.style.display = "none"
-    modalPrestamo.style.display = "flex"
-
-    modalFechaPrestamoInput.valueAsDate = new Date();
-    modalFechaEsperadaEntregaInput.min = new Date().toISOString().split('T')[0]
+    modalShowBook.style.display = "none";
+    modalPrestamo.style.display = "flex";
     
-    moadlImgPrestamoBook.setAttribute("src",modalShowBookImg.src)
-    modalAuthorPrestamoBook.innerText = modalShowBookAuthor.innerText
-    modalTitlePrestamoBook.innerText = modalShowBookTitle.innerText
-    
+    modalFechaEsperadaEntregaInput.min = new Date().toISOString().split("T")[0];
 
-})
-
-
+    modalAuthorPrestamoBook.innerText = modalShowBookAuthor.innerText;
+    modalTitlePrestamoBook.innerText = modalShowBookTitle.innerText;
+});
 
 // MODAL -> MODAL PRESTAMO - ELEMENTS
 
-const modalPrestamo = document.getElementById("modal-prestamo")
-const modalFechaPrestamoInput = document.getElementById("fecha-prestamo")
-const modalFechaEsperadaEntregaInput = document.getElementById("fecha-esperada-entrega-input")
-const moadlImgPrestamoBook = document.getElementById("img-book-prestamo")
-const modalAuthorPrestamoBook = document.getElementById("author-book-prestamo")
-const modalTitlePrestamoBook = document.getElementById("title-book-prestamo")
+const modalPrestamo = document.getElementById("modal-prestamo");
+const modalFechaPrestamoInput = document.getElementById("fecha-prestamo");
+const modalFechaEsperadaEntregaInput = document.getElementById(
+    "fecha-esperada-entrega-input"
+);
+const moadlImgPrestamoBook = document.getElementById("img-book-prestamo");
+const modalAuthorPrestamoBook = document.getElementById("author-book-prestamo");
+const modalTitlePrestamoBook = document.getElementById("title-book-prestamo");
 
 // BOOK CARDS ADD EVENT LISTENER
 
@@ -56,8 +49,10 @@ window.addEventListener("click", (event) => {
             modalShowBook.style.display = "none";
             break;
         case modalPrestamo:
-            modalPrestamo.style.display = "none"
-            formPrestamo.style.display = "flex"
+            modalPrestamo.style.display = "none";
+            formPrestamo.style.display = "flex";
+            mensajeResultadoPrestamo.style.display = "none"
+            mensajeResultadoPrestamo.innerHTML = ""
             break;
     }
 });
@@ -73,9 +68,13 @@ bookCards.forEach((card) => {
                 .then((data) => {
                     updateModalShowBook(data);
                     cacheInfoBooks[isbnCardBook] = data;
-                }).catch((error)=>{
-                    console.error("Error al obtener datos de info-libro.php : ", error)
                 })
+                .catch((error) => {
+                    console.error(
+                        "Error al obtener datos de info-libro.php : ",
+                        error
+                    );
+                });
         }
     });
 });
@@ -91,43 +90,42 @@ function updateModalShowBook(data) {
     modalShowBookCategory.innerText = data.categoria;
     modalShowBookSynopsis.innerText = data.sinopsis;
     modalShowBook.style.display = "flex";
-    
 }
 
+//FORM PRESTAMO
 
-
-
-//FORM PRESTAMO 
-
-const formPrestamo = document.getElementById("form-prestamo")
-const confirmarPrestamoBtn= document.getElementById("confirmar-prestamo-btn")
-const dataContainer = document.getElementById("data-container")
-const mensajeResultadoPrestamo = document.getElementById("mensaje-resultado")
-confirmarPrestamoBtn.addEventListener("click",async (event) =>{
+const formPrestamo = document.getElementById("form-prestamo");
+const confirmarPrestamoBtn = document.getElementById("confirmar-prestamo-btn");
+const dataContainer = document.getElementById("data-container");
+const mensajeResultadoPrestamo = document.getElementById("mensaje-resultado");
+confirmarPrestamoBtn.addEventListener("click", async (event) => {
     event.preventDefault();
-    const formDatos  = new FormData(formPrestamo)
+    const formDatos = new FormData(formPrestamo);
 
-    try{
-        const response = await fetch("../../db/procesar-prestamo.php",{
+    try {
+        const response = await fetch("../../db/procesar-prestamo.php", {
             method: "POST",
-            body: formDatos
-        })
+            body: formDatos,
+        });
 
-        if(!response.ok){
-            throw new Error(`Error!: ${response.status}`)
+        if (!response.ok) {
+            throw new Error(`Error!: ${response.status}`);
         }
-        
-        const data = await response.json()
-        formPrestamo.style.display = "none"
 
-        if(data.exito){
-            mensajeResultadoPrestamo.innerHTML = `<h4 style="color: green;">${data.mensaje}</h4>`
-        }else{
-            mensajeResultadoPrestamo.innerHTML = `<h4 style="color: red;">${data.error}</h4>`
-        }
-    }catch(error){
-        console.error("Error al procesar el prestamo: ", error)
+        const data = await response.json();
         formPrestamo.style.display = "none";
-        mensajeResultadoPrestamo.innerHTML = `<h4 style="color: red;">Ocurrio un error al procesar el prestamo, intentalo otra vez.</h4>`
+
+        if (data.exito) {
+            mensajeResultadoPrestamo.style.display = "flex"
+            mensajeResultadoPrestamo.innerHTML = `<h4 style="color: green;">${data.mensaje}</h4>`;
+        } else {
+            mensajeResultadoPrestamo.style.display = "flex"
+            mensajeResultadoPrestamo.innerHTML = `<h4 style="color: red;">${data.error}</h4>`;
+        }
+    } catch (error) {
+        console.error("Error al procesar el prestamo: ", error);
+        formPrestamo.style.display = "none";
+        mensajeResultadoPrestamo.innerHTML = `<h4 style="color: red;">Ocurrio un error al procesar el prestamo, intentalo otra vez.</h4>`;
     }
-})
+});
+

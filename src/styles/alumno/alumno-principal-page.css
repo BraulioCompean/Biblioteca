@@ -1,30 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-/* VARIABLES GLOBALES */
-:root {
-    --apricot: #ffcdb2ff;
-    --melon: #ffb4a2ff;
-    --salmon-pink: #e5989bff;
-    --old-rose: #b5838dff;
-    --dim-gray: #6d6875ff;
-
-    --black: #070707ff;
-    --violet-jtc: #553555ff;
-    --eggplant: #755b69ff;
-    --cambridge-blue: #96c5b0ff;
-    --aquamarine: #adf1d2ff;
-
-    --nyanza: #eaf4d3ff;
-    --vanilla: #dbd8aeff;
-    --rosy-brown: #ca907eff;
-    --chestnut: #994636ff;
-    --golden-brown: #895b1eff;
-
-    --eggplant: #533747ff;
-    --english-violet: #5f506bff;
-    --paynes-gray: #6a6b83ff;
-    --cadet-gray: #76949fff;
-    --tiffany-blue: #86bbbdff;
-}
 /* ------------------------------------------ */
 
 /* ESTILOS GENERALES */
@@ -66,7 +40,7 @@ a:visited{
 .aside-nav-section {
     width: 280px;
     height: 100vh;
-    border: 1px solid var(--black);
+    border: 1px solid black;
     background-color: white;
     /* border-radius: 10px; */
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
@@ -148,6 +122,7 @@ a:visited{
 .nav-element a h4{
     margin: 0;
 }
+
 /* ------------------------------------------ */
 /* SECCION - RECOMENDADOS ESTILOS */
 
@@ -155,7 +130,7 @@ a:visited{
 
 .recomendados {
     width: 96%;
-    border: 1px solid var(--black);
+    border: 1px solid black;
     border-radius: 10px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
     padding: 20px;
@@ -188,7 +163,7 @@ a:visited{
 
 
 .navegar {
-    border: 1px solid var(--black);
+    border: 1px solid black;
     width: 100%;
     height: 60px;
     padding: 10px;
@@ -200,7 +175,7 @@ a:visited{
 }
 
 .libreria {
-    border: 1px solid var(--black);
+    border: 1px solid black;
     border-radius: 10px;
     width: 96%;
     background-color: white;
@@ -210,7 +185,9 @@ a:visited{
 }
 
 .libreria-header {
-    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 
@@ -520,3 +497,4 @@ main::-webkit-scrollbar-thumb{
 .modal-content-show-book{
     height: fit-content;
 }
+

@@ -1,3 +1,8 @@
+<?php
+session_start();
+$_SESSION['idUsuario'] = "00000001";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +17,7 @@
 
 <body>
 
-<dialog class="modal" id="modal-show-book">
+    <dialog class="modal" id="modal-show-book">
         <input type="hidden" id="isbn-book-modal">
         <div class="modal-content" id="modal-content-show-book">
             <section class="image-modal-book-container">
@@ -79,19 +84,17 @@
     <dialog class="modal" id="modal-prestamo">
         <div class="modal-content" id="modal-content-prestamo">
             <div class="info-book-prestamo">
-                <img src="https://is5-ssl.mzstatic.com/image/thumb/Publication126/v4/d5/85/1a/d5851a16-5cd9-ced5-bb77-6e75c8c3b9ef/d1c368f5-a3e5-4d0e-85a6-8ffdf8952dc9_cover_image.png/100000x100000-999.jpg" alt=""
-                    id="img-book-prestamo"
-                >
+                <img src="" alt=""
+                    id="img-book-prestamo">
                 <h4 id="title-book-prestamo"></h4>
                 <h5 id="author-book-prestamo"></h5>
-            </div> 
+            </div>
             <div id="data-container" style="text-align: center; justify-content: center; align-items: center; display: flex; ">
                 <form action="" id="form-prestamo" method="post">
+                    <input type="hidden" value="<?php echo $_SESSION['idUsuario']; ?>" id="id-usuario-prestamo-libro" name="id-usuario-prestamo-libro">
                     <input type="hidden" value="6073116330" id="isbn-prestamo-libro" name="isbn-prestamo-libro">
-                    <label for="fecha-prestamo">Fecha de prestamo</label>
-                    <input type="date" id="fecha-prestamo" name="fecha-prestamo" readonly>
                     <label for="fecha-esperada-entrega">Fecha esperada de entrega</label>
-                    <input type="date"  id="fecha-esperada-entrega-input"  name="fecha-esperada-entrega" max="2025-12-31">
+                    <input type="date" id="fecha-esperada-entrega-input" name="fecha-esperada-entrega" max="2025-12-31">
                     <button id="confirmar-prestamo-btn">Confirmar prestamo</button>
                 </form>
                 <h4 id="mensaje-resultado"></h4>
@@ -107,7 +110,7 @@
         <nav class="nav-section">
             <ul class="nav-options-list">
                 <li class="nav-element">
-                    <a href="">
+                    <a href="../alumno/alumno-principal-page.php">
                         <svg id="home-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-home">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                             <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
@@ -141,10 +144,47 @@
                         <h4>Mi libreria</h4>
                     </a>
                 </li>
-
+                <li class="nav-element">
+                    <a href="../alumno/alumno-historial-prestamos-page.php">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-building-bank">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M3 21l18 0" />
+                            <path d="M3 10l18 0" />
+                            <path d="M5 6l7 -3l7 3" />
+                            <path d="M4 10l0 11" />
+                            <path d="M20 10l0 11" />
+                            <path d="M8 14l0 3" />
+                            <path d="M12 14l0 3" />
+                            <path d="M16 14l0 3" />
+                        </svg>
+                        <h4>Prestamos</h4>
+                    </a>
+                </li>
+                <li class="nav-element">
+                    <a href="../alumno/alumno-historial-prestamos-page.php">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-ticket">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M15 5l0 2" />
+                            <path d="M15 11l0 2" />
+                            <path d="M15 17l0 2" />
+                            <path d="M5 5h14a2 2 0 0 1 2 2v3a2 2 0 0 0 0 4v3a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-3a2 2 0 0 0 0 -4v-3a2 2 0 0 1 2 -2" />
+                        </svg>
+                        <h4>Multas</h4>
+                    </a>
+                </li>
             </ul>
             <hr />
             <ul class="user-menu">
+                <li class="nav-element">
+                    <a href="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-user">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+                            <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                        </svg>
+                        <h4>Perfil</h4>
+                    </a>
+                </li>
                 <li class="nav-element">
                     <a href="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-logout-2">
@@ -198,12 +238,12 @@
                 $db = new Database();
                 $pdo = $db->getConnection();
 
-                $idusuarioactual = "00000001";
+                $idUsuario = $_SESSION['idUsuario'];
                 $sql = "SELECT libro FROM recomendados WHERE estudiante = :idusuario";
 
                 $stmt = $pdo->prepare($sql);
 
-                $stmt->bindParam(":idusuario", $idusuarioactual, PDO::PARAM_STR);
+                $stmt->bindParam(":idusuario", $idUsuario, PDO::PARAM_STR);
                 $stmt->execute();
 
                 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -242,59 +282,63 @@
         <div class="libreria">
             <div class="libreria-header">
                 <h2>Tu libreria</h2>
+                <a href="../alumno/alumno-libreria-page.php" id="see-all">
+                    Ver libreria
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M9 6l6 6l-6 6" />
+                    </svg>
+                </a>
 
             </div>
             <div class="libreria-container">
 
 
-                <!-- <?php
+                <?php
 
-                        require_once '../../db/Database.php';
-                        $db = new Database();
-                        $pdo = $db->getConnection();
+                require_once '../../db/Database.php';
+                try {
 
-                        $idusuarioactual = "00000001";
-                        $sql = "SELECT isbn FROM prestamos WHERE id_estudiante = :idusuario AND";
+                    $db = new Database();
+                    $pdo = $db->getConnection();
 
-                        $stmt = $pdo->prepare($sql);
+                    $idUsuario = $_SESSION['idUsuario'];
+                    $sql = "SELECT p.isbn,l.titulo,l.autor,l.imagen FROM prestamos p JOIN libros l ON p.isbn = l.isbn
+                            WHERE p.id_estudiante = :idusuario
+                            AND p.fecha_entrega IS NULL
+                            LIMIT 5;
+                            ";
+                    $stmt = $pdo->prepare($sql);
 
-                        $stmt->bindParam(":idusuario", $idusuarioactual, PDO::PARAM_STR);
-                        $stmt->execute();
-
-                        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                        for ($i = 0; $i < count($result); $i++) {
-                            $isbn = $result[$i]['isbn'];
-
-                            $sql_datos_libro = "SELECT isbn,titulo,autor,imagen FROM libros WHERE isbn = :isbn LIMIT 5";
-                            $stmt_libro = $pdo->prepare($sql_datos_libro);
-                            $stmt_libro->bindParam(":isbn", $isbn, PDO::PARAM_STR);
-                            $stmt_libro->execute();
+                    $stmt->bindParam(":idusuario", $idUsuario, PDO::PARAM_STR);
+                    $stmt->execute();
 
 
-                            $libro = $stmt_libro->fetch(PDO::FETCH_ASSOC);
 
-                            if ($libro) {
-                                echo '<div class="book-card" id = "' . $libro['isbn'] . '">
-                                        <img
-                                            src="' . $libro['imagen'] . '"
-                                            alt=""
-                                            class="img-book-card"
-                                        />
-                                        <div class="book-card-info-container">
-                                            <h4 class="book-name">
-                                               ' . $libro['titulo'] . '
-                                            </h4>
-                                            <h5>' . $libro['autor'] . '</h5>
-                                        </div>
-                                    </div>';
-                            }
-                        }
 
-                        ?> -->
+                    while ($libro = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                        echo '<div class="book-card" id = "' . htmlspecialchars($libro['isbn']) . '">
+                            <img
+                                src="' . htmlspecialchars($libro['imagen']) . '"
+                                alt=""
+                                class="img-book-card"
+                            />
+                            <div class="book-card-info-container">
+                                <h4 class="book-name">
+                                ' . htmlspecialchars($libro['titulo']) . '
+                                </h4>
+                                <h5>' . htmlspecialchars($libro['autor']) . '</h5>
+                            </div>
+                        </div>';
+                    }
+                } catch (PDOException $e) {
+                    echo '<h4>No tienes ningun libro en tu libreria.</h4>' . $e->getMessage();
+                }
+                ?>
             </div>
         </div>
     </main>
-    
+
 </body>
 
 </html>

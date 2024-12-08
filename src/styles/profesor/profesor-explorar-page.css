@@ -1,17 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-/* ------------------------------------------ */
-
 
 
 :root{
     --bg-btns-hover-modal: #0055ff;
 }
 
+/* ------------------------------------------ */
 
 /* ESTILOS GENERALES */
 
 /* ------------------------------------------ */
-
 
 
 body {
@@ -30,9 +28,8 @@ main {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    overflow-y: scroll;
+    overflow-y: hidden;
     overflow-x: hidden;
-    padding-left: 10px;
 }
 
 nav hr {
@@ -43,40 +40,18 @@ a:visited{
     color: black;
 }
 
-
-
-
-
-/* ------------------------------------------ */
-/* SCROLLBAR ESTILOS */
-/* ------------------------------------------ */
-
-.mi-libreria::-webkit-scrollbar{
-    width: 5px;
-}
-
-.mi-libreria::-webkit-scrollbar-track{
-    background-color: transparent;
-}
-.mi-libreria::-webkit-scrollbar-thumb{
-    background-color: rgb(155, 149, 149);
-    border-radius: 20px;
-}
-
-
-
-
 /* ------------------------------------------ */
 /* ASIDE MENU - ESTILOS */
 /* ------------------------------------------ */
-
-
 .aside-nav-section {
     width: 280px;
     height: 100vh;
     border: 1px solid black;
     background-color: white;
+    /* border-radius: 10px; */
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    /* border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px; */
 }
 
 
@@ -156,50 +131,8 @@ a:visited{
 
 
 
-/* ----------------------------------- */
-/* SECTION : Mi libreria*/
-/* ----------------------------------- */
 
 
-.mi-libreria{
-    margin-top: 10px;
-    border: 1px solid gray;
-    margin-bottom:10px;
-    border-radius: 10px;
-    padding: 10px;
-    height: 95%;
-}
-
-
-.books-container{
-    display: flex;
-    gap: 30px;
-    flex-wrap: wrap;
-}
-
-
-
-/* ----------------------------------- */
-/* BOOK CARD                            */
-/* ----------------------------------- */
-
-.book-card {
-    padding: 5px;
-    width: 150px;
-    max-width: 150px;
-    border: none;
-    height: auto;
-    cursor: pointer;
-}
-
-.img-book-card {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    width: 150px;
-    border: none;
-    margin: none;
-    margin: 0;
-}
 
 .img-book-card {
     border-top-left-radius: 10px;
@@ -218,12 +151,20 @@ a:visited{
     cursor: pointer;
     border: 1px solid gray;
     border-radius: 10px;
-    padding: 0;
 }
 
 
-.book-card-info-container h4 ,
-.book-card-info-container h5{
+.book-card-info-container h4 {
+    margin: 0;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+    padding: 1px;
+}
+
+.book-card-info-container h5 {
     margin: 0;
     width: 100%;
     text-overflow: ellipsis;
@@ -233,10 +174,66 @@ a:visited{
     padding: 0;
 }
 
-
 .book-card-info-container {
     padding: 0;
+    /* border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    border-bottom: 1px solid gray;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px; */
     
+}
+
+
+
+/* SECTION EXPLORAR LIBROS */
+.explorar-libros::-webkit-scrollbar{
+    width: 5px;
+}
+
+.explorar-libros::-webkit-scrollbar-track{
+    background-color: transparent;
+}
+.explorar-libros::-webkit-scrollbar-thumb{
+    background-color: rgb(155, 149, 149);
+    border-radius: 20px;
+}
+
+.explorar-libros{
+    height: 90%;
+    max-height: 90%;
+    width: 96%;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin-left: 15px;
+    margin-top: 20px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+.explorar-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.header-explorar{
+    display: flex;
+    align-items: center;
+    gap: 100px;
+}
+.header-explorar input{
+    border-radius: 10px;
+    border: none;
+    border: 1px solid gray;
+    font-size: 25px;
+    width: 700px;
 }
 
 
@@ -344,64 +341,57 @@ a:visited{
     height: 400px;  
 }
 
+/* MODAL TRAMITAR PRESTAMO */
 
 
 
-/* ESTILOS MODAL - INDIVIDUALES */
-/* ------------------------------------ */
-/* MODAL - MOSTRAR LIBRO */
+#img-libro-prestamo{
+    width: 150px;
+    height: 200px;
+}
 
 
-#devolver-libro-btn{
+
+#modal-content-prestamo{
+    width: 500px;
+    height: fit-content;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#form-prestamo{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.info-libro-prestamo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: fit-content;
+    gap: 10px;
+}
+
+.info-libro-prestamo h4,
+.info-libro-prestamo h5{
+    margin: 0;
+}
+
+#confirmar-prestamo-btn{
     padding: 0;
     padding: 10px;
     border: none;
     border: 1px solid gray;
     border-radius: 10px;
-    margin-top: 20px;
+    margin-top: 50px;
     transition: background-color 0.5s;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-#devolver-libro-btn:hover{
-    background-color: #0055ff;
-    color: white;
-
-}
-#devolver-libro-btn:hover svg{
-    stroke: white;
 }
 
 
-
-.btn-devolver-prestamo{
-    padding: 0;
-    padding: 10px;
-    border: none;
-    border: 1px solid gray;
-    border-radius: 10px;
-    margin-top: 20px;
-    transition: background-color 0.5s;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+#confirmar-prestamo-btn:hover{
+    background-color: rgb(91, 211, 91);
 }
 
-#confirmar-devolver-btn:hover{
-    background-color: rgb(107, 169, 107);
-}
-
-#cancelar-devolver-btn:hover{
-    background-color: rgb(210, 32, 32);
-}
-
-
-#form-devolver-libro{
-    display: flex;
-     gap: 20px;
-     justify-content: center;
-}

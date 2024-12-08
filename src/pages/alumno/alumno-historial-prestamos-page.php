@@ -14,89 +14,11 @@ $_SESSION['idUsuario'] = "00000001";
         name="viewport"
         content="width=
     , initial-scale=1.0" />
-    <link rel="stylesheet" href="../../styles/alumno/alumno-recommended-page.css" />
-    <title>Libros Recomendados</title>
-    <script src="../../scripts/alumno/alumno-recommended-page.js" defer></script>
+    <link rel="stylesheet" href="../../styles/alumno/alumno-historial-prestamos-page.css" />
+    <title>Historial de Prestamos</title>
 </head>
 
 <body>
-
-
-    <!-- VENTANAS MODAL -->
-<!-- ---------------------------------------------------------------- -->
-
-        
-    <!-- ---------------------------------------------------------------- -->
-        <!-- MODAL MOSTRAR LIBRO -->
-    <!-- ---------------------------------------------------------------- -->
-
-
-        <dialog class="modal" id="modal-libro">
-            
-            <input type="hidden" id="isbn-modal-mostrar-libro">
-
-            <div class="modal-content" id="modal-content-mostrar-libro">
-                <section>
-                    <img
-                        src="../../assets/jardinmariposas.jpg"
-                        class="modal-img-libro"
-                        alt=""
-                        id="modal-img-libro" />
-                    <div class="modal-btns-interactive">
-                        <button class="btns-modal" id="tramitar-prestamo-btn">
-                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-building-bank"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 21l18 0" /><path d="M3 10l18 0" /><path d="M5 6l7 -3l7 3" /><path d="M4 10l0 11" /><path d="M20 10l0 11" /><path d="M8 14l0 3" /><path d="M12 14l0 3" /><path d="M16 14l0 3" /></svg>
-                            <span>Tramitar prestamo</span>
-                        </button>
-                    </div>
-                </section>
-                <section class="libro-info-container">
-                    <div class="titulo-modal-container">
-                        <h3 id="libro-titulo"></h3>
-                    </div>
-                    <div>
-                        <h3 class="libro-info-h3" id="libro-autor"></h3>
-                    </div>
-                    <div class="editorial-modal-container">
-                        <h3 class="libro-info-h3" id="libro-editorial"></h3>
-                    </div>
-                    <div class="categoria-modal-container">
-                        <h3 id="libro-categoria"></h3>
-                    </div>
-                    <div class="sinopsis-modal-container">
-                        <p id="libro-sinopsis"></p>
-                    </div>
-                </section>
-            </div>
-        </dialog>
-
-    <!-- ---------------------------------------------------------------- -->
-    <!-- MODAL TRAMITAR PRESTAMO -->
-     <!-- ---------------------------------------------------------------- -->
-     <dialog class="modal" id="modal-prestamo">
-        <div class="modal-content" id="modal-content-prestamo">
-            <div class="info-libro-prestamo">
-                <img src="" alt=""
-                    class="modal-img-libro"
-                    id="imagen-libro-prestamo">
-                <h4 id="titulo-libro-prestamo"></h4>
-                <h5 id="autor-libro-prestamo"></h5>
-            </div>
-            <div id="data-container" style="text-align: center; justify-content: center; align-items: center; display: flex; ">
-                <form action="" id="form-prestamo" method="post">
-                    <h1>Vas a tramitar este libro</h1>
-                    <input type="hidden" value="<?php echo $_SESSION['idUsuario']; ?>" id="id-usuario-prestamo-libro" name="id-usuario-prestamo-libro">
-                    <input type="hidden" value="6073116330" id="isbn-prestamo-libro" name="isbn-prestamo-libro">
-                    <label for="fecha-esperada-entrega">¿Que dia planeas devolver el libro?</label>
-                    <input type="date" id="fecha-esperada-entrega-input" name="fecha-esperada-entrega" max="2025-12-31" >
-                    <button  id="confirmar-prestamo-btn" class="btns-modal" >Confirmar prestamo</button>
-                </form>
-                <div id="mensaje-container-prestamo"></div>
-            </div>
-        </div>
-    </dialog>
-    <!-- ---------------------------------------------------------------- -->
-
-
     <aside class="aside-nav-section">
         <div class="library-title">
             <img src="../../assets/logo1.webp" alt="" id="imgL" />
@@ -188,57 +110,62 @@ $_SESSION['idUsuario'] = "00000001";
         </nav>
     </aside>
     <main>
-        <section class="recommended-books">
+        <section class="prestamos-historial">
             <header>
-                <h1>Recomendados</h1>
+                <h1>Historial de Prestamos</h1>
             </header>
-            <div class="books-container">
+            <div class="prestamos-container">
                 <?php
 
-                require_once '../../db/Database.php';
-                $db = new Database();
-                $pdo = $db->getConnection();
+                        require_once '../../db/Database.php';
+                        $db = new Database();
+                        $pdo = $db->getConnection();
 
-                $idusuarioactual = "00000001";
-                $sql = "SELECT libro FROM recomendados WHERE estudiante = :idusuario";
 
-                $stmt = $pdo->prepare($sql);
+                        $idUsuario = $_SESSION['idUsuario'];
 
-                $stmt->bindParam(":idusuario", $idusuarioactual, PDO::PARAM_STR);
-                $stmt->execute();
-
-                $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                if (!empty($result)) {
-                    foreach ($result as $row) {
-                        $isbn = $row['libro'];
-
-                        $sql_datos_libro = "SELECT isbn,titulo,autor,imagen FROM libros WHERE isbn = :isbn";
-                        $stmt_libro = $pdo->prepare($sql_datos_libro);
-                        $stmt_libro->bindParam(":isbn", $isbn, PDO::PARAM_STR);
-                        $stmt_libro->execute();
-                        $libro = $stmt_libro->fetch(PDO::FETCH_ASSOC);
-
-                        if ($libro) {
-                            echo '<div class="book-card" id = "' . $libro['isbn'] . '">
-                                        <img
-                                            src="' . $libro['imagen'] . '"
-                                            alt=""
-                                            class="img-book-card"
-                                        />
-                                        <div class="book-card-info-container">
-                                            <h4 class="book-name">
-                                               ' . $libro['titulo'] . '
-                                            </h4>
-                                            <h5>' . $libro['autor'] . '</h5>
-                                        </div>
-                                    </div>';
+                        $sqlPrestamos = "SELECT libros.titulo ,libros.autor , prestamos.fecha_prestamo , prestamos.fecha_devolucion,prestamos.fecha_entrega FROM prestamos JOIN libros ON prestamos.isbn = libros.isbn WHERE prestamos.id_estudiante = :idUsuario ORDER BY prestamos.fecha_prestamo DESC ";
+                        $stmt_prestamos = $pdo->prepare($sqlPrestamos);
+                        $stmt_prestamos->bindParam(":idUsuario", $idUsuario, PDO::PARAM_STR);
+                        $stmt_prestamos->execute();
+                        $prestamos = $stmt_prestamos->fetchAll(PDO::FETCH_ASSOC);
+                        $fecha = date('Y-m-d');
+                        if (count($prestamos) > 0) {    
+                            foreach($prestamos as $prestamo){
+                                $estadoPrestamo = 'Devuelto';
+                                if ($prestamo['fecha_entrega'] === null) {
+                                    if (strtotime($prestamo['fecha_devolucion']) < strtotime($fecha)) {
+                                        $estadoPrestamo = 'Vencido';
+                                    } else {
+                                        $estadoPrestamo = 'Activo';
+                                    }
+                                }
+                                echo ' <div class="prestamo-card ' . $estadoPrestamo . '">
+                                            <div class="info-prestamo-libro">
+                                                <h3>"'.$prestamo['titulo'].'" de '.$prestamo['autor'].'</h3>
+                                            </div>
+                                        
+                                            <div class="info-prestamo-container">
+                                                <div class="estado-prestamo-container">
+                                                    <h5 id="estado-prestamo">Estado : '.$estadoPrestamo.'</h5>
+                                                </div>
+                                                <div>
+                                                    <h5 id="fecha-prestamo">Fecha de prestamo : '.$prestamo['fecha_prestamo'].'</h5>
+                                                </div>
+                                                <div>
+                                                    <h5 id="fecha-vencimiento">Fecha de vencimiento : '.$prestamo['fecha_devolucion'].' </h5>
+                                                </div>
+                                                <div>
+                                                    <h5 id="fecha-devolucion">Fecha de devolucion : '.($prestamo['fecha_entrega'] ? htmlspecialchars($prestamo['fecha_entrega']) : 'Pendiente').'</h5>
+                                                </div>
+                                            </div>
+                                        </div>';
+                            }
+                        }else{
+                            echo '<h4> No tienes prestamos registrados </h4>';
                         }
-                    }
-                } else {
-                    echo '<h4>No te han recomendado ningun libro</h4>';
-                }
-                ?>
 
+                        ?> 
             </div>
         </section>
 
