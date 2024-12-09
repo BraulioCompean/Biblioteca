@@ -125,7 +125,7 @@ $_SESSION['idUsuario'] = "P0000001";
 
                         $idUsuario = $_SESSION['idUsuario'];
 
-                        $sql = "SELECT prestamo.isbn , libro.titulo,libro.autor,libro.imagen,prestamo.fecha";
+                        $sql = "SELECT prestamo.isbn , libro.titulo,libro.autor,libro.imagen,prestam";
                         $sqlMultas = $pdo->prepare($sql);
                         $sqlMultas->bindParam(":idUsuario", $idUsuario, PDO::PARAM_STR);
                         $sqlMultas->execute();

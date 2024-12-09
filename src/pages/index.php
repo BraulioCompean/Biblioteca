@@ -4,8 +4,8 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Libreria</title>
-        <link rel="stylesheet" href="../styles/presentation-site.css" />
-        <script src="../scripts/presentation-site.js" defer></script>
+        <link rel="stylesheet" href="../styles/index.css" />
+        <script src="../scripts/index.js" defer></script>
     </head>
     <body>
         <main>

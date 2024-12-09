@@ -30,15 +30,11 @@ body {
   overflow: hidden;
   background: linear-gradient(150deg, #b5838dff, #ffcdb2ff);
   background-repeat: no-repeat;
-<<<<<<< HEAD
   background-position: center;
   background-attachment: fixed;
   color: var(--dim-gray);
   height: 100%;
   height: 100%;
-=======
-  background-size: cover;
->>>>>>> ac4f6a4ebab0d0e7c8dcdbe83eb2896306f80649
 }
 
 main {
@@ -55,12 +51,9 @@ main {
 }
 
 .caja__trasera {
-<<<<<<< HEAD
   width: 100%;
   height: 600px;
   padding: 10px 20px;
-=======
->>>>>>> ac4f6a4ebab0d0e7c8dcdbe83eb2896306f80649
   display: flex;
   justify-content: center;
   width: 100%;

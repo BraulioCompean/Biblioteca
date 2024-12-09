@@ -23,15 +23,24 @@ try {
         if ($resultVerificarPrestamo['existe'] == 1) {
     
             try {
-    
+              
+
                 $sqlUpdatePrestamo = "UPDATE prestamos SET  fecha_entrega = CURRENT_DATE  WHERE isbn = :isbn AND (id_estudiante = :idUsuario OR id_profesor = :idUsuario)";
                 $stmtUpdatePrestamo = $pdo->prepare($sqlUpdatePrestamo);
                 $stmtUpdatePrestamo->bindParam(':isbn', $isbn);
                 $stmtUpdatePrestamo->bindParam(':idUsuario', $idUsuario);
                 
                 $stmtUpdatePrestamo->execute();
+
+
                 if ($stmtUpdatePrestamo->rowCount() > 0) {
-    
+                    
+                    $sqlUpdateCantidad = "UPDATE libros SET cantidad = cantidad + 1 WHERE isbn  = :isbn";
+                    $stmtUpdateCantidad = $pdo->prepare($sqlUpdateCantidad);
+
+                    $stmtUpdateCantidad->bindParam(':isbn',$isbn,PDO::PARAM_STR);
+                    $stmtUpdateCantidad->execute();
+                    
                     $response['exito'] = true;
                     $response['mensaje'] = 'Libro devuelto con exito.';
                 } else {
