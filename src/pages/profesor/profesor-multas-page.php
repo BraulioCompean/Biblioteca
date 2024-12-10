@@ -126,59 +126,42 @@ $_SESSION['idUsuario'] = "P0000001";
                 <h1>Historial de multas</h1>
             </header>
             <div class="multas-container">
-                <!-- <?php
+                <?php
                 require_once '../../db/Database.php';
                 $db = new Database();
                 $pdo = $db->getConnection();
 
                 $idUsuario = $_SESSION['idUsuario'];
 
-                $sql = "SELECT p.isbn, l.titulo, l.autor, l.imagen, m.id_multa, m.cantidad AS monto, m.fecha_generacion, m.fecha_pago 
-        FROM prestamos AS p 
-        INNER JOIN libros AS l ON p.isbn = l.isbn 
-        LEFT JOIN multas AS m ON p.multa = m.id_multa 
-        WHERE (p.id_estudiante = :idUsuario OR p.id_profesor = :idUsuario) AND p.multa IS NOT NULL";
+                $sql = "SELECT l.isbn, l.titulo, l.autor,l.imagen, m.cantidad, m.fecha_pago , m.fecha_generacion FROM libros l JOIN prestamos p ON l.isbn = p.isbn JOIN multas m ON p.multa = m.id_multa WHERE p.id_profesor = :idUsuario AND m.cantidad IS NOT NULL";
                 $sqlMultas = $pdo->prepare($sql);
                 $sqlMultas->bindParam(":idUsuario", $idUsuario, PDO::PARAM_STR);
                 $sqlMultas->execute();
-                $prestamos = $sqlMultas->fetchAll(PDO::FETCH_ASSOC);
-                $fecha = date('Y-m-d');
-                if (count($prestamos) > 0) {
-                    foreach ($prestamos as $prestamo) {
-                        // Determinar el estado del préstamo
-                        $estadoPrestamo = 'Devuelto';
-                        if ($prestamo['fecha_entrega'] === null) {
-                            if (strtotime($prestamo['fecha_devolucion']) < strtotime($fecha)) {
-                                $estadoPrestamo = 'Vencido';
-                            } else {
-                                $estadoPrestamo = 'Activo';
-                            }
+                $multas = $sqlMultas->fetchAll(PDO::FETCH_ASSOC);
+                if ($multas) {
+                    foreach ($multas as $multa) {
+                        $estadoMulta = 'Pagada';
+                        if ($multa['fecha_pago'] === null) {
+                          $estadoMulta = "Pendiente";
                         }
 
-                        // Verificar si hay multa
-                        if ($prestamo['id_multa'] !== null) {
-                            $estadoMulta = 'Pendiente';
-                            $montoMulta = $prestamo['monto']; // Usar el monto de la multa directamente de la consulta
-
-                            // Mostrar la tarjeta de multa
-                            echo '<div class="multa-card ' . $estadoPrestamo . '" title="Click para más detalles">
-                    <div class="info-multa-container">
-                        <img src="' . htmlspecialchars($prestamo['imagen']) . '" alt="Imagen del libro" style="width:100px;height:auto;">
-                        <h4>' . htmlspecialchars($prestamo['titulo']) . '</h4>
-                        <h5>' . htmlspecialchars($prestamo['autor']) . '</h5>
-                        <h5>Multa ID: ' . htmlspecialchars($prestamo['id_multa']) . '</h5>
-                        <h5>Estado: ' . $estadoMulta . '</h5>
-                        <h5>Monto: $' . number_format($montoMulta, 2) . '</h5>
-                        <h5>Fecha Generación: ' . htmlspecialchars($prestamo['fecha_generacion']) . '</h5>
-                    </div>
-                </div>';
-                        }
+                        echo '  <div class="multa-card ' . $estadoMulta . '" title="Click para más detalles">
+                                    <div class="info-multa-container">
+                                        <img src="' . $multa['imagen']. '" alt="Imagen del libro" style="width:100px;height:auto;">
+                                        <h4>'.$multa['titulo'].'</h4>
+                                        <h5>'.$multa['autor'].'</h5>
+                                        <h5>Estado : '.$estadoMulta.'</h5>
+                                        <h5>Monto : $'.$multa['cantidad'].'</h5>
+                                        <h5>Fecha Generación : '.$multa['fecha_generacion'].'</h5>
+                                        <h5>Fecha de Pago : '. ($multa['fecha_pago'] ? $multa['fecha_pago'] : "Pendiente") .'</h5>
+                                    </div>
+                                </div>';
                     }
                 } else {
                     echo '<h4> No tienes ninguna multa registrada </h4>';
                 }
-                ?> -->
-
+                ?> 
+              
             </div>
         </section>
     </main>

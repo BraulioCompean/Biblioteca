@@ -14,7 +14,7 @@ $_SESSION['idUsuario'] = "P0000001";
         name="viewport"
         content="width=
     , initial-scale=1.0" />
-    <link rel="stylesheet" href="../../styles/profesor/profesor-multas-page.css">
+    <link rel="stylesheet" href="../../styles/profesor/profesor-perfil-page.css">
     <title>Historial de Multas</title>
 </head>
 
@@ -97,7 +97,7 @@ $_SESSION['idUsuario'] = "P0000001";
             <hr />
             <ul class="user-menu">
                 <li class="nav-element">
-                    <a href="">
+                    <a href="../profesor/profesor-perfil-page.php">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-user">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                             <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
@@ -122,12 +122,85 @@ $_SESSION['idUsuario'] = "P0000001";
     </aside>
     <main>
         <section class="perfil">
-            <header>
-                <h1>Historial de multas</h1>
+            <header class="header-perfil">
+                <h1>Bienvenido a tu Perfil</h1>
             </header>
-            <div class="perfil-datos-container">
+            <div class="perfil-container">
+                
+
+                <?php
+
+                        require_once '../../db/Database.php';
+                        $db = new Database();
+                        $pdo = $db->getConnection();
+                        $idUsuario = $_SESSION['idUsuario'];
+                        try {
+                            
+                            $sql = "SELECT id_usuario,nombres,apellidos,correo,telefono,direccion,rol,departamento FROM profesores WHERE id_usuario = :idUsuario";
+                            $stmt = $pdo->prepare($sql);
+    
+                            $stmt->bindParam(":idUsuario", $idUsuario, PDO::PARAM_STR);
+                            $stmt->execute();
+    
+                            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+                            if ($result) {
+                                        echo '<div class="general-info-container">
+                                                <img src="../../assets/user.png" alt="" class="usuario-imagen">
+                                                <h3 title="Nombre del Usuario"> '.$result['nombres']. " " .$result['apellidos'].'</h3>
+                                                <div class="info">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-mail">
+                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                        <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" />
+                                                        <path d="M3 7l9 6l9 -6" />
+                                                    </svg>
+    
+                                                    <h3>'.$result['correo'].'</h3>
+                                                </div>
+                                                <div class="telefono-usuario info">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-phone">
+                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                        <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" />
+                                                    </svg>
+                                                    <h3>'.$result['telefono'].'</h3>
+                                                </div>
+                                            </div>
+                                            <div class="informacion">
+                                                <header class="informacion-header">
+                                                    <h1>Informacion</h1>
+                                                </header>
+                                                <div class="informacion-container">
+                                                    <div class="info">
+                                                        <h3>Numero de Control : </h3>
+                                                        <h3>'.$result['id_usuario'].'</h3>
+                                                    </div>
+                                                    <div class="info">
+                                                        <h3>Direccion : </h3>
+                                                        <h3>'.$result['direccion'].'</h3>
+                                                    </div>
+                                                    <div class="info">
+                                                        <h3>Rol : </h3>
+                                                        <h3>'.$result['rol'].'</h3>
+                                                    </div>
+                                                    <div class="info">
+                                                        <h3>Departamento : </h3>
+                                                        <h3>'.$result['departamento'].'</h3>
+                                                    </div>
+                                                </div>
+                                            </div>';
+                                    
+                            } else {
+                                echo '<h1>No se pudo cargar la informacion del usuario</h1>';
+                            }
+                        } catch (PDOException $e) {
+                            echo '<h1>No se pudo cargar la informacion del usuario</h1>';
+
+                        }   
+                        ?> 
+
             </div>
         </section>
+
+
     </main>
 </body>
 

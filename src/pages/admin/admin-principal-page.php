@@ -7,7 +7,7 @@
     <link
         rel="stylesheet"
         href="../../styles/admin/admin-principal-page.css" />
-    <title>Libreria</title>
+    <title>Principal</title>
     <link rel="icon" href="assets/logo1.webp" />
     <script src="../../scripts/admin/admin-principal-page.js" defer></script>
 </head>
