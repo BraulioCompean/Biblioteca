@@ -101,75 +101,21 @@ $_SESSION['idUsuario'] = "P0000005";
             </div>
         </div>
     </dialog>
-    <dialog class="modal" id="modal-delete-book">
-        <div class="modal-content-delete-book">
-            <div class="search-book-delete">
-                <label for="">Buscar libro a eliminar(ISBN)</label>
-                <input type="text" id="search-book-delete" name="search-book-delete-isbn">
+    <dialog class="modal" id="modal-borrar-libro">
+        <div class="modal-content">
+            <div id="busqueda">
+                <form class="search-libro-eliminar">
+                    <label for="">Buscar libro a eliminar(ISBN)</label>
+                    <input type="text" id="search-libro-borrar" name="search-libro-borrar-isbn">
+                </form>
+                <button id="buscar-libro-eliminar-btn" value="form2" class="btns-modal">
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
+                    Buscar
+                </button>
             </div>
-            <button id="buscar-libro-delete-btn" value="form2">Buscar</button>
-        </div>
-    </dialog>
-    <dialog class="modal" id="modal-show-info-delete-book">
-        <div class="modal-content-show-info-delete-book">
-            <section class="image-modal-book-container">
-                <img
-                    src="../../assets/jardinmariposas.jpg"
-                    class="modal-img-book"
-                    alt=""
-                    id="modal-img" />
-                <div class="modal-btns-interactive">
-                    <button class="btns-modal" id="add-favorites-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-heart">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
-                        </svg>
-                        <span>Agregar a Favoritos</span>
-                    </button>
-                </div>
-            </section>
-            <section class="book-info-container">
-                <div class="title-modal-container">
-                    <h2>Titulo</h2>
-                    <h3 id="book-title">El Jardin De Las Mariposas</h3>
-                </div>
-                <div>
-                    <h2>Autor</h2>
-                    <h3 class="book-info-h3" id="book-author">Dot Hutchison</h3>
-                </div>
-                <div class="editorial-modal-container">
-                    <h2>Editorial</h2>
-                    <h3 class="book-info-h3" id="book-editorial">Planeta</h3>
-                </div>
-
-                <div class="categories-modal-container">
-                    <h2>Categoria</h2>
-                    <h3 id="book-category">Novela</h3>
-                </div>
-                <div class="synopsis-modal-container">
-                    <h2>Sinopsis</h2>
-                    <p id="book-synopsis">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing
-                        elit. Cras sollicitudin eget dui vel mattis. Mauris
-                        dictum urna nulla, in semper quam lobortis quis.
-                        Nunc vitae est pulvinar, aliquet magna et, commodo
-                        odio. Nam volutpat nec dui at posuere. Quisque
-                        pretium turpis sit amet ipsum lobortis, nec congue
-                        arcu pulvinar. Suspendisse orci nisi, rhoncus
-                        venenatis ultricies sit amet, maximus lobortis
-                        velit. Ut quis accumsan felis, quis tincidunt dui.
-                        Integer ullamcorper ex commodo risus auctor feugiat.
-                        Pellentesque sollicitudin metus vel justo tristique
-                        commodo. Morbi lacus neque, rutrum ut ligula eu,
-                        ultrices faucibus quam. Sed mollis rhoncus laoreet.
-                        Nunc a lectus a ipsum fermentum congue. Nulla vel
-                        mollis lorem, id laoreet mauris. Orci varius natoque
-                        penatibus et magnis dis parturient montes, nascetur
-                        ridiculus mus. Fusce commodo rutrum tortor sed
-                        dignissim.
-                    </p>
-                </div>
-            </section>
+            <div id="datos-libro-eliminar">
+                
+            </div>
         </div>
     </dialog>
     <dialog class="modal" id="modal-opciones-registrar-usuario">

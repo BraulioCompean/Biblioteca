@@ -41,7 +41,7 @@ try {
             $response['mensaje'] = 'El libro se ha agregado al sistema';
         }else{
             $response['exito'] = false;
-            $response['mensaje'] = 'El libro ya existe en el sistema';
+            $response['mensaje'] = 'No se pudo agregar el libro';
         }
         
 
@@ -49,8 +49,14 @@ try {
 
 
 } catch (PDOException $e) {
-    $response['exito'] = false;
-    $response['mensaje'] = "Error inesperado: " . $e->getMessage();
+    if($e->getCode() === "23505"){
+        $response['exito'] = false;
+        $response['mensaje'] = "El libro ya existe en el sistema";
+    }else{
+        $response['exito'] = false;
+        $response['mensaje'] = "Error inesperado: " . $e->getMessage();
+
+    }
 }
 
 echo json_encode($response);
