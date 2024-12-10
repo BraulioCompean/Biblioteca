@@ -65,7 +65,7 @@ $_SESSION['idUsuario'] = "00000001";
             </section>
         </div>
     </dialog>
-
+    <!-- MODAL DEVOLVER LIBRO -->
     <dialog class="modal" id="modal-devolver-libro">
         <div class="modal-content" id="modal-content-devolver">
             <div id="form-container-devolver-libro">
@@ -73,22 +73,29 @@ $_SESSION['idUsuario'] = "00000001";
                 <form action="../../db/devolver-libro.php" id="form-devolver-libro" method="post">
                     <input type="hidden" id="isbn-devolver-libro-modal" name="isbn-devolver-libro">
                     <input type="hidden" id="id-usuario-devolver-libro" name="id-usuario-devolver-libro" value="<?php echo $_SESSION['idUsuario']; ?>">
-                    <button class="btn-devolver-prestamo" id="confirmar-devolver-btn">Confirmar</button>
-                    <button class="btn-devolver-prestamo" id="cancelar-devolver-btn">Cancelar</button>
+                    <div class="btns-container">
+                        <button class="btns-modal" id="confirmar-devolver-btn" type="submit">
+                            <span>Confirmar</span>
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-settings-check"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M11.445 20.913a1.665 1.665 0 0 1 -1.12 -1.23a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.31 .318 1.643 1.79 .997 2.694" /><path d="M15 19l2 2l4 -4" /><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /></svg>
+                        </button>
+                        <button class="btns-modal" id="cancelar-devolver-btn" type="button">
+                            <span>Cancelar</span>
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-cancel"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M18.364 5.636l-12.728 12.728" /></svg>
+                        </button>
+                    </div>
                 </form>
             </div>
             <div id="container-mensaje-devolver-libro">
             </div>
         </div>
         <div id="container-mensaje-devolver-libro">
-
         </div>
     </dialog>
 
     <aside class="aside-nav-section">
         <div class="library-title">
             <img src="../../assets/logo1.webp" alt="" id="imgL" />
-            <h1>Librería</h1>
+            <h1>Biblioteca</h1>
         </div>
         <nav class="nav-section">
             <ul class="nav-options-list">
@@ -105,7 +112,16 @@ $_SESSION['idUsuario'] = "00000001";
                 </li>
                 <li class="nav-element">
                     <a href="../alumno/alumno-explorar-page.php">
-                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-world-search"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M21 12a9 9 0 1 0 -9 9" /><path d="M3.6 9h16.8" /><path d="M3.6 15h7.9" /><path d="M11.5 3a17 17 0 0 0 0 18" /><path d="M12.5 3a16.984 16.984 0 0 1 2.574 8.62" /><path d="M18 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M20.2 20.2l1.8 1.8" /></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-world-search">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M21 12a9 9 0 1 0 -9 9" />
+                            <path d="M3.6 9h16.8" />
+                            <path d="M3.6 15h7.9" />
+                            <path d="M11.5 3a17 17 0 0 0 0 18" />
+                            <path d="M12.5 3a16.984 16.984 0 0 1 2.574 8.62" />
+                            <path d="M18 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                            <path d="M20.2 20.2l1.8 1.8" />
+                        </svg>
                         <h4>Explorar</h4>
                     </a>
                 </li>
@@ -120,6 +136,15 @@ $_SESSION['idUsuario'] = "00000001";
                             <path d="M21 6l0 13" />
                         </svg>
                         <h4>Mi libreria</h4>
+                    </a>
+                </li>
+                <li class="nav-element">
+                    <a href="../alumno/alumno-recomendados-page.php">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
+                        </svg>
+                        <h4>Recomendados</h4>
                     </a>
                 </li>
                 <li class="nav-element">
@@ -182,7 +207,7 @@ $_SESSION['idUsuario'] = "00000001";
             <header>
                 <h1>Mi libreria</h1>
             </header>
-            <div class="books-container">
+            <div class="libros-container">
                 <?php
 
                 require_once '../../db/Database.php';
@@ -190,7 +215,7 @@ $_SESSION['idUsuario'] = "00000001";
                 $pdo = $db->getConnection();
                 $idUsuario = $_SESSION['idUsuario'];
                 // $idusuarioactual = "00000001";
-                $sql = "SELECT isbn FROM prestamos WHERE id_estudiante = :idusuario AND fecha_entrega IS NULL LIMIT 5";
+                $sql = "SELECT isbn FROM prestamos WHERE id_estudiante = :idusuario AND fecha_entrega IS NULL";
 
                 $stmt = $pdo->prepare($sql);
 
@@ -203,7 +228,7 @@ $_SESSION['idUsuario'] = "00000001";
                     for ($i = 0; $i < count($result); $i++) {
                         $isbn = $result[$i]['isbn'];
 
-                        $sql_datos_libro = "SELECT isbn,titulo,autor,imagen FROM libros WHERE isbn = :isbn LIMIT 5";
+                        $sql_datos_libro = "SELECT isbn,titulo,autor,imagen FROM libros WHERE isbn = :isbn";
                         $stmt_libro = $pdo->prepare($sql_datos_libro);
                         $stmt_libro->bindParam(":isbn", $isbn, PDO::PARAM_STR);
                         $stmt_libro->execute();

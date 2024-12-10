@@ -19,10 +19,10 @@ $_SESSION['idUsuario'] = "00000001";
 </head>
 
 <body>
-<aside class="aside-nav-section">
+    <aside class="aside-nav-section">
         <div class="library-title">
             <img src="../../assets/logo1.webp" alt="" id="imgL" />
-            <h1>Librería</h1>
+            <h1>Biblioteca</h1>
         </div>
         <nav class="nav-section">
             <ul class="nav-options-list">
@@ -39,7 +39,16 @@ $_SESSION['idUsuario'] = "00000001";
                 </li>
                 <li class="nav-element">
                     <a href="../alumno/alumno-explorar-page.php">
-                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-world-search"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M21 12a9 9 0 1 0 -9 9" /><path d="M3.6 9h16.8" /><path d="M3.6 15h7.9" /><path d="M11.5 3a17 17 0 0 0 0 18" /><path d="M12.5 3a16.984 16.984 0 0 1 2.574 8.62" /><path d="M18 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M20.2 20.2l1.8 1.8" /></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-world-search">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M21 12a9 9 0 1 0 -9 9" />
+                            <path d="M3.6 9h16.8" />
+                            <path d="M3.6 15h7.9" />
+                            <path d="M11.5 3a17 17 0 0 0 0 18" />
+                            <path d="M12.5 3a16.984 16.984 0 0 1 2.574 8.62" />
+                            <path d="M18 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                            <path d="M20.2 20.2l1.8 1.8" />
+                        </svg>
                         <h4>Explorar</h4>
                     </a>
                 </li>
@@ -54,6 +63,15 @@ $_SESSION['idUsuario'] = "00000001";
                             <path d="M21 6l0 13" />
                         </svg>
                         <h4>Mi libreria</h4>
+                    </a>
+                </li>
+                <li class="nav-element">
+                    <a href="../alumno/alumno-recomendados-page.php">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
+                        </svg>
+                        <h4>Recomendados</h4>
                     </a>
                 </li>
                 <li class="nav-element">
@@ -113,7 +131,7 @@ $_SESSION['idUsuario'] = "00000001";
     </aside>
     <main>
         <section class="prestamos-historial">
-            <header>
+            <header class="header-prestamos">
                 <h1>Historial de Prestamos</h1>
             </header>
             <div class="prestamos-container">

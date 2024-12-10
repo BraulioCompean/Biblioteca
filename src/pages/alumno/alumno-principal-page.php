@@ -41,16 +41,6 @@ $_SESSION['idUsuario'] = "00000001";
                         </svg>
                         <span>Tramitar prestamo</span>
                     </button>
-                    <button class="btns-modal" id="recomendar-libro-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-gift">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path d="M3 8m0 1a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1z" />
-                            <path d="M12 8l0 13" />
-                            <path d="M19 12v7a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-7" />
-                            <path d="M7.5 8a2.5 2.5 0 0 1 0 -5a4.8 8 0 0 1 4.5 5a4.8 8 0 0 1 4.5 -5a2.5 2.5 0 0 1 0 5" />
-                        </svg>
-                        <span>Recomendar</span>
-                    </button>
                 </div>
             </section>
             <section class="libro-info-container">
@@ -152,6 +142,15 @@ $_SESSION['idUsuario'] = "00000001";
                     </a>
                 </li>
                 <li class="nav-element">
+                    <a href="../alumno/alumno-recomendados-page.php">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
+                        </svg>
+                        <h4>Recomendados</h4>
+                    </a>
+                </li>
+                <li class="nav-element">
                     <a href="../alumno/alumno-historial-prestamos-page.php">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-building-bank">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -215,7 +214,31 @@ $_SESSION['idUsuario'] = "00000001";
                     <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
                     <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
                 </svg>
-                <h3 id="header-user-name">Juan</h3>
+                <h3 id="header-user-name">
+                    <?php
+                    require_once '../../db/Database.php';
+                    try {
+                        $db = new Database();
+                        $pdo = $db->getConnection();
+                        $idUsuario = $_SESSION['idUsuario'];
+                        $sql = "SELECT nombres,apellidos FROM estudiantes WHERE id_usuario = :idUsuario";
+
+                        $stmt = $pdo->prepare($sql);
+                        $stmt->bindParam(":idUsuario", $idUsuario, PDO::PARAM_STR);
+                        $stmt->execute();
+                        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                        if ($result) {
+                            echo $result['nombres'] . " " . $result['apellidos'];
+                        } else {
+                            echo "Sin nombre";
+                        }
+                    } catch (PDOException $e) {
+                        echo 'Sin nombre';
+                    }
+                    ?>
+
+                </h3>
             </a>
         </header>
         <nav class="opciones-navegar-principal">
@@ -292,26 +315,26 @@ $_SESSION['idUsuario'] = "00000001";
                 </header>
                 <div class="navegar-libros-container">
 
-                <?php
+                    <?php
 
-                require_once '../../db/Database.php';
-                try {
+                    require_once '../../db/Database.php';
+                    try {
 
-                    $db = new Database();
-                    $pdo = $db->getConnection();
+                        $db = new Database();
+                        $pdo = $db->getConnection();
 
-                  
-                    $sql = "SELECT isbn, titulo, autor, imagen 
+
+                        $sql = "SELECT isbn, titulo, autor, imagen 
                                 FROM libros
                                 ORDER BY RANDOM() 
                                 LIMIT 5;";
-                    $stmt = $pdo->prepare($sql);
-                    $stmt->execute();
+                        $stmt = $pdo->prepare($sql);
+                        $stmt->execute();
 
-                    $libros = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                    if (!empty($libros)) {
-                        foreach ($libros as $libro) {
-                            echo '<div class="book-card" id = "' . htmlspecialchars($libro['isbn']) . '">
+                        $libros = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                        if (!empty($libros)) {
+                            foreach ($libros as $libro) {
+                                echo '<div class="book-card" id = "' . htmlspecialchars($libro['isbn']) . '">
                                 <img
                                     src="' . htmlspecialchars($libro['imagen']) . '"
                                     alt=""
@@ -324,14 +347,74 @@ $_SESSION['idUsuario'] = "00000001";
                                     <h5>' . htmlspecialchars($libro['autor']) . '</h5>
                                 </div>
                             </div>';
+                            }
+                        } else {
+                            echo '<h1 style="color: red;">No tienes libros añadidos a tu libreria</h2>';
+                        }
+                    } catch (PDOException $e) {
+                        echo '<h1>No tienes libros añadidos a tu libreria</h1>';
+                    }
+                    ?>
+                </div>
+            </div>
+            <div class="recomendados navegar-card">
+                <header class="navegar-card-header">
+                    <h2>Ver Recomendados</h2>
+                    <a href="../alumno/alumno-recomendados-page.php" id="ver-recomendados-btn" class="navegar-card-btns">
+                        Ver recomendados
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
+                        </svg>
+                    </a>
+                </header>
+                <div class="navegar-libros-container">
+
+                    <?php
+
+                    require_once '../../db/Database.php';
+                    $db = new Database();
+                    $pdo = $db->getConnection();
+
+                    $idusuarioactual = "00000001";
+                    $sql = "SELECT libro FROM recomendados WHERE estudiante = :idusuario";
+
+                    $stmt = $pdo->prepare($sql);
+
+                    $stmt->bindParam(":idusuario", $idusuarioactual, PDO::PARAM_STR);
+                    $stmt->execute();
+
+                    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    if (!empty($result)) {
+                        foreach ($result as $row) {
+                            $isbn = $row['libro'];
+
+                            $sql_datos_libro = "SELECT isbn,titulo,autor,imagen FROM libros WHERE isbn = :isbn";
+                            $stmt_libro = $pdo->prepare($sql_datos_libro);
+                            $stmt_libro->bindParam(":isbn", $isbn, PDO::PARAM_STR);
+                            $stmt_libro->execute();
+                            $libro = $stmt_libro->fetch(PDO::FETCH_ASSOC);
+
+                            if ($libro) {
+                                echo '<div class="book-card" id = "' . $libro['isbn'] . '">
+                                        <img
+                                            src="' . $libro['imagen'] . '"
+                                            alt=""
+                                            class="img-book-card"
+                                        />
+                                        <div class="book-card-info-container">
+                                            <h4 class="book-name">
+                                               ' . $libro['titulo'] . '
+                                            </h4>
+                                            <h5>' . $libro['autor'] . '</h5>
+                                        </div>
+                                    </div>';
+                            }
                         }
                     } else {
-                        echo '<h1 style="color: red;">No tienes libros añadidos a tu libreria</h2>';
+                        echo '<h4>No te han recomendado ningun libro</h4>';
                     }
-                } catch (PDOException $e) {
-                    echo '<h1>No tienes libros añadidos a tu libreria</h1>';
-                }
-                ?>
+                    ?>
                 </div>
             </div>
         </nav>

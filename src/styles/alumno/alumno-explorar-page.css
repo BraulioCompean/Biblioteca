@@ -205,6 +205,177 @@ a:visited {
     color: black;
 }
 
+/* ------------------------- ------------------------- ------------------------- ------------------------- ------------------------- */
+
+.navegar {
+    border: 1px solid var(--black);
+    width: 100%;
+    height: 60px;
+    padding: 10px;
+    /* box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+}
+
+/* ------------------------- ------------------------- ------------------------- ------------------------- ------------------------- */
+
+/* 
+
+███╗░░░███╗░█████╗░██████╗░░█████╗░██╗░░░░░
+████╗░████║██╔══██╗██╔══██╗██╔══██╗██║░░░░░
+██╔████╔██║██║░░██║██║░░██║███████║██║░░░░░
+██║╚██╔╝██║██║░░██║██║░░██║██╔══██║██║░░░░░
+██║░╚═╝░██║╚█████╔╝██████╔╝██║░░██║███████╗
+╚═╝░░░░░╚═╝░╚════╝░╚═════╝░╚═╝░░╚═╝╚══════╝
+
+    ELEMENTOS GENERALES PARA LOS MODAL Y SU CONTENIDO
+*/
+
+.modal {
+    display: none;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    display: flex;
+    margin: auto;
+    background-color: white;
+    height: fit-content;
+    width: fit-content;
+    border: 1px solid gray;
+    padding: 30px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    gap: 30px;
+}
+
+
+.modal-content h1,
+.modal-content h2,
+.modal-content h3,
+.modal-content h4,
+.modal-content h5,
+.modal-content h6{
+    margin: 0;
+}
+
+.modal-btns-interactive{ /* contenedor para los botones en el modal */
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    gap: 15px;
+}
+.btns-modal{  /* estilo general para los botones dentro de los modal*/
+    display: flex;
+    align-items: center;
+    background: none;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1px solid gray;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.btns-modal:hover{background-color: var(--DARK-GOLDENROD); color: white}
+
+.btns-modal:hover svg{ /*cada vez que se pasa el cursor por encima del btn su icono svg se pinta*/
+    stroke: white;
+}
+
+.img-btns-modal{ /*contenedor para los botones del modal y la imagen del lbro*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/*   MODAL MOSTRAR LIBRO*/
+.libro-info-container h2{
+    font-weight: lighter;
+}
+.libro-info-container h3,
+#libro-sinopsis{
+    font-weight:lighter;
+
+}
+#libro-titulo{
+    font-weight: 700;
+}
+
+#libro-sinopsis{
+    width: 100%;
+    text-align: center;
+}
+
+.libro-info-container{
+    width: 400px;
+    height: fit-content;
+    overflow-y: auto;
+    text-align: center;
+}
+
+.libro-info-container::-webkit-scrollbar{
+    width: 5px;
+}
+
+.libro-info-container::-webkit-scrollbar-track{
+    background-color: transparent;
+}
+.libro-info-container::-webkit-scrollbar-thumb{
+    background-color: rgb(155, 149, 149);
+    border-radius: 20px;
+}
+
+.modal-img-libro{
+    width: 250px;
+    height: 400px;  
+}
+
+/* 
+MODAL -> RECOMENDAR LIBRO
+
+*/
+
+
+/* 
+███╗░░░███╗░█████╗░██████╗░░█████╗░██╗░░░░░  ██████╗░██████╗░███████╗░██████╗████████╗░█████╗░███╗░░░███╗░█████╗░
+████╗░████║██╔══██╗██╔══██╗██╔══██╗██║░░░░░  ██╔══██╗██╔══██╗██╔════╝██╔════╝╚══██╔══╝██╔══██╗████╗░████║██╔══██╗
+██╔████╔██║██║░░██║██║░░██║███████║██║░░░░░  ██████╔╝██████╔╝█████╗░░╚█████╗░░░░██║░░░███████║██╔████╔██║██║░░██║
+██║╚██╔╝██║██║░░██║██║░░██║██╔══██║██║░░░░░  ██╔═══╝░██╔══██╗██╔══╝░░░╚═══██╗░░░██║░░░██╔══██║██║╚██╔╝██║██║░░██║
+██║░╚═╝░██║╚█████╔╝██████╔╝██║░░██║███████╗  ██║░░░░░██║░░██║███████╗██████╔╝░░░██║░░░██║░░██║██║░╚═╝░██║╚█████╔╝
+╚═╝░░░░░╚═╝░╚════╝░╚═════╝░╚═╝░░╚═╝╚══════╝  ╚═╝░░░░░╚═╝░░╚═╝╚══════╝╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░░░░╚═╝░╚════╝░
+    MODAL PRESTAMO DE LIBRO
+*/
+
+
+#form-prestamo{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    gap: 30px;
+}
+
+
+
+
+/*  */
+
+/* ------------------------- ------------------------- ------------------------- ------------------------- ------------------------- */
+
+/* ------------------------- ------------------------- ------------------------- ------------------------- ------------------------- */
 
 /* 
 
@@ -217,55 +388,78 @@ a:visited {
     ESTILOS PARA EL CONTENIDO PRINCIPAL DE EXPLORAR EL CATALOGO
 */
 
-.prestamos-historial{
+.header-explorar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-explorar input{
+    width: 400px;
+}
+.explorar-libros{
     display: flex;
     flex-direction: column;
     gap: 50px;
 }
-
-.prestamos-container{
+.explorar-container{
     display: flex;
-    flex-direction: column;
-    gap: 25px;
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap;
+    gap: 45px;
+}
+/* ------------------------- ------------------------- ------------------------- ------------------------- ------------------------- */
+/* 
+██████╗░░█████╗░░█████╗░██╗░░██╗  ░█████╗░░█████╗░██████╗░██████╗░
+██╔══██╗██╔══██╗██╔══██╗██║░██╔╝  ██╔══██╗██╔══██╗██╔══██╗██╔══██╗
+██████╦╝██║░░██║██║░░██║█████═╝░  ██║░░╚═╝███████║██████╔╝██║░░██║
+██╔══██╗██║░░██║██║░░██║██╔═██╗░  ██║░░██╗██╔══██║██╔══██╗██║░░██║
+██████╦╝╚█████╔╝╚█████╔╝██║░╚██╗  ╚█████╔╝██║░░██║██║░░██║██████╔╝
+╚═════╝░░╚════╝░░╚════╝░╚═╝░░╚═╝  ░╚════╝░╚═╝░░╚═╝╚═╝░░╚═╝╚═════╝░ 
+    ESTILO GENERAL PARA EL SITIO WEB PARA LOS BOOK CARDS
+*/
+
+
+
+
+.img-book-card {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 150px;
+    border: none;
+    margin: none;
+    margin: 0;
 }
 
-.prestamo-card{
-    width: 95%;
-    height: fit-content;
-    padding: 10px;
+.book-card {
+    width: 150px;
+    max-width: 150px;
+    border: none;
+    height: auto;
+    cursor: pointer;
     border: 1px solid gray;
     border-radius: 10px;
-    transition: scale 1.5s,background-color 1.5s;
 }
 
 
-.prestamo-card:hover{
-    transform: scale(1.01);
+.book-card-info-container h4 {
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
 }
 
-.prestamo-card h3,
-.prestamo-card h5{
-    color: black;
+.book-card-info-container h5 {
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+    padding: 0;
 }
 
-/* COLOR PERSONALZIADO PARA EL ESTADO DEL PRESTAMO */
-
-.Vencido{
-    background-color: rgb(115, 29, 29);
-}
-
-.Vencido:hover{
-    background-color: rgb(210, 36, 36);
-}
-.Activo{
-    background-color: rgb(45, 115, 45);
-}
-.Activo:hover{
-    background-color: rgb(46, 165, 46);
-}
-.Devuelto{
-    background-color: rgb(22, 93, 198);
-}
-.Devuelto:hover{
-    background-color:rgb(82, 144, 236)  ;
+.book-card-info-container {
+    padding: 0;
 }

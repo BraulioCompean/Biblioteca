@@ -57,7 +57,6 @@ bookCards.forEach((card) => {
 });
 // ------------------------------------------------------------------------------------------------
 
-// ------------------------------------------------------------------------------------------------
 
 
 
@@ -121,8 +120,6 @@ confirmarPrestamo.addEventListener("click",async (event)=>{
 })
 
 
-// ------------------------------------------------------------------------------------------------
-// SALIDAS DE LOS MODAL
 window.addEventListener("click", (event) => {
     switch (event.target) {
         case modalMostrarLibro:
@@ -136,7 +133,3 @@ window.addEventListener("click", (event) => {
         
     }
 });
-
-
-
-

@@ -1,85 +1,147 @@
+/* -------------------------------------
+    FUENTES UTILIZADAS
+   -------------------------------------
+*/
+
 @import url("https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-/* ------------------------------------------ */
 
+/* 
 
+██████╗░░█████╗░██╗░░░░░███████╗████████╗░█████╗░
+██╔══██╗██╔══██╗██║░░░░░██╔════╝╚══██╔══╝██╔══██╗
+██████╔╝███████║██║░░░░░█████╗░░░░░██║░░░███████║
+██╔═══╝░██╔══██║██║░░░░░██╔══╝░░░░░██║░░░██╔══██║
+██║░░░░░██║░░██║███████╗███████╗░░░██║░░░██║░░██║
+╚═╝░░░░░╚═╝░░╚═╝╚══════╝╚══════╝░░░╚═╝░░░╚═╝░░╚═╝
+    PALETA DE COLORES A UTILIZAR
+*/
 
-:root{
-    --bg-btns-hover-modal: #0055ff;
+:root {
+    --DARK-GOLDENROD: #b08401;
+    --TAN:#d49e8d;
+    --DUST-STORM:#ded1bd;
+    --WHITE-SMOKE:#faf6f2;
+    --VAN-DYKE-BROWN:#683b2b;
 }
 
-
-/* ESTILOS GENERALES */
-
-/* ------------------------------------------ */
+/* 
 
 
+
+███████╗██╗░░░░░███████╗███╗░░░███╗███████╗███╗░░██╗████████╗░█████╗░░██████╗
+██╔════╝██║░░░░░██╔════╝████╗░████║██╔════╝████╗░██║╚══██╔══╝██╔══██╗██╔════╝
+█████╗░░██║░░░░░█████╗░░██╔████╔██║█████╗░░██╔██╗██║░░░██║░░░██║░░██║╚█████╗░
+██╔══╝░░██║░░░░░██╔══╝░░██║╚██╔╝██║██╔══╝░░██║╚████║░░░██║░░░██║░░██║░╚═══██╗
+███████╗███████╗███████╗██║░╚═╝░██║███████╗██║░╚███║░░░██║░░░╚█████╔╝██████╔╝
+╚══════╝╚══════╝╚══════╝╚═╝░░░░░╚═╝╚══════╝╚═╝░░╚══╝░░░╚═╝░░░░╚════╝░╚═════╝░
+
+░██████╗░███████╗███╗░░██╗███████╗██████╗░░█████╗░██╗░░░░░███████╗░██████╗
+██╔════╝░██╔════╝████╗░██║██╔════╝██╔══██╗██╔══██╗██║░░░░░██╔════╝██╔════╝
+██║░░██╗░█████╗░░██╔██╗██║█████╗░░██████╔╝███████║██║░░░░░█████╗░░╚█████╗░
+██║░░╚██╗██╔══╝░░██║╚████║██╔══╝░░██╔══██╗██╔══██║██║░░░░░██╔══╝░░░╚═══██╗
+╚██████╔╝███████╗██║░╚███║███████╗██║░░██║██║░░██║███████╗███████╗██████╔╝
+░╚═════╝░╚══════╝╚═╝░░╚══╝╚══════╝╚═╝░░╚═╝╚═╝░░╚═╝╚══════╝╚══════╝╚═════╝░
+                                                                                                 
+        html,body,hS,etc                                                      
+
+
+*/
 
 body {
     font-family: "Host Grotesk";
     display: flex;
     overflow: hidden;
     background-color: white;
+    overflow-y: hidden;
     display: flex;
     margin: 0;
+    background-color: var(--WHITE-SMOKE);
+    border: none;
 }
+
 main {
+    height: 98vh;
     width: 100%;
-    height: 100vh;
-    max-height: 100vh;
-    padding-right: 20px;
+    padding: 20px;
+    margin: 10px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    overflow-y: scroll;
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total del contenedor */
+    border: 1px solid gray;
+    background-color: var(--DUST-STORM);
     overflow-x: hidden;
-    padding-left: 10px;
-}
-
-nav hr {
-    width: 90%;
-}
-
-a:visited{
-    color: black;
+    overflow-y: auto;
 }
 
 
-
-
-
-/* ------------------------------------------ */
-/* SCROLLBAR ESTILOS */
-/* ------------------------------------------ */
-
-.mi-libreria::-webkit-scrollbar{
+main::-webkit-scrollbar {
     width: 5px;
 }
 
-.mi-libreria::-webkit-scrollbar-track{
+main::-webkit-scrollbar-track {
     background-color: transparent;
 }
-.mi-libreria::-webkit-scrollbar-thumb{
+main::-webkit-scrollbar-thumb {
     background-color: rgb(155, 149, 149);
     border-radius: 20px;
 }
 
 
 
+h1,h2,h3,h4,h5,h6 {margin: 0; color: var(--VAN-DYKE-BROWN);}
+/* SCROLL DEL CONTENIDO PRINCIPAL */
 
-/* ------------------------------------------ */
-/* ASIDE MENU - ESTILOS */
-/* ------------------------------------------ */
 
+input{
+    font-size: 19px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    background: none;
+    transition: border 0.5s;
+    
+}
+input:hover{
+    border: 1px solid black;
+}
+/* ------------------------- ------------------------- ------------------------- ------------------------- ------------------------- */
+
+/* 
+░█████╗░░██████╗██╗██████╗░███████╗
+██╔══██╗██╔════╝██║██╔══██╗██╔════╝
+███████║╚█████╗░██║██║░░██║█████╗░░
+██╔══██║░╚═══██╗██║██║░░██║██╔══╝░░
+██║░░██║██████╔╝██║██████╔╝███████╗
+╚═╝░░╚═╝╚═════╝░╚═╝╚═════╝░╚══════╝
+
+
+    ESTILOS PARA LA BARRA DE NAVEGACION LATERAL
+
+*/
+
+.library-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#imgL {
+    text-align: center;
+    margin: 8px;
+    width: 50px;
+    height: 50px;
+}
 
 .aside-nav-section {
     width: 280px;
     height: 100vh;
-    border: 1px solid black;
-    background-color: white;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    border-right: 1px solid gray ;
 }
 
-
+.nav-element a svg {
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 5px;
+}
 
 .nav-options-list {
     width: 100%;
@@ -90,34 +152,23 @@ a:visited{
     gap: 20px;
 }
 
-
 .nav-element {
-    display: flex;
     width: fit-content;
     align-items: center;
     cursor: pointer;
-    margin-left: 25%;
-    color: black;
+    margin-left: 15%;
+    list-style: none;
 }
 
-
-
-
 .nav-element:hover .icon {
+    background-color: var(--DARK-GOLDENROD);
     stroke: white;
 }
 
-.library-title {
-    display: flex;
-    justify-content: center;
+.icon {
+    stroke: black;
+    transition: stroke 0.5s, background-color 0.5s;
 }
-#imgL {
-    text-align: center;
-    margin: 8px;
-    width: 50px;
-    height: 50px;
-}
-
 
 .user-menu {
     width: 100%;
@@ -128,136 +179,74 @@ a:visited{
     gap: 20px;
 }
 
-.nav-element a{
+nav hr {
+    width: 90%;
+}
+
+.nav-element a {
     display: flex;
     align-items: center;
-    text-decoration: none;
     gap: 10px;
+    text-decoration: none;
 }
 
+.nav-element a h4 {
+    margin: 0;
+}
 
-.nav-element a svg{
+.nav-element a svg {
     border: 1px solid gray;
     border-radius: 5px;
-    background-color: rgb(218, 199, 199);
+    background-color: var(--mountbatten-pink);
     padding: 5px;
 }
 
-
-.nav-element:hover .icon {
-    stroke: white;
-    background-color: #0055ff;
+a:visited {
+    color: black;
 }
 
+/* ------------------------- ------------------------- ------------------------- ------------------------- ------------------------- */
 
-.nav-element a h4{
-    margin: 0;
-}
-
-
-
-/* ----------------------------------- */
-/* SECTION : Mi libreria*/
-/* ----------------------------------- */
-
-
-.mi-libreria{
-    margin-top: 10px;
-    border: 1px solid gray;
-    margin-bottom:10px;
-    border-radius: 10px;
-    padding: 10px;
-    height: 95%;
-}
-
-
-.books-container{
-    display: flex;
-    gap: 30px;
-    flex-wrap: wrap;
-}
-
-
-
-/* ----------------------------------- */
-/* BOOK CARD                            */
-/* ----------------------------------- */
-
-.book-card {
-    padding: 5px;
-    width: 150px;
-    max-width: 150px;
-    border: none;
-    height: auto;
-    cursor: pointer;
-}
-
-.img-book-card {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    width: 150px;
-    border: none;
-    margin: none;
-    margin: 0;
-}
-
-.img-book-card {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    width: 150px;
-    border: none;
-    margin: none;
-    margin: 0;
-}
-
-.book-card {
-    width: 150px;
-    max-width: 150px;
-    border: none;
-    height: auto;
-    cursor: pointer;
-    border: 1px solid gray;
-    border-radius: 10px;
-    padding: 0;
-}
-
-
-.book-card-info-container h4 ,
-.book-card-info-container h5{
-    margin: 0;
+.navegar {
+    border: 1px solid var(--black);
     width: 100%;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    text-align: center;
-    padding: 0;
+    height: 60px;
+    padding: 10px;
+    /* box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
 }
 
+/* ------------------------- ------------------------- ------------------------- ------------------------- ------------------------- */
 
-.book-card-info-container {
-    padding: 0;
-    
-}
+/* 
 
+███╗░░░███╗░█████╗░██████╗░░█████╗░██╗░░░░░
+████╗░████║██╔══██╗██╔══██╗██╔══██╗██║░░░░░
+██╔████╔██║██║░░██║██║░░██║███████║██║░░░░░
+██║╚██╔╝██║██║░░██║██║░░██║██╔══██║██║░░░░░
+██║░╚═╝░██║╚█████╔╝██████╔╝██║░░██║███████╗
+╚═╝░░░░░╚═╝░╚════╝░╚═════╝░╚═╝░░╚═╝╚══════╝
 
-/* ESTILOS MODAL - GENERAL */
+    ELEMENTOS GENERALES PARA LOS MODAL Y SU CONTENIDO
+*/
 
-.modal{
+.modal {
     display: none;
-    position: fixed; 
-    z-index: 1; 
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
     left: 0;
     top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto; 
-    background-color: rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.4); 
-    padding: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
-
-.modal-content{
+.modal-content {
     display: flex;
     margin: auto;
     background-color: white;
@@ -268,36 +257,8 @@ a:visited{
     justify-content: center;
     align-items: center;
     border-radius: 20px;
-    gap: 10px;
+    gap: 30px;
 }
-
-
-.btns-modal{
-    display: flex;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-    padding: 5px;
-    background:none;
-    border: none;
-    border: 1px solid gray;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.5s , color 0.5s;
-    width: fit-content;
-}
-
-.btns-modal svg{
-    transition: stroke 0.5s;
-}
-.btns-modal:hover svg{
-    stroke: white;
-}
-.btns-modal:hover {
-    color: white;
-    background-color: var(--bg-btns-hover-modal);
-}
-
 
 
 .modal-content h1,
@@ -309,10 +270,49 @@ a:visited{
     margin: 0;
 }
 
-.modal-btns-interactive{
+.modal-btns-interactive{ /* contenedor para los botones en el modal */
     display: flex;
     justify-content: center;
     margin-top: 15px;
+    gap: 15px;
+}
+.btns-modal{  /* estilo general para los botones dentro de los modal*/
+    display: flex;
+    align-items: center;
+    background: none;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1px solid gray;
+    transition: background-color 0.5s, color 0.5s;
+    padding: 5px;
+}
+
+.btns-modal:hover{background-color: var(--DARK-GOLDENROD); color: white}
+
+.btns-modal:hover svg{ /*cada vez que se pasa el cursor por encima del btn su icono svg se pinta*/
+    stroke: white;
+}
+
+.img-btns-modal{ /*contenedor para los botones del modal y la imagen del lbro*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/*   MODAL MOSTRAR LIBRO*/
+.libro-info-container h2{
+    font-weight: lighter;
+}
+.libro-info-container h3,
+#libro-sinopsis{
+    font-weight:lighter;
+
+}
+#libro-titulo{
+    font-weight: 700;
 }
 
 #libro-sinopsis{
@@ -344,64 +344,149 @@ a:visited{
     height: 400px;  
 }
 
-
-
-
-/* ESTILOS MODAL - INDIVIDUALES */
-/* ------------------------------------ */
-/* MODAL - MOSTRAR LIBRO */
-
-
-#devolver-libro-btn{
-    padding: 0;
-    padding: 10px;
-    border: none;
-    border: 1px solid gray;
-    border-radius: 10px;
-    margin-top: 20px;
-    transition: background-color 0.5s;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-#devolver-libro-btn:hover{
-    background-color: #0055ff;
-    color: white;
-
-}
-#devolver-libro-btn:hover svg{
-    stroke: white;
-}
-
-
-
-.btn-devolver-prestamo{
-    padding: 0;
-    padding: 10px;
-    border: none;
-    border: 1px solid gray;
-    border-radius: 10px;
-    margin-top: 20px;
-    transition: background-color 0.5s;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-#confirmar-devolver-btn:hover{
-    background-color: rgb(107, 169, 107);
-}
-
-#cancelar-devolver-btn:hover{
-    background-color: rgb(210, 32, 32);
-}
-
+/* MODAL DEVOLVER LIBRO */
 
 #form-devolver-libro{
     display: flex;
-     gap: 20px;
-     justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.btns-container{
+    display: flex;
+    gap: 30px;
+}
+
+#form-container-devolver-libro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+#confirmar-devolver-btn:hover{
+    background-color: green;
+}
+#cancelar-devolver-btn:hover{
+    background-color: red;
+}
+/* 
+███╗░░░███╗░█████╗░██████╗░░█████╗░██╗░░░░░  ██████╗░██████╗░███████╗░██████╗████████╗░█████╗░███╗░░░███╗░█████╗░
+████╗░████║██╔══██╗██╔══██╗██╔══██╗██║░░░░░  ██╔══██╗██╔══██╗██╔════╝██╔════╝╚══██╔══╝██╔══██╗████╗░████║██╔══██╗
+██╔████╔██║██║░░██║██║░░██║███████║██║░░░░░  ██████╔╝██████╔╝█████╗░░╚█████╗░░░░██║░░░███████║██╔████╔██║██║░░██║
+██║╚██╔╝██║██║░░██║██║░░██║██╔══██║██║░░░░░  ██╔═══╝░██╔══██╗██╔══╝░░░╚═══██╗░░░██║░░░██╔══██║██║╚██╔╝██║██║░░██║
+██║░╚═╝░██║╚█████╔╝██████╔╝██║░░██║███████╗  ██║░░░░░██║░░██║███████╗██████╔╝░░░██║░░░██║░░██║██║░╚═╝░██║╚█████╔╝
+╚═╝░░░░░╚═╝░╚════╝░╚═════╝░╚═╝░░╚═╝╚══════╝  ╚═╝░░░░░╚═╝░░╚═╝╚══════╝╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░░░░╚═╝░╚════╝░
+    MODAL PRESTAMO DE LIBRO
+*/
+
+
+#form-prestamo{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    gap: 30px;
+}
+
+
+
+
+/*  */
+
+/* ------------------------- ------------------------- ------------------------- ------------------------- ------------------------- */
+
+/* ------------------------- ------------------------- ------------------------- ------------------------- ------------------------- */
+
+/* 
+
+██████╗░██████╗░██╗███╗░░██╗░█████╗░██╗██████╗░░█████╗░██╗░░░░░
+██╔══██╗██╔══██╗██║████╗░██║██╔══██╗██║██╔══██╗██╔══██╗██║░░░░░
+██████╔╝██████╔╝██║██╔██╗██║██║░░╚═╝██║██████╔╝███████║██║░░░░░
+██╔═══╝░██╔══██╗██║██║╚████║██║░░██╗██║██╔═══╝░██╔══██║██║░░░░░
+██║░░░░░██║░░██║██║██║░╚███║╚█████╔╝██║██║░░░░░██║░░██║███████╗
+╚═╝░░░░░╚═╝░░╚═╝╚═╝╚═╝░░╚══╝░╚════╝░╚═╝╚═╝░░░░░╚═╝░░╚═╝╚══════╝
+    ESTILOS PARA EL CONTENIDO PRINCIPAL DE EXPLORAR EL CATALOGO
+*/
+
+.header-explorar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-explorar input{
+    width: 400px;
+}
+.explorar-libros{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+.mi-libreria{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    gap: 50px;
+}
+.libros-container{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 45px;
+}
+/* ------------------------- ------------------------- ------------------------- ------------------------- ------------------------- */
+/* 
+██████╗░░█████╗░░█████╗░██╗░░██╗  ░█████╗░░█████╗░██████╗░██████╗░
+██╔══██╗██╔══██╗██╔══██╗██║░██╔╝  ██╔══██╗██╔══██╗██╔══██╗██╔══██╗
+██████╦╝██║░░██║██║░░██║█████═╝░  ██║░░╚═╝███████║██████╔╝██║░░██║
+██╔══██╗██║░░██║██║░░██║██╔═██╗░  ██║░░██╗██╔══██║██╔══██╗██║░░██║
+██████╦╝╚█████╔╝╚█████╔╝██║░╚██╗  ╚█████╔╝██║░░██║██║░░██║██████╔╝
+╚═════╝░░╚════╝░░╚════╝░╚═╝░░╚═╝  ░╚════╝░╚═╝░░╚═╝╚═╝░░╚═╝╚═════╝░ 
+    ESTILO GENERAL PARA EL SITIO WEB PARA LOS BOOK CARDS
+*/
+
+
+
+
+.img-book-card {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 150px;
+    border: none;
+    margin: none;
+    margin: 0;
+}
+
+.book-card {
+    width: 150px;
+    max-width: 150px;
+    border: none;
+    height: auto;
+    cursor: pointer;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
+
+.book-card-info-container h4 {
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.book-card-info-container h5 {
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+    padding: 0;
+}
+
+.book-card-info-container {
+    padding: 0;
 }

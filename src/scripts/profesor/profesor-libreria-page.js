@@ -81,6 +81,12 @@ const containerMensajeDevolverLibro = document.getElementById("container-mensaje
 const formContainerDevolverLibro = document.getElementById("form-container-devolver-libro")
 
 
+const cancelarDevolverLibroBtn = document.getElementById("cancelar-devolver-btn")
+cancelarDevolverLibroBtn.addEventListener("click",()=>{
+    modalDevolverLibro.style.display = "none"
+})
+ 
+
 confirmarDevolverLibroBtn.addEventListener("click",async (event)=>{
     event.preventDefault();
 

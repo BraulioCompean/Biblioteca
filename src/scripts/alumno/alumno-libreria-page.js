@@ -56,6 +56,8 @@ bookCards.forEach((card) => {
 });
 
 
+
+
 // MODAL DEVOLVER LIBRO
 
 
@@ -64,6 +66,7 @@ const devolverLibroBtn = document.getElementById("devolver-libro-btn"); //BOTON 
 const isbnDevolverLibroModal = document.getElementById( //INPUT PARA ALMACENAR EL ISBN DEL LIBRO A DEVOLVER
     "isbn-devolver-libro-modal"
 );
+
 
 devolverLibroBtn.addEventListener("click", () => { // FUNCION PARA ABRIR EL MODAL DEVOLVER LIBRO
     modalMostrarLibro.style.display = "none"; 
@@ -77,6 +80,10 @@ const formDevolverLibro = document.getElementById("form-devolver-libro")
 const containerMensajeDevolverLibro = document.getElementById("container-mensaje-devolver-libro")
 const formContainerDevolverLibro = document.getElementById("form-container-devolver-libro")
 
+const cancelarDevolverLibroBtn = document.getElementById("cancelar-devolver-btn")
+cancelarDevolverLibroBtn.addEventListener("click",()=>{
+    modalDevolverLibro.style.display = "none"
+})
 
 confirmarDevolverLibroBtn.addEventListener("click",async (event)=>{
     event.preventDefault();
@@ -111,6 +118,8 @@ confirmarDevolverLibroBtn.addEventListener("click",async (event)=>{
         containerMensajeDevolverLibro.innerHTML = `<h4 style="color: red;">Ocurrio un error el intentar devolver el libro.</h4>`;
     }
 })
+
+
 
 window.addEventListener("click", (event) => {
     switch (event.target) {
