@@ -17,7 +17,6 @@ $_SESSION['idUsuario'] = "P0000001";
 <body>
     <dialog class="modal" id="modal-libro">
         <input type="hidden" id="isbn-modal-mostrar-libro">
-
         <div class="modal-content" id="modal-content-mostrar-libro">
             <section class="img-btns-modal">
                 <img

@@ -14,12 +14,12 @@ $_SESSION['idUsuario'] = "P0000001";
         name="viewport"
         content="width=
     , initial-scale=1.0" />
-    <link rel="stylesheet" href="../../styles/profesor/profesor-multas-page.css" />
+    <link rel="stylesheet" href="../../styles/profesor/profesor-multas-page.css">
     <title>Historial de Multas</title>
 </head>
 
 <body>
-<aside class="aside-nav-section">
+    <aside class="aside-nav-section">
         <div class="library-title">
             <img src="../../assets/logo1.webp" alt="" id="imgL" />
             <h1>Librería</h1>
@@ -39,7 +39,16 @@ $_SESSION['idUsuario'] = "P0000001";
                 </li>
                 <li class="nav-element">
                     <a href="../profesor/profesor-explorar-page.php">
-                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-world-search"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M21 12a9 9 0 1 0 -9 9" /><path d="M3.6 9h16.8" /><path d="M3.6 15h7.9" /><path d="M11.5 3a17 17 0 0 0 0 18" /><path d="M12.5 3a16.984 16.984 0 0 1 2.574 8.62" /><path d="M18 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M20.2 20.2l1.8 1.8" /></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-world-search">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M21 12a9 9 0 1 0 -9 9" />
+                            <path d="M3.6 9h16.8" />
+                            <path d="M3.6 15h7.9" />
+                            <path d="M11.5 3a17 17 0 0 0 0 18" />
+                            <path d="M12.5 3a16.984 16.984 0 0 1 2.574 8.62" />
+                            <path d="M18 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                            <path d="M20.2 20.2l1.8 1.8" />
+                        </svg>
                         <h4>Explorar</h4>
                     </a>
                 </li>
@@ -88,7 +97,7 @@ $_SESSION['idUsuario'] = "P0000001";
             <hr />
             <ul class="user-menu">
                 <li class="nav-element">
-                    <a href="">
+                    <a href="../profesor/profesor-perfil-page.php">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-user">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                             <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
@@ -118,76 +127,60 @@ $_SESSION['idUsuario'] = "P0000001";
             </header>
             <div class="multas-container">
                 <!-- <?php
-                        require_once '../../db/Database.php';
-                        $db = new Database();
-                        $pdo = $db->getConnection();
+                require_once '../../db/Database.php';
+                $db = new Database();
+                $pdo = $db->getConnection();
 
+                $idUsuario = $_SESSION['idUsuario'];
 
-                        $idUsuario = $_SESSION['idUsuario'];
-
-                        $sql = "SELECT prestamo.isbn , libro.titulo,libro.autor,libro.imagen,prestam";
-                        $sqlMultas = $pdo->prepare($sql);
-                        $sqlMultas->bindParam(":idUsuario", $idUsuario, PDO::PARAM_STR);
-                        $sqlMultas->execute();
-                        $prestamos = $sqlMultas->fetchAll(PDO::FETCH_ASSOC);
-                        $fecha = date('Y-m-d');
-                        if (count($prestamos) > 0) {    
-                            foreach($prestamos as $prestamo){
-                                $estadoPrestamo = 'Devuelto';
-                                if ($prestamo['fecha_entrega'] === null) {
-                                    if (strtotime($prestamo['fecha_devolucion']) < strtotime($fecha)) {
-                                        $estadoPrestamo = 'Vencido';
-                                    } else {
-                                        $estadoPrestamo = 'Activo';
-                                    }
-                                }
-                                echo ' <div class="prestamo-card ' . $estadoPrestamo . '">
-                                            <div class="info-prestamo-libro">
-                                                <h3>"'.$prestamo['titulo'].'" de '.$prestamo['autor'].'</h3>
-                                            </div>
-                                        
-                                            <div class="info-prestamo-container">
-                                                <div class="estado-prestamo-container">
-                                                    <h5 id="estado-prestamo">Estado : '.$estadoPrestamo.'</h5>
-                                                </div>
-                                                <div>
-                                                    <h5 id="fecha-prestamo">Fecha de prestamo : '.$prestamo['fecha_prestamo'].'</h5>
-                                                </div>
-                                                <div>
-                                                    <h5 id="fecha-vencimiento">Fecha de vencimiento : '.$prestamo['fecha_devolucion'].' </h5>
-                                                </div>
-                                                <div>
-                                                    <h5 id="fecha-devolucion">Fecha de devolucion : '.($prestamo['fecha_entrega'] ? htmlspecialchars($prestamo['fecha_entrega']) : 'Pendiente').'</h5>
-                                                </div>
-                                            </div>
-                                        </div>';
+                $sql = "SELECT p.isbn, l.titulo, l.autor, l.imagen, m.id_multa, m.cantidad AS monto, m.fecha_generacion, m.fecha_pago 
+        FROM prestamos AS p 
+        INNER JOIN libros AS l ON p.isbn = l.isbn 
+        LEFT JOIN multas AS m ON p.multa = m.id_multa 
+        WHERE (p.id_estudiante = :idUsuario OR p.id_profesor = :idUsuario) AND p.multa IS NOT NULL";
+                $sqlMultas = $pdo->prepare($sql);
+                $sqlMultas->bindParam(":idUsuario", $idUsuario, PDO::PARAM_STR);
+                $sqlMultas->execute();
+                $prestamos = $sqlMultas->fetchAll(PDO::FETCH_ASSOC);
+                $fecha = date('Y-m-d');
+                if (count($prestamos) > 0) {
+                    foreach ($prestamos as $prestamo) {
+                        // Determinar el estado del préstamo
+                        $estadoPrestamo = 'Devuelto';
+                        if ($prestamo['fecha_entrega'] === null) {
+                            if (strtotime($prestamo['fecha_devolucion']) < strtotime($fecha)) {
+                                $estadoPrestamo = 'Vencido';
+                            } else {
+                                $estadoPrestamo = 'Activo';
                             }
-                        }else{
-                            echo '<h4> No tienes ninguna multa registrada </h4>';
                         }
 
-                        ?>  -->
-                        <div class="multa-card Pendiente">
-                            <div class="img-multa-container">
-                                <img src="https://is5-ssl.mzstatic.com/image/thumb/Publication112/v4/2c/7e/bb/2c7ebb6c-951e-df30-356b-2ea97c947bcf/9788467046076.jpg/100000x100000-999.jpg" alt="" class="img-libro-multa">
-                            </div>
-                            <div class="info-multa-container">
-                                <div class="info-libro-multa">
-                                    <h5>Orgullo y prejuicio</h5>
-                                    <h5>Por : Jane Austen</h5>
-                                </div>
-                                <div class="info-multa">
-                                    <h4 id="monto-multa">Monto a pagar: $500MXN</h4>
-                                    <h4>Fecha de la generacion de la multa : 2024-12-07</h4>
-                                    <h4>Fecha de pago : Pendiente</h4>
-                                    <h4>Estado : Pendiente</h4>
-                                </div>
-                            </div>
-                        </div>
+                        // Verificar si hay multa
+                        if ($prestamo['id_multa'] !== null) {
+                            $estadoMulta = 'Pendiente';
+                            $montoMulta = $prestamo['monto']; // Usar el monto de la multa directamente de la consulta
+
+                            // Mostrar la tarjeta de multa
+                            echo '<div class="multa-card ' . $estadoPrestamo . '" title="Click para más detalles">
+                    <div class="info-multa-container">
+                        <img src="' . htmlspecialchars($prestamo['imagen']) . '" alt="Imagen del libro" style="width:100px;height:auto;">
+                        <h4>' . htmlspecialchars($prestamo['titulo']) . '</h4>
+                        <h5>' . htmlspecialchars($prestamo['autor']) . '</h5>
+                        <h5>Multa ID: ' . htmlspecialchars($prestamo['id_multa']) . '</h5>
+                        <h5>Estado: ' . $estadoMulta . '</h5>
+                        <h5>Monto: $' . number_format($montoMulta, 2) . '</h5>
+                        <h5>Fecha Generación: ' . htmlspecialchars($prestamo['fecha_generacion']) . '</h5>
+                    </div>
+                </div>';
+                        }
+                    }
+                } else {
+                    echo '<h4> No tienes ninguna multa registrada </h4>';
+                }
+                ?> -->
+
             </div>
         </section>
-
-
     </main>
 </body>
 
