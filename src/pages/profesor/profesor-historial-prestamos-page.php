@@ -14,7 +14,7 @@ $_SESSION['idUsuario'] = "P0000001";
         name="viewport"
         content="width=
     , initial-scale=1.0" />
-    <link rel="stylesheet" href="../../styles/alumno/alumno-historial-prestamos-page.css" />
+    <link rel="stylesheet" href="../../styles/profesor/profesor-historial-prestamos-page.css" />
     <title>Historial de Prestamos</title>
 </head>
 
@@ -113,7 +113,7 @@ $_SESSION['idUsuario'] = "P0000001";
     </aside>
     <main>
         <section class="prestamos-historial">
-            <header>
+            <header class="header-prestamos">
                 <h1>Historial de Prestamos</h1>
             </header>
             <div class="prestamos-container">

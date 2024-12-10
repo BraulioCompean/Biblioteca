@@ -126,6 +126,7 @@ confirmarPrestamoBtn.addEventListener("click", async (event) => {
         console.error("Error al procesar el prestamo: ", error);
         formPrestamo.style.display = "none";
         mensajeResultadoPrestamo.innerHTML = `<h4 style="color: red;">Ocurrio un error al procesar el prestamo, intentalo otra vez.</h4>`;
+        
     }
 });
 

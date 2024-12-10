@@ -67,6 +67,7 @@ const isbnDevolverLibroModal = document.getElementById( //INPUT PARA ALMACENAR E
     "isbn-devolver-libro-modal"
 );
 
+
 devolverLibroBtn.addEventListener("click", () => { // FUNCION PARA ABRIR EL MODAL DEVOLVER LIBRO
     modalMostrarLibro.style.display = "none"; 
     isbnDevolverLibroModal.value = modalMostrarLibro_isbn.value;

@@ -1,58 +1,147 @@
+/* -------------------------------------
+    FUENTES UTILIZADAS
+   -------------------------------------
+*/
+
 @import url("https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-/* ------------------------------------------ */
 
-/* ESTILOS GENERALES */
+/* 
 
-/* ------------------------------------------ */
+██████╗░░█████╗░██╗░░░░░███████╗████████╗░█████╗░
+██╔══██╗██╔══██╗██║░░░░░██╔════╝╚══██╔══╝██╔══██╗
+██████╔╝███████║██║░░░░░█████╗░░░░░██║░░░███████║
+██╔═══╝░██╔══██║██║░░░░░██╔══╝░░░░░██║░░░██╔══██║
+██║░░░░░██║░░██║███████╗███████╗░░░██║░░░██║░░██║
+╚═╝░░░░░╚═╝░░╚═╝╚══════╝╚══════╝░░░╚═╝░░░╚═╝░░╚═╝
+    PALETA DE COLORES A UTILIZAR
+*/
 
+:root {
+    --DARK-GOLDENROD: #b08401;
+    --TAN:#d49e8d;
+    --DUST-STORM:#ded1bd;
+    --WHITE-SMOKE:#faf6f2;
+    --VAN-DYKE-BROWN:#683b2b;
+}
+
+/* 
+
+
+
+███████╗██╗░░░░░███████╗███╗░░░███╗███████╗███╗░░██╗████████╗░█████╗░░██████╗
+██╔════╝██║░░░░░██╔════╝████╗░████║██╔════╝████╗░██║╚══██╔══╝██╔══██╗██╔════╝
+█████╗░░██║░░░░░█████╗░░██╔████╔██║█████╗░░██╔██╗██║░░░██║░░░██║░░██║╚█████╗░
+██╔══╝░░██║░░░░░██╔══╝░░██║╚██╔╝██║██╔══╝░░██║╚████║░░░██║░░░██║░░██║░╚═══██╗
+███████╗███████╗███████╗██║░╚═╝░██║███████╗██║░╚███║░░░██║░░░╚█████╔╝██████╔╝
+╚══════╝╚══════╝╚══════╝╚═╝░░░░░╚═╝╚══════╝╚═╝░░╚══╝░░░╚═╝░░░░╚════╝░╚═════╝░
+
+░██████╗░███████╗███╗░░██╗███████╗██████╗░░█████╗░██╗░░░░░███████╗░██████╗
+██╔════╝░██╔════╝████╗░██║██╔════╝██╔══██╗██╔══██╗██║░░░░░██╔════╝██╔════╝
+██║░░██╗░█████╗░░██╔██╗██║█████╗░░██████╔╝███████║██║░░░░░█████╗░░╚█████╗░
+██║░░╚██╗██╔══╝░░██║╚████║██╔══╝░░██╔══██╗██╔══██║██║░░░░░██╔══╝░░░╚═══██╗
+╚██████╔╝███████╗██║░╚███║███████╗██║░░██║██║░░██║███████╗███████╗██████╔╝
+░╚═════╝░╚══════╝╚═╝░░╚══╝╚══════╝╚═╝░░╚═╝╚═╝░░╚═╝╚══════╝╚══════╝╚═════╝░
+                                                                                                 
+        html,body,hS,etc                                                      
+
+
+*/
 
 body {
     font-family: "Host Grotesk";
     display: flex;
     overflow: hidden;
     background-color: white;
+    overflow-y: hidden;
     display: flex;
     margin: 0;
+    background-color: var(--WHITE-SMOKE);
+    border: none;
 }
+
 main {
+    height: 98vh;
     width: 100%;
-    height: 100vh;
-    max-height: 100vh;
-    padding-right: 20px;
+    padding: 20px;
+    margin: 10px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    overflow-y: hidden;
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total del contenedor */
+    border: 1px solid gray;
+    background-color: var(--DUST-STORM);
     overflow-x: hidden;
-    padding-left: 20px;
-}
-
-nav hr {
-    width: 90%;
-}
-
-a:visited{
-    color: black;
+    overflow-y: auto;
 }
 
 
+main::-webkit-scrollbar {
+    width: 5px;
+}
 
-/* ------------------------------------------ */
-/* ASIDE MENU - ESTILOS */
-/* ------------------------------------------ */
+main::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+main::-webkit-scrollbar-thumb {
+    background-color: rgb(155, 149, 149);
+    border-radius: 20px;
+}
+
+
+
+h1,h2,h3,h4,h5,h6 {margin: 0; color: var(--VAN-DYKE-BROWN);}
+/* SCROLL DEL CONTENIDO PRINCIPAL */
+
+
+input{
+    font-size: 19px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    background: none;
+    transition: border 0.5s;
+    
+}
+input:hover{
+    border: 1px solid black;
+}
+/* ------------------------- ------------------------- ------------------------- ------------------------- ------------------------- */
+
+/* 
+░█████╗░░██████╗██╗██████╗░███████╗
+██╔══██╗██╔════╝██║██╔══██╗██╔════╝
+███████║╚█████╗░██║██║░░██║█████╗░░
+██╔══██║░╚═══██╗██║██║░░██║██╔══╝░░
+██║░░██║██████╔╝██║██████╔╝███████╗
+╚═╝░░╚═╝╚═════╝░╚═╝╚═════╝░╚══════╝
+
+
+    ESTILOS PARA LA BARRA DE NAVEGACION LATERAL
+
+*/
+
+.library-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#imgL {
+    text-align: center;
+    margin: 8px;
+    width: 50px;
+    height: 50px;
+}
 
 .aside-nav-section {
     width: 280px;
     height: 100vh;
-    border: 1px solid black;
-    background-color: white;
-    /* border-radius: 10px; */
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-    /* border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px; */
+    border-right: 1px solid gray ;
 }
 
-
+.nav-element a svg {
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 5px;
+}
 
 .nav-options-list {
     width: 100%;
@@ -63,34 +152,23 @@ a:visited{
     gap: 20px;
 }
 
-
 .nav-element {
-    display: flex;
     width: fit-content;
     align-items: center;
     cursor: pointer;
-    margin-left: 25%;
-    color: black;
+    margin-left: 15%;
+    list-style: none;
 }
 
-
-
-
 .nav-element:hover .icon {
+    background-color: var(--DARK-GOLDENROD);
     stroke: white;
 }
 
-.library-title {
-    display: flex;
-    justify-content: center;
+.icon {
+    stroke: black;
+    transition: stroke 0.5s, background-color 0.5s;
 }
-#imgL {
-    text-align: center;
-    margin: 8px;
-    width: 50px;
-    height: 50px;
-}
-
 
 .user-menu {
     width: 100%;
@@ -101,97 +179,93 @@ a:visited{
     gap: 20px;
 }
 
-.nav-element a{
+nav hr {
+    width: 90%;
+}
+
+.nav-element a {
     display: flex;
     align-items: center;
-    text-decoration: none;
     gap: 10px;
+    text-decoration: none;
 }
 
-
-.nav-element a svg{
-    border: 1px solid gray;
-    border-radius: 5px;
-    background-color: rgb(218, 199, 199);
-    padding: 5px;
-}
-
-
-.nav-element:hover .icon {
-    stroke: white;
-    background-color: #0055ff;
-}
-
-
-.nav-element a h4{
+.nav-element a h4 {
     margin: 0;
 }
 
+.nav-element a svg {
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: var(--mountbatten-pink);
+    padding: 5px;
+}
 
-/* SECTION : HISTORIAL PRESTAMOS - CONTENEDOR*/
+a:visited {
+    color: black;
+}
+
+
+/* 
+
+██████╗░██████╗░██╗███╗░░██╗░█████╗░██╗██████╗░░█████╗░██╗░░░░░
+██╔══██╗██╔══██╗██║████╗░██║██╔══██╗██║██╔══██╗██╔══██╗██║░░░░░
+██████╔╝██████╔╝██║██╔██╗██║██║░░╚═╝██║██████╔╝███████║██║░░░░░
+██╔═══╝░██╔══██╗██║██║╚████║██║░░██╗██║██╔═══╝░██╔══██║██║░░░░░
+██║░░░░░██║░░██║██║██║░╚███║╚█████╔╝██║██║░░░░░██║░░██║███████╗
+╚═╝░░░░░╚═╝░░╚═╝╚═╝╚═╝░░╚══╝░╚════╝░╚═╝╚═╝░░░░░╚═╝░░╚═╝╚══════╝
+    ESTILOS PARA EL CONTENIDO PRINCIPAL DE EXPLORAR EL CATALOGO
+*/
 
 .prestamos-historial{
-    margin-top: 10px;
-    border: 1px solid gray;
-    margin-bottom:10px;
-    border-radius: 10px;
-    padding: 10px;
-    height: 95%;
-    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
 }
 
 .prestamos-container{
     display: flex;
-    gap: 30px;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 25px;
 }
 
-
-.prestamos-historial::-webkit-scrollbar{
-    width: 5px;
-}
-
-.prestamos-historial::-webkit-scrollbar-track{
-    background-color: transparent;
-}
-.prestamos-historial::-webkit-scrollbar-thumb{
-    background-color: rgb(155, 149, 149);
-    border-radius: 20px;
-}
-
-
-/* PRESTAMO CARD  */
 .prestamo-card{
-    width: 98%;
+    width: 95%;
     height: fit-content;
+    padding: 10px;
     border: 1px solid gray;
     border-radius: 10px;
-    padding: 30px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+    transition: scale 1.5s,background-color 1.5s;
 }
+
+
+.prestamo-card:hover{
+    transform: scale(1.01);
+}
+
 .prestamo-card h3,
-.prestamo-card h4,
 .prestamo-card h5{
-    color: white;
-    margin: 0;
+    color: black;
 }
 
-.info-prestamo-container{
-    display: flex;
-    gap: 30px;
-}
-
-.Activo{
-    background-color: green;
-}
+/* COLOR PERSONALZIADO PARA EL ESTADO DEL PRESTAMO */
 
 .Vencido{
-    background-color: red;
+    background-color: rgb(115, 29, 29);
 }
 
+.Vencido:hover{
+    background-color: rgb(210, 36, 36);
+}
+.Activo{
+    background-color: rgb(45, 115, 45);
+}
+.Activo:hover{
+    background-color: rgb(46, 165, 46);
+}
 .Devuelto{
-    background-color: rgb(28, 74, 111);
+    background-color: rgb(22, 93, 198);
+}
+.Devuelto:hover{
+    background-color:rgb(82, 144, 236)  ;
 }

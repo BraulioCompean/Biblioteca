@@ -9,7 +9,7 @@ $_SESSION['idUsuario'] = "P0000001";
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Mi Libreria</title>
     <link rel="stylesheet" href="../../styles/profesor/profesor-libreria-page.css">
     <script src="../../scripts/profesor/profesor-libreria-page.js" defer></script>
 </head>
@@ -73,15 +73,22 @@ $_SESSION['idUsuario'] = "P0000001";
                 <form action="../../db/devolver-libro.php" id="form-devolver-libro" method="post">
                     <input type="hidden" id="isbn-devolver-libro-modal" name="isbn-devolver-libro">
                     <input type="hidden" id="id-usuario-devolver-libro" name="id-usuario-devolver-libro" value="<?php echo $_SESSION['idUsuario']; ?>">
-                    <button class="btn-devolver-prestamo" id="confirmar-devolver-btn">Confirmar</button>
-                    <button class="btn-devolver-prestamo" id="cancelar-devolver-btn">Cancelar</button>
+                    <div class="btns-container">
+                        <button class="btns-modal" id="confirmar-devolver-btn" type="submit">
+                            <span>Confirmar</span>
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-settings-check"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M11.445 20.913a1.665 1.665 0 0 1 -1.12 -1.23a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.31 .318 1.643 1.79 .997 2.694" /><path d="M15 19l2 2l4 -4" /><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /></svg>
+                        </button>
+                        <button class="btns-modal" id="cancelar-devolver-btn" type="button">
+                            <span>Cancelar</span>
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-cancel"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M18.364 5.636l-12.728 12.728" /></svg>
+                        </button>
+                    </div>
                 </form>
             </div>
             <div id="container-mensaje-devolver-libro">
             </div>
         </div>
         <div id="container-mensaje-devolver-libro">
-
         </div>
     </dialog>
 
@@ -105,7 +112,16 @@ $_SESSION['idUsuario'] = "P0000001";
                 </li>
                 <li class="nav-element">
                     <a href="../profesor/profesor-explorar-page.php">
-                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-world-search"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M21 12a9 9 0 1 0 -9 9" /><path d="M3.6 9h16.8" /><path d="M3.6 15h7.9" /><path d="M11.5 3a17 17 0 0 0 0 18" /><path d="M12.5 3a16.984 16.984 0 0 1 2.574 8.62" /><path d="M18 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M20.2 20.2l1.8 1.8" /></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-world-search">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M21 12a9 9 0 1 0 -9 9" />
+                            <path d="M3.6 9h16.8" />
+                            <path d="M3.6 15h7.9" />
+                            <path d="M11.5 3a17 17 0 0 0 0 18" />
+                            <path d="M12.5 3a16.984 16.984 0 0 1 2.574 8.62" />
+                            <path d="M18 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                            <path d="M20.2 20.2l1.8 1.8" />
+                        </svg>
                         <h4>Explorar</h4>
                     </a>
                 </li>
@@ -182,7 +198,7 @@ $_SESSION['idUsuario'] = "P0000001";
             <header>
                 <h1>Mi libreria</h1>
             </header>
-            <div class="books-container">
+            <div class="libros-container">
                 <?php
 
                 require_once '../../db/Database.php';

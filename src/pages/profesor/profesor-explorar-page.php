@@ -16,7 +16,7 @@ $_SESSION['idUsuario'] = "P0000001";
     , initial-scale=1.0" />
     <link rel="stylesheet" href="../../styles/profesor/profesor-explorar-page.css" />
     <script src="../../scripts/profesor/profesor-explorar-page.js" defer></script>
-    <title>Historial de Prestamos</title>
+    <title>Explorar</title>
 </head>
 
 
@@ -55,6 +55,16 @@ $_SESSION['idUsuario'] = "P0000001";
                             <path d="M16 14l0 3" />
                         </svg>
                         <span>Tramitar prestamo</span>
+                    </button>
+                    <button class="btns-modal" id="recomendar-libro-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-gift">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M3 8m0 1a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1z" />
+                            <path d="M12 8l0 13" />
+                            <path d="M19 12v7a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-7" />
+                            <path d="M7.5 8a2.5 2.5 0 0 1 0 -5a4.8 8 0 0 1 4.5 5a4.8 8 0 0 1 4.5 -5a2.5 2.5 0 0 1 0 5" />
+                        </svg>
+                        <span>Recomendar</span>
                     </button>
                 </div>
             </section>
@@ -97,9 +107,44 @@ $_SESSION['idUsuario'] = "P0000001";
                     <input type="hidden" id="isbn-prestamo-libro" name="isbn-prestamo-libro">
                     <label for="fecha-esperada-entrega">¿Que dia planeas devolver el libro?</label>
                     <input type="date" id="fecha-esperada-entrega-input" name="fecha-esperada-entrega" max="2025-12-31" required>
-                    <button id="confirmar-prestamo-btn" class="btns-modal">Confirmar prestamo</button>
+                    <button id="confirmar-prestamo-btn" class="btns-modal">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-circle-check">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+                            <path d="M9 12l2 2l4 -4" />
+                        </svg>
+                        <span>Confirmar prestamo</span>
+                    </button>
                 </form>
-                <div id="mensaje-container-prestamo"></div>
+                <div id="mensaje-resultado-prestamo"></div>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- MODAL RECOMENDAR LIBRO -->
+    <dialog class="modal" id="modal-recomendar">
+        <div class="modal-content" id="modal-content-prestamo">
+            <div>
+                <form action="" id="form-recomendar" method="post">
+                    <input type="hidden" id="isbn-recomendar-libro" name="isbn-recomendar-libro" value="">
+                    <input type="hidden" id="id-profesor" name="id-profesor" value="<?php echo htmlspecialchars($_SESSION['idUsuario']); ?>">
+                    <label for="">Numero de control del alumno a recomendar este libro.</label>
+                    <input type="text" placeholder="Numero de control" name="numero-control"
+                        id="numero-control">
+                    <button class="btns-modal" id="confirmar-recomendar">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-gift">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M3 8m0 1a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1z" />
+                            <path d="M12 8l0 13" />
+                            <path d="M19 12v7a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-7" />
+                            <path d="M7.5 8a2.5 2.5 0 0 1 0 -5a4.8 8 0 0 1 4.5 5a4.8 8 0 0 1 4.5 -5a2.5 2.5 0 0 1 0 5" />
+                        </svg>
+                        <span>Recomendar</span>
+                    </button>
+                </form>
+                <div id="recomendar-respuesta-mensaje">
+
+                </div>
             </div>
         </div>
     </dialog>
@@ -210,7 +255,6 @@ $_SESSION['idUsuario'] = "P0000001";
                 <h1>Explorar Libros</h1>
                 <form action="" method="get">
                     <input type="text" placeholder="Buscar libro" name="busqueda">
-
                 </form>
             </header>
             <div class="explorar-container">
