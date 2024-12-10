@@ -15,7 +15,7 @@
                 Tecnologico de Ciudad Valles. Encuentra todos los libros que
                 necesites en nuestro sitio.
             </p>
-            <button class="log-in-btn">Descubre nuestro catalogo</button>
+            <a class="log-in-btn" href="src/pages/login.php">Descubre nuestro catalogo</a>
         </main>
         <div class="background-container" id="background-container">
         </div>

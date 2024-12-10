@@ -5,7 +5,7 @@ require_once "../db/Database.php";
 $response =  [];
 try {
    
-    if($_SERVER["REQUESTED_METHOD"] ==  "POST"){
+    if($_SERVER["REQUEST_METHOD"] ==  "POST"){
         $db = new Database();
         $pdo = $db->getConnection();
 
