@@ -28,6 +28,7 @@ try {
             empty($cantidadLibro) ||
             empty($categoriaLibro) ||
             empty($paginasLibro) ||
+            empty($autorLibro) ||
             empty($sinopsisLibro)){
 
                 $response['exito'] = false;

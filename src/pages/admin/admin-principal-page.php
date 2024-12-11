@@ -1,4 +1,4 @@
-<!-- <?php include '../sesion.php'; ?> -->
+<?php include '../sesion.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -98,49 +98,27 @@
             </div>
         </div>
     </dialog>
-    <dialog class="modal" id="modal-borrar-libro">
-        <div class="modal-content">
-            <div id="busqueda">
-                <form class="search-libro-eliminar" id="form-search-libro-eliminar">
-                    <label for="">Buscar libro a eliminar(ISBN)</label>
-                    <input type="text" id="search-libro-borrar" name="search-libro-borrar-isbn">
-                </form>
-                <button id="buscar-libro-eliminar-btn" value="form2" class="btns-modal">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-search">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
-                        <path d="M21 21l-6 -6" />
-                    </svg>
-                    Buscar
-                </button>
-                <div id="busqueda-libro-eliminar-mensaje"></div>
-            </div>
-            <div id="datos-libro-eliminar" style="display: none;">
-                <h1>Estas a punto de eliminar este libro del sistema</h1>
-                <form action="">
-                    <input type="hidden" id="isbn-libro-eliminar">
-                </form>
-                <div class="info-libro">
-                    <img src="" alt="" id="imagen-eliminar">
-                    <h4 id="titulo-eliminar"></h4>
-                    <h4 id="autor-eliminar"></h4>
-                </div>
-            </div>
-        </div>
-    </dialog>
+    
     <dialog class="modal" id="modal-opciones-registrar-usuario">
-        <div class="modal-content-opciones-registrar-usuario">
+        <div class="modal-content" id="modal-content-opciones-registrar">
             <h2>¿Que clase de Usuario desea registrar?</h2>
             <div id="container-btns-opciones-registrar">
-                <button id="estudiante">Estudiante</button>
-                <button id="profesor">Profesor</button>
+                <button id="estudiante" class="btns-modal">
+                <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-vocabulary"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 19h-6a1 1 0 0 1 -1 -1v-14a1 1 0 0 1 1 -1h6a2 2 0 0 1 2 2a2 2 0 0 1 2 -2h6a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-6a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2z" /><path d="M12 5v16" /><path d="M7 7h1" /><path d="M7 11h1" /><path d="M16 7h1" /><path d="M16 11h1" /><path d="M16 15h1" /></svg>    
+                Estudiante</button>
+                <button id="profesor" class="btns-modal">
+                <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-briefcase"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2" /><path d="M12 12l0 .01" /><path d="M3 13a20 20 0 0 0 18 0" /></svg>    
+                Profesor</button>
             </div>
         </div>
     </dialog>
     <dialog class="modal" id="modal-registrar-usuario-estudiante">
-        <div class="modal-content-registrar-usuario-estudiante">
+        <div class="modal-content" id="modal-content-registrar-estudiante">
             <h2>Registrar estudiante</h2>
-            <form action="">
+            <div id="mensaje-registrar-estudiante"></div>
+            <form action="../../db/registrar-usuario-estudiante.php" id="form-registrar-estudiante" method="post">
+                <label for="">Numero de control</label>
+                <input type="text" name="numero-control" maxlength="8">
                 <label for="">Nombre</label>
                 <input type="text" name="nombre-estudiante" id="nombre-estudiante">
                 <label for="">Apellidos</label>
@@ -148,7 +126,7 @@
                 <label for="">Correo</label>
                 <input type="email" name="correo-estudiante" id="correo-estudiante">
                 <label for="">Telefono</label>
-                <input type="tel" name="telefono-estudiante" id="telefono-estudiante">
+                <input type="tel" name="telefono-estudiante" id="telefono-estudiante" maxlength="10">
                 <label for="">Direccion</label>
                 <input type="text" name="direccion-estudiante" id="direccion-estudiante">
                 <label for="">Carrera</label>
@@ -158,13 +136,19 @@
                 <label for="">Contraseña</label>
                 <input type="password" name="contraseña-estudiante" id="contraseña-estudiante">
             </form>
-            <button id="registrar-estudiante-btn">Registrar</button>
+            <button id="registrar-estudiante-btn" class="btns-modal">Registrar
+            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-telegram"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4" /></svg>
+
+            </button>
         </div>
     </dialog>
     <dialog class="modal" id="modal-registrar-usuario-profesor">
-        <div class="modal-content-registrar-usuario-profesor">
+        <div class="modal-content" id="modal-content-registrar-profesor">
             <h2>Registrar profesor</h2>
-            <form action="">
+            <div id="mensaje-registrar-profesor"></div>
+            <form action="" id="form-registrar-profesor" method="post">
+                <label for="">Numero de Control</label>
+                <input type="text" maxlength="8" name="numero-control" id="numero-control">
                 <label for="">Nombre</label>
                 <input type="text" name="nombre-profesor" id="nombre-profesor">
                 <label for="">Apellidos</label>
@@ -172,17 +156,20 @@
                 <label for="">Correo</label>
                 <input type="email" name="correo-profesor" id="correo-profesor">
                 <label for="">Telefono</label>
-                <input type="tel" name="telefono-profesor" id="telefono-profesor">
+                <input type="tel" name="telefono-profesor" id="telefono-profesor" maxlength="10">
                 <label for="">Direccion</label>
                 <input type="text" name="direccion-profesor" id="direccion-profesor">
                 <label for="">Rol</label>
                 <input type="text" name="rol-profesor" id="rol-profesor">
                 <label for="">Departamento</label>
-                <input type="number" name="departamento-profesor" id="departamento-profesor">
+                <input type="text" name="departamento-profesor" id="departamento-profesor">
                 <label for="">Contraseña</label>
                 <input type="password" name="contraseña-profesor" id="contraseña-profesor">
             </form>
-            <button id="registrar-profesor-btn">Registrar</button>
+            <button id="registrar-profesor-btn" class="btns-modal">
+                Registrar
+                <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-telegram"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4" /></svg>
+            </button>
         </div>
     </dialog>
 
@@ -217,37 +204,16 @@
                     </a>
                 </li>
                 <li class="nav-element">
-                    <a href="../admin/admin-prestamos-page.php">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-books">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path d="M5 4m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
-                            <path d="M9 4m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
-                            <path d="M5 8h4" />
-                            <path d="M9 16h4" />
-                            <path d="M13.803 4.56l2.184 -.53c.562 -.135 1.133 .19 1.282 .732l3.695 13.418a1.02 1.02 0 0 1 -.634 1.219l-.133 .041l-2.184 .53c-.562 .135 -1.133 -.19 -1.282 -.732l-3.695 -13.418a1.02 1.02 0 0 1 .634 -1.219l.133 -.041z" />
-                            <path d="M14 9l4 -1" />
-                            <path d="M16 16l3.923 -.98" />
-                        </svg>
-                        <h4>Prestamos</h4>
-                    </a>
-                </li>
-                <li class="nav-element">
-                    <a href="../admin/admin-multas-page.php">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-report-money">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />
-                            <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
-                            <path d="M14 11h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3h-2.5" />
-                            <path d="M12 17v1m0 -8v1" />
-                        </svg>
-                        <h4>Multas</h4>
+                    <a href="../admin/admin-explorar-page.php">
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-world-search"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M21 12a9 9 0 1 0 -9 9" /><path d="M3.6 9h16.8" /><path d="M3.6 15h7.9" /><path d="M11.5 3a17 17 0 0 0 0 18" /><path d="M12.5 3a16.984 16.984 0 0 1 2.574 8.62" /><path d="M18 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M20.2 20.2l1.8 1.8" /></svg>
+                        <h4>Explorar</h4>
                     </a>
                 </li>
             </ul>
             <hr />
             <ul class="user-menu">
                 <li class="nav-element">
-                    <a href="">
+                    <a href="../admin/admin-perfil-page.php">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-user">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                             <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
@@ -323,26 +289,6 @@
                 </div>
                 <p>Añade libros al catalogo</p>
             </div>
-            <div class="eliminar-libros navegar-card">
-                <div class="header-eliminar-libros navegar-card-header">
-                    <h2>Eliminar Libro</h2>
-                    <button id="eliminar" class="navegar-card-btns">
-                        Eliminar
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-trash">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path d="M4 7l16 0" />
-                            <path d="M10 11l0 6" />
-                            <path d="M14 11l0 6" />
-                            <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
-                            <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
-                        </svg>
-                    </button>
-                </div>
-                <p>
-                    Elimina libros del catalogo
-                </p>
-            </div>
-
             <div class="registrar-usuarios navegar-card">
                 <div class="header-registrar-usuarios  navegar-card-header">
                     <h2>Registrar Usuario</h2>
@@ -358,7 +304,7 @@
                     </button>
                 </div>
                 <p>
-                    Registra a usuarios (alumnos , profesores) en el sistema
+                    Registra a usuarios ( Estudiantes , Profesores ) en el sistema
                 </p>
             </div>
         </nav>

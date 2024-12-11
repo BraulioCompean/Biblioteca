@@ -1,4 +1,4 @@
-<!-- <?php
+<?php
 session_start();
 if (!isset($_SESSION['idUsuario'])) {
     header('Location: ../login.php'); 
@@ -7,4 +7,4 @@ if (!isset($_SESSION['idUsuario'])) {
 $idUsuario = $_SESSION['idUsuario'];
 $nombres = $_SESSION['nombres'];
 $apellidos = $_SESSION['apellidos']; 
-?> -->
+?>

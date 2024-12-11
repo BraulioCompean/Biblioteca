@@ -24,7 +24,7 @@ confirmarAgregarLibro.addEventListener("click",async(event)=>{
         if(!response.ok){
             throw new Error(`Error!: ${response.status}`);
         }
- 
+        
         const data = await response.json();
         formAgregarLibro.style.display = "none";
 
@@ -44,59 +44,113 @@ confirmarAgregarLibro.addEventListener("click",async(event)=>{
 
 
 
+// MODAL REGISTRAR USUARIOS-OPCIONES
+const modalRegistrarUsuariosOpciones = document.getElementById("modal-opciones-registrar-usuario")
 
-// ------------------------------------------------------------------------------------------------------------------
-// MODAL ELIMINAR LIBRO
-// ------------------------------------------------------------------------------------------------------------------
-const modalEliminarLibro = document.getElementById("modal-borrar-libro")
-const openModalEliminarLibro = document.getElementById("eliminar")
-const modalEliminarLibro_busqueda = document.getElementById("busqueda")
-const modalEliminarLibro_formBuscar = document.getElementById("form-search-libro-eliminar")
-const modalEliminarLibro_buscarBtn = document.getElementById("buscar-libro-eliminar-btn")
-
-const modalEliminarLibro_buscarMensaje = document.getElementById("busqueda-libro-eliminar-mensaje")
-
-const modalEliminarLibro_mostrarLibro = document.getElementById("datos-libro-eliminar")
-
-// ELEMENTOS DENTRO DEL CONTENEDOR DATOS-LIBRO-ELIMINAR
+const openModalRegistrarUsuariosOpciones = document.getElementById("registrar")
+openModalRegistrarUsuariosOpciones.addEventListener("click",()=>{
+    modalRegistrarUsuariosOpciones.style.display = "flex"
+})
 
 
-const modalEliminarLibro_mostrarLibro_imagen = document.getElementById("imagen-eliminar")
-const modalEliminarLibro_mostrarLibro_autor = document.getElementById("autor-eliminar")
-const modalEliminarLibro_mostrarLibro_itulo =document.getElementById("titulo-eliminar")
-const containerFormBuscarEliminar = document.getElementById("busqueda")
-// 
-modalEliminarLibro_buscarBtn.addEventListener("click",async(event)=>{
-    event.preventDefault()
 
-    const formDatos = new FormData(modalEliminarLibro_formBuscar)
+// MODAL REGISTRAR PROFESORES
+
+const modalRegistrarProfesores = document.getElementById("modal-registrar-usuario-profesor")
+const openModalRegistrarProfesores = document.getElementById("profesor")
+
+openModalRegistrarProfesores.addEventListener("click",()=>{
+    modalRegistrarUsuariosOpciones.style.display = "none"
+    modalRegistrarProfesores.style.display = "flex"
+})
+
+
+const confirmarRegistrarProfesores = document.getElementById("registrar-profesor-btn")
+const formRegistrarProfesores = document.getElementById("form-registrar-profesor")
+const registrarProfesoresMensaje = document.getElementById("mensaje-registrar-profesor")
+
+
+confirmarRegistrarProfesores.addEventListener("click",async(event)=>{
+    event.preventDefault();
+    const formDatos = new FormData(formRegistrarProfesores)
+
     try{
-        const response = await fetch("../../db/info-libro.php",{
-            method : "POST",
+        const response = await fetch("../../db/registrar-usuario-profesor.php",{
+            method: "POST",
             body: formDatos
         })
         if(!response.ok){
             throw new Error(`Error!: ${response.status}`);
-            
         }
-        const data = await response.json()
-        if(data.exito){
-            modalEliminarLibro_formBuscar.style.display = "none"
-            modalEliminarLibro_mostrarLibro.style.display = "flex"
-        }else{
-            containerFormBuscarEliminar.style.display = "none"
-            modalEliminarLibro_buscarMensaje.innerHTML = `<h4 style="color: red;">${data.mensaje}</h4>`
-        }
-    }catch(error){
-        console.error(error)
-        modalEliminarLibro_buscarMensaje.innerHTML = `<h4 style="color: red;">${error}</h4>`
+        
+        const data = await response.json();
+        formRegistrarProfesores.style.display = "none";
 
-    }
+        if (data.exito) {
+            registrarProfesoresMensaje.style.display = "flex"
+            confirmarRegistrarProfesores.style.display = "none"
+            registrarProfesoresMensaje.innerHTML = `<h4 style="color: green;">${data.mensaje}</h4>`;
+        } else {
+            registrarProfesoresMensaje.style.display = "flex"
+            confirmarRegistrarProfesores.style.display = "none"
+            registrarProfesoresMensaje.innerHTML = `<h4 style="color: red;">${data.mensaje}</h4>`;
+        }
+    } catch(error){
+        console.error("Error al procesar el prestamo: ", error);
+        formAgregarLibro.style.display = "none";
+        registrarProfesoresMensaje.innerHTML = `<h4 style="color: red;">Ocurrio un error al procesar el prestamo, intentalo otra vez.</h4>`;    }
+        
 })
 
-openModalEliminarLibro.addEventListener("click",()=>{
-    modalEliminarLibro.style.display = "flex"
+
+// MODAL REGISTRAR ESTUDIANTES 
+
+const modalRegistrarEstudiantes = document.getElementById("modal-registrar-usuario-estudiante")
+const openModalRegistrarEstudiantes = document.getElementById("estudiante")
+
+openModalRegistrarEstudiantes.addEventListener("click",()=>{
+    modalRegistrarEstudiantes.style.display = "flex"
+    modalRegistrarUsuariosOpciones.style.display = "none"
+
 })
+
+
+const confirmarRegistrarEstudiante = document.getElementById("registrar-estudiante-btn")
+const formRegistrarEstudiante = document.getElementById("form-registrar-estudiante")
+const registrarEstudianteMensaje = document.getElementById("mensaje-registrar-estudiante")
+
+confirmarRegistrarEstudiante.addEventListener("click",async(event)=>{
+    event.preventDefault();
+    const formDatos = new FormData(formRegistrarEstudiante)
+
+    try{
+        const response = await fetch("../../db/registrar-usuario-estudiante.php",{
+            method: "POST",
+            body: formDatos
+        })
+        if(!response.ok){
+            throw new Error(`Error!: ${response.status}`);
+        }
+        console.log("asdasd")
+        const data = await response.json();
+        formRegistrarEstudiante.style.display = "none";
+
+        if (data.exito) {
+            registrarEstudianteMensaje.style.display = "flex"
+            confirmarRegistrarEstudiante.style.display = "none"
+            registrarEstudianteMensaje.innerHTML = `<h4 style="color: green;">${data.mensaje}</h4>`;
+        } else {
+            registrarEstudianteMensaje.style.display = "flex"
+            confirmarRegistrarEstudiante.style.display = "none"
+            registrarEstudianteMensaje.innerHTML = `<h4 style="color: red;">${data.mensaje}</h4>`;
+        }
+    } catch(error){
+        console.error("Error al procesar el prestamo: ", error);
+        formAgregarLibro.style.display = "none";
+        registrarEstudianteMensaje.innerHTML = `<h4 style="color: red;">Ocurrio un error al procesar el prestamo, intentalo otra vez.</h4>`;    }
+        
+})
+
 
 window.addEventListener("click", (event) => {
     switch (event.target) {
@@ -105,8 +159,22 @@ window.addEventListener("click", (event) => {
             formAgregarLibro.style.display ="flex"
             modalAgregarLibro_mensaje.innerHTML = ""
             break;
-        case modalEliminarLibro:
-            modalEliminarLibro.style.display = "none"
+        case modalRegistrarUsuariosOpciones:
+            modalRegistrarUsuariosOpciones.style.display = "none"
+            break
+        case modalRegistrarProfesores:
+            modalRegistrarProfesores.style.display = "none"
+            formRegistrarProfesores.style.display = "flex"
+            registrarProfesoresMensaje.innerHTML = ""
+            registrarProfesoresMensaje.style.display  = "none"
+            confirmarRegistrarProfesores.style.display = "flex"
+
             break;
+        case modalRegistrarEstudiantes:
+            modalRegistrarEstudiantes.style.display = "none"
+            formRegistrarEstudiante.style.display = "flex"
+            registrarEstudianteMensaje.innerHTML = ""
+            registrarEstudianteMensaje.style.display  = "none"
+            confirmarRegistrarEstudiante.style.display = "flex"
     }
 });

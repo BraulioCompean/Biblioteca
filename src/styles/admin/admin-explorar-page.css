@@ -94,9 +94,15 @@ h1,h2,h3,h4,h5,h6 {margin: 0; color: var(--VAN-DYKE-BROWN);}
 
 
 input{
-    font-size: 20px;
+    font-size: 19px;
     border: 1px solid gray;
     border-radius: 10px;
+    background: none;
+    transition: border 0.5s;
+    
+}
+input:hover{
+    border: 1px solid black;
 }
 /* ------------------------- ------------------------- ------------------------- ------------------------- ------------------------- */
 
@@ -293,67 +299,79 @@ a:visited {
     align-items: center;
 }
 
-/* MODAL AGREGAR LIBRO */
 
-.container-input{
+
+/*   MODAL MOSTRAR LIBRO*/
+.libro-info-container h2{
+    font-weight: lighter;
+}
+.libro-info-container h3,
+#libro-sinopsis{
+    font-weight:lighter;
+
+}
+#libro-titulo{
+    font-weight: 700;
+}
+
+#libro-sinopsis{
+    width: 100%;
+    text-align: center;
+}
+
+.libro-info-container{
+    width: 400px;
+    height: fit-content;
+    overflow-y: auto;
+    text-align: center;
+}
+
+.libro-info-container::-webkit-scrollbar{
+    width: 5px;
+}
+
+.libro-info-container::-webkit-scrollbar-track{
+    background-color: transparent;
+}
+.libro-info-container::-webkit-scrollbar-thumb{
+    background-color: rgb(155, 149, 149);
+    border-radius: 20px;
+}
+
+.modal-img-libro{
+    width: 250px;
+    height: 400px;  
+}
+
+/* 
+MODAL -> RECOMENDAR LIBRO
+
+*/
+
+
+/* 
+███╗░░░███╗░█████╗░██████╗░░█████╗░██╗░░░░░  ██████╗░██████╗░███████╗░██████╗████████╗░█████╗░███╗░░░███╗░█████╗░
+████╗░████║██╔══██╗██╔══██╗██╔══██╗██║░░░░░  ██╔══██╗██╔══██╗██╔════╝██╔════╝╚══██╔══╝██╔══██╗████╗░████║██╔══██╗
+██╔████╔██║██║░░██║██║░░██║███████║██║░░░░░  ██████╔╝██████╔╝█████╗░░╚█████╗░░░░██║░░░███████║██╔████╔██║██║░░██║
+██║╚██╔╝██║██║░░██║██║░░██║██╔══██║██║░░░░░  ██╔═══╝░██╔══██╗██╔══╝░░░╚═══██╗░░░██║░░░██╔══██║██║╚██╔╝██║██║░░██║
+██║░╚═╝░██║╚█████╔╝██████╔╝██║░░██║███████╗  ██║░░░░░██║░░██║███████╗██████╔╝░░░██║░░░██║░░██║██║░╚═╝░██║╚█████╔╝
+╚═╝░░░░░╚═╝░╚════╝░╚═════╝░╚═╝░░╚═╝╚══════╝  ╚═╝░░░░░╚═╝░░╚═╝╚══════╝╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░░░░╚═╝░╚════╝░
+    MODAL PRESTAMO DE LIBRO
+*/
+
+
+#form-prestamo{
     display: flex;
     flex-direction: column;
-}
-
-#sinopsis-libro{
-    resize: none;
-    height: 100px;
-    width: 600px;
-}
-
-#form-agregar-libro{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-#confirmar-agregar-libro{
-    width: fit-content;
-}
-
-#modal-content-agregar-libro{
-    flex-direction: column;
-}
-/* MODAL OPCIONES REGISTRAR USUARIO */
-#modal-content-opciones-registrar{
-    flex-direction: column;
-}
-
-#container-btns-opciones-registrar{
-    display: flex;
-    gap: 20px;
+    justify-items: center;
+    align-items: center;
+    gap: 30px;
 }
 
 
-/* MODAL REGISTRAR PROFESOR */
-#modal-content-registrar-profesor{
-    display: flex;
-    flex-direction: column;
-}
-#form-registrar-profesor{
-    display: flex;
-    flex-direction: column;
-}
-
-#form-registrar-estudiante{
-    display: flex;
-    flex-direction: column;
-
-}
-
-#modal-content-registrar-estudiante{
-    display: flex;
-    flex-direction: column;
-}
-/* MODAL REGISTRAR PROFESOR */
 
 
-
+/*  */
 
 /* ------------------------- ------------------------- ------------------------- ------------------------- ------------------------- */
 
@@ -367,71 +385,81 @@ a:visited {
 ██╔═══╝░██╔══██╗██║██║╚████║██║░░██╗██║██╔═══╝░██╔══██║██║░░░░░
 ██║░░░░░██║░░██║██║██║░╚███║╚█████╔╝██║██║░░░░░██║░░██║███████╗
 ╚═╝░░░░░╚═╝░░╚═╝╚═╝╚═╝░░╚══╝░╚════╝░╚═╝╚═╝░░░░░╚═╝░░╚═╝╚══════╝
-    ESTILOS PARA EL CONTENIDO DE LA PAG PRINCIPAL
+    ESTILOS PARA EL CONTENIDO PRINCIPAL DE EXPLORAR EL CATALOGO
 */
 
-.principal-page-header {
-    display: flex;
-    justify-content: space-between;
-    box-sizing: border-box;
-    padding-inline: 10px;
-}
-
-.perfil-usuario-link {
+.header-explorar{
     display: flex;
     align-items: center;
-    text-decoration: none;
+    justify-content: space-between;
 }
 
-.opciones-navegar-principal {
-    width: 98%;
-    height: 98%;
-    height: fit-content;
+.header-explorar input{
+    width: 400px;
+}
+.explorar-libros{
     display: flex;
     flex-direction: column;
-    gap: 30px;
-    margin-top: 50px;
-  
+    gap: 50px;
 }
-
-
-/* 
-    ESTILOS PARA EL CONTENEDOR DE LIBRERIA
-*/
-.navegar-card{
-    width: 100%;
-    background-color: var(--WHITE-SMOKE);
-    padding: 20px;
-    box-sizing: border-box;
-    border-radius: 10px;
-    border: none;
-    
-}
-.navegar-card-header {
+.explorar-container{
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap;
+    gap: 45px;
+}
+/* ------------------------- ------------------------- ------------------------- ------------------------- ------------------------- */
+/* 
+██████╗░░█████╗░░█████╗░██╗░░██╗  ░█████╗░░█████╗░██████╗░██████╗░
+██╔══██╗██╔══██╗██╔══██╗██║░██╔╝  ██╔══██╗██╔══██╗██╔══██╗██╔══██╗
+██████╦╝██║░░██║██║░░██║█████═╝░  ██║░░╚═╝███████║██████╔╝██║░░██║
+██╔══██╗██║░░██║██║░░██║██╔═██╗░  ██║░░██╗██╔══██║██╔══██╗██║░░██║
+██████╦╝╚█████╔╝╚█████╔╝██║░╚██╗  ╚█████╔╝██║░░██║██║░░██║██████╔╝
+╚═════╝░░╚════╝░░╚════╝░╚═╝░░╚═╝  ░╚════╝░╚═╝░░╚═╝╚═╝░░╚═╝╚═════╝░ 
+    ESTILO GENERAL PARA EL SITIO WEB PARA LOS BOOK CARDS
+*/
+
+
+
+
+.img-book-card {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 150px;
+    border: none;
+    margin: none;
+    margin: 0;
 }
 
-.navegar-card-btns{
+.book-card {
+    width: 150px;
+    max-width: 150px;
+    border: none;
+    height: auto;
+    cursor: pointer;
     border: 1px solid gray;
     border-radius: 10px;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    padding: 5px;
-    transition: background-color 0.5s, color 0.5s;
-    cursor: pointer;
 }
-.navegar-libros-container{
-    display: flex;
-    gap: 40px;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 20px;
+
+
+.book-card-info-container h4 {
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
 }
-.navegar-card-btns:hover {
-    color: white;
-    background-color: var(--DARK-GOLDENROD);
+
+.book-card-info-container h5 {
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+    padding: 0;
 }
-.navegar-card-btns:hover svg {  stroke: white;}
+
+.book-card-info-container {
+    padding: 0;
+}
