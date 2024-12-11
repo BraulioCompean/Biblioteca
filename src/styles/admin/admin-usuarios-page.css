@@ -94,9 +94,15 @@ h1,h2,h3,h4,h5,h6 {margin: 0; color: var(--VAN-DYKE-BROWN);}
 
 
 input{
-    font-size: 20px;
+    font-size: 19px;
     border: 1px solid gray;
     border-radius: 10px;
+    background: none;
+    transition: border 0.5s;
+    
+}
+input:hover{
+    border: 1px solid black;
 }
 /* ------------------------- ------------------------- ------------------------- ------------------------- ------------------------- */
 
@@ -201,18 +207,6 @@ a:visited {
 
 /* ------------------------- ------------------------- ------------------------- ------------------------- ------------------------- */
 
-.navegar {
-    border: 1px solid var(--black);
-    width: 100%;
-    height: 60px;
-    padding: 10px;
-    /* box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: white;
-}
-
 /* ------------------------- ------------------------- ------------------------- ------------------------- ------------------------- */
 
 /* 
@@ -278,6 +272,7 @@ a:visited {
     cursor: pointer;
     border: 1px solid gray;
     transition: background-color 0.5s, color 0.5s;
+    padding: 5px;
 }
 
 .btns-modal:hover{background-color: var(--DARK-GOLDENROD); color: white}
@@ -293,43 +288,6 @@ a:visited {
     align-items: center;
 }
 
-/* MODAL AGREGAR LIBRO */
-
-.container-input{
-    display: flex;
-    flex-direction: column;
-}
-
-#sinopsis-libro{
-    resize: none;
-    height: 100px;
-    width: 600px;
-}
-
-#form-agregar-libro{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-#confirmar-agregar-libro{
-    width: fit-content;
-}
-
-#modal-content-agregar-libro{
-    flex-direction: column;
-}
-
-/* MODAL ELIMINAR LIBRO */
-#busqueda{
-    display: flex;
-    flex-direction: column;
-    justify-items: center;
-    align-items: center;
-    gap: 10px;
-}
-
-/* ------------------------- ------------------------- ------------------------- ------------------------- ------------------------- */
 
 /* ------------------------- ------------------------- ------------------------- ------------------------- ------------------------- */
 
@@ -341,71 +299,97 @@ a:visited {
 ██╔═══╝░██╔══██╗██║██║╚████║██║░░██╗██║██╔═══╝░██╔══██║██║░░░░░
 ██║░░░░░██║░░██║██║██║░╚███║╚█████╔╝██║██║░░░░░██║░░██║███████╗
 ╚═╝░░░░░╚═╝░░╚═╝╚═╝╚═╝░░╚══╝░╚════╝░╚═╝╚═╝░░░░░╚═╝░░╚═╝╚══════╝
-    ESTILOS PARA EL CONTENIDO DE LA PAG PRINCIPAL
+    ESTILOS PARA EL CONTENIDO PRINCIPAL DE EXPLORAR EL CATALOGO
 */
 
-.principal-page-header {
-    display: flex;
-    justify-content: space-between;
-    box-sizing: border-box;
-    padding-inline: 10px;
-}
-
-.perfil-usuario-link {
+.header-explorar{
     display: flex;
     align-items: center;
-    text-decoration: none;
+    justify-content: space-between;
 }
 
-.opciones-navegar-principal {
-    width: 98%;
-    height: 98%;
-    height: fit-content;
+.header-explorar input{
+    width: 400px;
+}
+.explorar-libros{
     display: flex;
     flex-direction: column;
-    gap: 30px;
-    margin-top: 50px;
-  
+    gap: 50px;
 }
-
-
-/* 
-    ESTILOS PARA EL CONTENEDOR DE LIBRERIA
-*/
-.navegar-card{
+.mi-libreria{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     width: 100%;
-    background-color: var(--WHITE-SMOKE);
-    padding: 20px;
-    box-sizing: border-box;
-    border-radius: 10px;
-    border: none;
-    
+    gap: 50px;
 }
-.navegar-card-header {
+.libros-container{
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 45px;
 }
 
-.navegar-card-btns{
-    border: 1px solid gray;
-    border-radius: 10px;
+.usuarios-container{
     display: flex;
-    align-items: center;
-    text-decoration: none;
-    padding: 5px;
-    transition: background-color 0.5s, color 0.5s;
-    cursor: pointer;
-}
-.navegar-libros-container{
-    display: flex;
-    gap: 40px;
     flex-wrap: wrap;
-    justify-content: center;
+    gap: 30px;
     margin-top: 20px;
 }
-.navegar-card-btns:hover {
-    color: white;
-    background-color: var(--DARK-GOLDENROD);
+.usuario-card{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid gray;
+    height: fit-content;
+    width: fit-content;
+    padding: 15px;
+    border-radius: 10px;
+    transition: background-color 0.5s,color 0.5s;
+    cursor: pointer;
 }
-.navegar-card-btns:hover svg {  stroke: white;}
+
+.usuario-card h4{
+    color: white;
+}
+
+.img-usuario-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.img-usuario{
+    width: 150px;
+}
+
+.info-usuario-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.administrador{
+    background-color: rgb(176, 132, 1);
+}
+
+.administrador:hover{
+    background-color: rgb(207, 169, 57);
+}
+
+
+.estudiante{
+    background-color: rgb(76, 101, 201);
+}
+
+
+.estudiante:hover{
+    background-color: rgb(112, 139, 247);
+}
+
+.profesor{
+    background-color: rgb(93, 16, 93);
+}
+.profesor:hover{
+    background-color: rgb(164, 35, 164);
+}
