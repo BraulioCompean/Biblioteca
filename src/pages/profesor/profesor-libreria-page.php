@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mi Libreria</title>
     <link rel="stylesheet" href="../../styles/profesor/profesor-libreria-page.css">
+    <link rel="icon" href="../../assets/logo1.webp" />
     <script src="../../scripts/profesor/profesor-libreria-page.js" defer></script>
 </head>
 
@@ -93,7 +94,7 @@
     <aside class="aside-nav-section">
         <div class="library-title">
             <img src="../../assets/logo1.webp" alt="" id="imgL" />
-            <h1>Librería</h1>
+            <h1>Biblioteca</h1>
         </div>
         <nav class="nav-section">
             <ul class="nav-options-list">

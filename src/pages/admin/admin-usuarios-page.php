@@ -10,14 +10,14 @@
         rel="stylesheet"
         href="../../styles/admin/admin-usuarios-page.css" />
     <title>Principal</title>
-    <link rel="icon" href="assets/logo1.webp" />
+    <link rel="icon" href="../../assets/logo1.webp" />
 </head>
 
 <body>
     <aside class="aside-nav-section">
         <div class="library-title">
             <img src="../../assets/logo1.webp" alt="" id="imgL" />
-            <h1>Librería</h1>
+            <h1>Biblioteca</h1>
         </div>
         <nav class="nav-section">
             <ul class="nav-options-list">

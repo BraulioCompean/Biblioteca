@@ -12,6 +12,7 @@
         content="width=
     , initial-scale=1.0" />
     <link rel="stylesheet" href="../../styles/alumno/alumno-perfil-page.css" />
+    <link rel="icon" href="../../assets/logo1.webp" />
     <title>Perfil</title>
 </head>
 

@@ -13,8 +13,9 @@
         content="width=
     , initial-scale=1.0" />
     <link rel="stylesheet" href="../../styles/alumno/alumno-explorar-page.css" />
+    <link rel="icon" href="../../assets/logo1.webp" />
     <script src="../../scripts/alumno/alumno-explorar-page.js" defer></script>
-    <title>Historial de Prestamos</title>
+    <title>Explorar</title>
 </head>
 
 

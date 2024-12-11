@@ -8,7 +8,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../styles/alumno/alumno-principal-page.css" />
-    <title>Libreria</title>
+    <title>Biblioteca</title>
     <link rel="icon" href="../../assets/logo1.webp" />
     <script src="../../scripts/alumno/alumno-principal-page.js" defer></script>
 </head>

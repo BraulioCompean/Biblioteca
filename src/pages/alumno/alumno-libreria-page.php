@@ -7,8 +7,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Libreria</title>
     <link rel="stylesheet" href="../../styles/alumno/alumno-libreria-page.css">
+    <link rel="icon" href="../../assets/logo1.webp" />
     <script src="../../scripts/alumno/alumno-libreria-page.js" defer></script>
 </head>
 

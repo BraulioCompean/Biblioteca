@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Libreria</title>
         <link rel="stylesheet" href="src/styles/index.css" />
+        <link rel="icon" href="../../assets/logo1.webp" />
         <script src="src/scripts/index.js" defer></script>
     </head>
     <body>

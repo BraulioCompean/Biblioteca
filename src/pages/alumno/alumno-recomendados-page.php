@@ -14,6 +14,7 @@
     , initial-scale=1.0" />
     <link rel="stylesheet" href="../../styles/alumno/alumno-recomendados-page.css" />
     <title>Libros Recomendados</title>
+    <link rel="icon" href="../../assets/logo1.webp" />
     <script src="../../scripts/alumno/alumno-recomendados.js" defer></script>
 </head>
 

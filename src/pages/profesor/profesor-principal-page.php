@@ -8,7 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../styles/profesor/profesor-principal-page.css" />
     <script src="../../scripts/profesor/profesor-principal-page.js" defer></script>
-    <title>Inicio</title>
+    <link rel="icon" href="../../assets/logo1.webp" />
+    <title>Principal</title>
 </head>
 
 <body>
