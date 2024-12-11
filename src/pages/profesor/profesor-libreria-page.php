@@ -1,7 +1,5 @@
-<?php
-session_start();
-$_SESSION['idUsuario'] = "P0000001";
-?>
+<?php include '../sesion.php'; ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

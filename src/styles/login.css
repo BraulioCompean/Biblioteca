@@ -1,203 +1,157 @@
+/* Color Variables */
 :root {
-  --apricot: #ffcdb2ff;
-  --melon: #ffb4a2ff;
-  --salmon-pink: #e5989bff;
-  --old-rose: #b5838dff;
-  --dim-gray: #6d6875ff;
-  --black: #070707ff;
-  --violet-jtc: #553555ff;
-  --eggplant: #755b69ff;
-  --cambridge-blue: #96c5b0ff;
-  --aquamarine: #adf1d2ff;
+  --DARK-GOLDENROD: #b08401;
+  --TAN: #d49e8d;
+  --DUST-STORM: #ded1bd;
+  --WHITE-SMOKE: #faf6f2;
+  --VAN-DYKE-BROWN: #683b2b;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  text-decoration: none;
-  font-family: "Roboto", sans-serif;
-}
-
-html{
-  height: 100%;
-  width: 100%;
-}
-
+/* General Styles */
 body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--DUST-STORM);
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
-  width: 100vw;
-  overflow: hidden;
-  background: linear-gradient(150deg, #b5838dff, #ffcdb2ff);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
-  color: var(--dim-gray);
-  height: 100%;
-  height: 100%;
 }
 
-main {
-  width: 100%;
-  padding: 20px;
-  margin: auto;
-  margin-top: 100px;
+.contenedor__principal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  max-width: 1200px; /* Aumenta el tamaño del contenedor principal */
+  gap: 20px; /* Añade espacio entre los dos contenedores */
+}
+
+.contenedor__info {
+  background: var(--TAN);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  padding: 40px;
+  text-align: center;
+}
+
+.contenedor__info h2 {
+  color: var(--VAN-DYKE-BROWN);
+  margin-bottom: 20px;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.contenedor__info img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
 }
 
 .contenedor__todo {
-  max-width: 800px;
-  margin: auto;
-  position: relative;
-}
-
-.caja__trasera {
+  background: var(--TAN);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  overflow: hidden;
   width: 100%;
-  height: 600px;
-  padding: 10px 20px;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-.caja__trasera div {
-  margin: 140px 40px;
-  color: white;
-}
-
-.caja__trasera div p,
-.caja__trasera button {
-  margin-top: 30px;
-}
-
-.caja__trasera div h3 {
-  font-weight: 400;
-  font-size: 26px;
-}
-
-.caja__trasera button {
-  padding: 10px 40px;
-  border: 2px solid var(--apricot);
-  font-size: 14px;
-  background: transparent;
-  font-weight: 600;
-  cursor: pointer;
-  color: white;
-  outline: none;
-  transition: all 300ms;
+  max-width: 600px; /* Aumenta el tamaño del contenedor */
+  width: 30rem;
 }
 
 .contenedor__login-register {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  max-width: 380px;
-  position: relative;
-  top: -105px;
-  left: 10px;
-  transition: left 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  padding: 40px; /* Aumenta el padding del contenedor interno */
+  background-color: var(--TAN);
 }
 
-.contenedor__login-register form {
-  width: 100%;
-  padding: 50px 20px;
-  background: var(--apricot);
-  position: absolute;
-  border-radius: 20px;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-}
-
-.contenedor__login-register form h2 {
-  font-size: 30px;
+h2 {
   text-align: center;
-  margin-bottom: 20px;
-  color: black;
+  color: var(--VAN-DYKE-BROWN);
+  margin-bottom: 30px;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-.contenedor__login-register form input {
-  width: 100%;
-  margin-top: 20px;
-  padding: 10px;
-  border: none;
-  background: var(--apricot);
-  color: var(--black);
-  font-size: 16px;
-  outline: none;
-  border-radius: 5px;
+/* Form Styles */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra los elementos dentro del formulario */
 }
 
-.contenedor__login-register form button {
-  padding: 10px 40px;
-  margin-top: 40px;
-  border: none;
+.role-buttons {
+  display: flex;
+  justify-content: center; /* Centra los botones */
+  margin-bottom: 25px;
+  width: 100%; /* Asegura que los botones ocupen el 100% del contenedor */
+  border-radius: 6px;
+}
+
+.role-buttons button {
+  background-color: var(--WHITE-SMOKE);
+  border: 2px solid var(--DUST-STORM);
+  padding: 12px;
+  flex: 1;
+  margin: 0 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
   font-size: 14px;
-  background: var(--melon);
-  font-weight: 600;
+  font-weight: bold;
+  max-width: 150px; /* Establece un tamaño máximo para los botones */
+  border-radius: 6px;
+}
+
+.role-buttons button:hover {
+  background-color: var(--DUST-STORM);
+  color: var(--VAN-DYKE-BROWN);
+}
+
+input[type="text"],
+input[type="password"] {
+  padding: 12px;
+  margin-bottom: 25px;
+  border: 2px solid var(--DUST-STORM);
+  border-radius: 6px;
+  width: 100%; /* Asegura que los campos de entrada ocupen el 100% del contenedor */
+  max-width: 400px; /* Establece un tamaño máximo para los campos de entrada */
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-color: var(--DARK-GOLDENROD);
+}
+
+button[type="submit"] {
+  background-color: var(--VAN-DYKE-BROWN);
+  color: var(--WHITE-SMOKE);
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
   cursor: pointer;
-  color: var(--black);
-  outline: none;
-  border-radius: 5px;
-  transition: background 300ms, color 300ms;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  width: 100%; /* Asegura que el botón de envío ocupe el 100% del contenedor */
+  max-width: 400px; /* Establece un tamaño máximo para el botón de envío */
 }
 
-.contenedor__login-register form button:hover {
-  background: var(--eggplant);
-  color: var(--apricot);
+button[type="submit"]:hover {
+  background-color: var(--DARK-GOLDENROD);
+  transform: translateY(-2px);
 }
 
-.formulario__login {
-  opacity: 1;
-  display: block;
+/* Error Message Style */
+form .error {
+  color: #ff4d4d;
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+  font-weight: bold;
 }
 
-.formulario__register {
-  display: none;
-}
-
-/* Hacer que las cajas traseras estén al mismo nivel */
-.caja__trasera-login, .caja__trasera-register {
-  width: 50%; /* Asegura que ambas cajas tengan el mismo ancho */
-  position: relative;
-}
-
-@media screen and (max-width: 850px) {
-  main {
-    margin-top: 50px;
-  }
-
-  .caja__trasera {
-    max-width: 350px;
-    height: 300px;
-    flex-direction: column;
-    margin: auto;
-  }
-
-  .caja__trasera div {
-    margin: 0px;
-    position: absolute;
-  }
-
-  .contenedor__login-register {
-    top: -10px;
-    left: -5px;
-    margin: auto;
-  }
-
-  .contenedor__login-register form {
-    position: relative;
-  }
-}
-
-/* Estilo del selector */
-select {
-  background-color: var(--apricot);
-  color: #333;
-  appearance: none;
-  cursor: pointer;
-  font-family: "Roboto", sans-serif;
-  font-size: large;
-}
-
-select:focus {
-  outline: none;
-  background-color: bisque;
+img{
+  width: 18rem;
 }
