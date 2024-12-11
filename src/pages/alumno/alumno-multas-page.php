@@ -1,7 +1,4 @@
-<?php
-session_start();
-$_SESSION['idUsuario'] = "00000001";
-?>
+<?php include '../sesion.php'; ?>
 
 
 
