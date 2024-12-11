@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 session_start();
 include '../db/Database.php'; 
 $error = "";
@@ -18,7 +18,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error = "Rol no reconocido";
         exit();
     }
-
     $sql = "SELECT * FROM $tabla WHERE correo = :correo";
     $stmt = $pdo->prepare($sql);
     $stmt->execute(['correo' => $correo]);
@@ -93,4 +92,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </main>
 </body>
-</html>
+</html> -->

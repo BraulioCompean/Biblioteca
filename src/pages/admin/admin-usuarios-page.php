@@ -1,4 +1,3 @@
-<?php include '../sesion.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -104,15 +103,15 @@
                 <h2>Lista de Usuarios</h2>
             </header>
             <div class="usuarios-container">
-                 <!-- <?php
+                 <?php
                     require_once '../../db/Database.php';
                     try {
 
                         $db = new Database();
                         $pdo = $db->getConnection();
-                        $sql = "SELECT id_usuario ,nombres,apellidos , rol FROM profesores";
+                        $sqlProfesores = "SELECT id_usuario ,nombres,apellidos , rol FROM profesores";
 
-                        $stmt = $pdo->prepare($sql);
+                        $stmt = $pdo->prepare($sqlProfesores);
 
 
                         $stmt->execute();
@@ -126,54 +125,45 @@
                                 }else{
                                     $rol = "Administrador";
                                 }                             
-                                echo "<div class='usuario-card {$rol}>
+                                echo "<div class='usuario-card {$resultado['rol']}'>
                                             <div class='img-usuario-container'>
-                                                <img src='../../assets/administrator.png'  class='img-usuario'>
+                                                <img src='../../assets/{$resultado['rol']}.png'  class='img-usuario'>
                                             </div>
                                             <div class='info-usuario-card'>
                                                 <h4>{$resultado['id_usuario']}</h4>
-                                                <h4>{$resultado['nombres']} {</h4>
-                                                <h4>Administrador</h4>
+                                                <h4>{$resultado['nombres']}</h4>
+                                                <h4>{$rol}</h4>
                                             </div>
                                         </div>";
                             }
-                        } else {
-                            echo '<h4 style>No haz añadido ningun libro a tu libreria</h4>';
                         }
-                    } catch (PDOException $e) {
-                    }
-                    ?> -->
-                <div class="usuario-card administrador">
-                    <div class="img-usuario-container">
-                        <img src="../../assets/administrator.png" alt="" class="img-usuario">
-                    </div>
-                    <div class="info-usuario-card">
-                        <h4>P0000001</h4>
-                        <h4>Braulio Perez Compean</h4>
-                        <h4>Administrador</h4>
-                    </div>
-                </div>
+                        $sqlEstudiantes ="SELECT id_usuario ,nombres,apellidos FROM estudiantes";
+                        $stmtEstudiantes = $pdo->prepare($sqlEstudiantes);
 
-                <div class="usuario-card profesor">
-                    <div class="img-usuario-container">
-                        <img src="../../assets/teacher.png" alt="" class="img-usuario">
-                    </div>
-                    <div class="info-usuario-card">
-                        <h4>P0000002</h4>
-                        <h4>Braulio Perez Compean</h4>
-                        <h4>Profesor</h4>
-                    </div>
-                </div>
-                <div class="usuario-card estudiante">
-                    <div class="img-usuario-container">
-                        <img src="../../assets/student.png" alt="" class="img-usuario">
-                    </div>
-                    <div class="info-usuario-card">
-                        <h4>22690128</h4>
-                        <h4>Braulio Perez Compean</h4>
-                        <h4>Estudiante</h4>
-                    </div>
-                </div>
+                        $stmtEstudiantes->execute();
+
+                        $resultadosEstudiantes = $stmtEstudiantes->fetchAll(PDO::FETCH_ASSOC);
+                        if(count($resultados)>0){
+                            foreach ($resultadosEstudiantes as $resultadoEstudiante) {
+                                $rol = "Estudiante";
+                                echo "<div class='usuario-card estudiante'>
+                                            <div class='img-usuario-container'>
+                                                <img src='../../assets/student.png'  class='img-usuario'>
+                                            </div>
+                                            <div class='info-usuario-card'>
+                                                <h4>{$resultadoEstudiante['id_usuario']}</h4>
+                                                <h4>{$resultadoEstudiante['nombres']}</h4>
+                                                <h4>{$rol}</h4>
+                                            </div>
+                                    </div>";
+                            }
+                        }
+
+                    } catch (PDOException $e) {
+                        echo $e->getMessage();
+                    }
+                    ?> 
+                
             </div>
         </section>
 
