@@ -8,9 +8,9 @@ class Database {
 
     private function connect() {
         // $dsn = "pgsql:host=ep-quiet-frost-a5om3mkk.us-east-2.aws.neon.tech;port=5432;dbname=neondb;sslmode=require";
-        $dsn = "pgsql:host=ep-quiet-frost-a5om3mkk.us-east-2.aws.neon.tech;port=5432;dbname=neondb;sslmode=require&options=endpoint%3Dep-quiet-frost-a5om3mkk";
+        $dsn = "pgsql:host=ep-quiet-frost-a5om3mkk.us-east-2.aws.neon.tech;port=5432;dbname=neondb;sslmode=require";
         $user = "neondb_owner";
-        $password = "eHsJkUPn41Wm";
+        $password = "endpoint=ep-quiet-frost-a5om3mkk;eHsJkUPn41Wm";
 
         try {
             $this->pdo = new PDO($dsn, $user, $password);
