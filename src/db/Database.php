@@ -50,4 +50,7 @@ try {
     echo $e->getMessage();
     die();
 }
+
+
+$prueba = "XD";
 ?>
