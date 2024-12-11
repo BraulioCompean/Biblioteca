@@ -26,9 +26,9 @@ class Database {
 }
 ?>
 <?php
-$dsn = "pgsql:host=ep-quiet-frost-a5om3mkk.us-east-2.aws.neon.tech;port=5432;dbname=neondb;sslmode=require";
-$username = "neondb_owner";
-$password = "eHsJkUPn41Wm";
+ $dsn = "pgsql:host=ep-quiet-frost-a5om3mkk.us-east-2.aws.neon.tech;port=5432;dbname=neondb;sslmode=require";
+ $user = "neondb_owner";
+ $password = "endpoint=ep-quiet-frost-a5om3mkk;eHsJkUPn41Wm";
 $options = array(
     PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8mb4'",
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ
