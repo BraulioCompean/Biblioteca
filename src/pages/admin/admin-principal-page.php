@@ -104,7 +104,7 @@ $_SESSION['idUsuario'] = "P0000005";
     <dialog class="modal" id="modal-borrar-libro">
         <div class="modal-content">
             <div id="busqueda">
-                <form class="search-libro-eliminar">
+                <form class="search-libro-eliminar" id="form-search-libro-eliminar">
                     <label for="">Buscar libro a eliminar(ISBN)</label>
                     <input type="text" id="search-libro-borrar" name="search-libro-borrar-isbn">
                 </form>
@@ -112,9 +112,18 @@ $_SESSION['idUsuario'] = "P0000005";
                     <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
                     Buscar
                 </button>
+                <div id="busqueda-libro-eliminar-mensaje"></div>
             </div>
-            <div id="datos-libro-eliminar">
-                
+            <div id="datos-libro-eliminar" style="display: none;">
+                <h1>Estas a punto de eliminar este libro del sistema</h1>
+                <form action="">
+                    <input type="hidden" id="isbn-libro-eliminar">
+                </form>
+                <div class="info-libro">
+                    <img src="" alt="" id="imagen-eliminar">
+                    <h4 id="titulo-eliminar"></h4>
+                    <h4 id="autor-eliminar"></h4>
+                </div>
             </div>
         </div>
     </dialog>

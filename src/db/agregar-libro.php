@@ -19,7 +19,23 @@ try {
         $categoriaLibro = htmlspecialchars($_POST['categoria-libro']);
         $paginasLibro = htmlspecialchars($_POST['numero-paginas-libro']);
         $sinopsisLibro = htmlspecialchars($_POST['sinopsis-libro']);
+        
+        if(empty($tituloLibro) ||
+            empty($isbnLibro) ||
+            empty($imagenLibro) ||
+            empty($editorialLibro) ||
+            empty($anioPublicacionLibro) ||
+            empty($cantidadLibro) ||
+            empty($categoriaLibro) ||
+            empty($paginasLibro) ||
+            empty($sinopsisLibro)){
 
+                $response['exito'] = false;
+                $response['mensaje'] = 'Campos incompletos';
+
+                echo json_encode($response);    
+                exit;        
+            }
         
         $sql = "INSERT INTO  libros (isbn,titulo,autor,editorial,cantidad,categoria,imagen,sinopsis,num_pag,anio_pub) VALUES (:isbn,:titulo,:autor,:editorial,:cantidad,:categoria,:imagen,:sinopsis,:num_pag,:anio_pub)";
 
