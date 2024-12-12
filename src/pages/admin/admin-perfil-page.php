@@ -86,14 +86,14 @@
             <div class="perfil-container">
                 
 
-                <?php
+                <?php 
 
                         require_once '../../db/Database.php';
                         $db = new Database();
                         $pdo = $db->getConnection();
-                        $idUsuario = $_SESSION['idUsuario'];
+                        $idUsuario = $_SESSION['idUsuario']; //Obtenemos el id del usuario actual
                         try {
-                            
+                            //Instruccion sql para buscar la informacion del usuario actual
                             $sql = "SELECT id_usuario,nombres,apellidos,correo,telefono,direccion,rol,departamento FROM profesores WHERE id_usuario = :idUsuario";
                             $stmt = $pdo->prepare($sql);
     
@@ -101,7 +101,7 @@
                             $stmt->execute();
     
                             $result = $stmt->fetch(PDO::FETCH_ASSOC);
-                            if ($result) {
+                            if ($result) { //Si el usuario se encontro, esta sera la estructura de su perfil , con los datos recopilados
                                         echo '<div class="general-info-container">
                                                 <img src="../../assets/user.png" alt="" class="usuario-imagen">
                                                 <h3 title="Nombre del Usuario"> '.$result['nombres']. " " .$result['apellidos'].'</h3>
@@ -146,10 +146,10 @@
                                                 </div>
                                             </div>';
                                     
-                            } else {
+                            } else { //En caso de que no encuentre ningun registro , mostrara el siguiente mensaje
                                 echo '<h1>No se pudo cargar la informacion del usuario</h1>';
                             }
-                        } catch (PDOException $e) {
+                        } catch (PDOException $e) { //En caso de que el try catch atrape un error , mostrara este mensaje
                             echo '<h1>No se pudo cargar la informacion del usuario</h1>';
 
                         }   

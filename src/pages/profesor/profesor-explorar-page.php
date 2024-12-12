@@ -284,11 +284,11 @@
 
                     $stmt->execute();
                     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-                    if (count($result) == 0) {
+                        //Verifica si hubo resultados
+                    if (count($result) == 0) { //Si no hubo resultados mostrara el siguiente mensaje
                         echo '<h4 style="text-align:center;">No se encontraron libros</h4>';
                     } else {
-                        foreach ($result as $libro) {
+                        foreach ($result as $libro) { //Por cada libro encontrado construira una carta, con los datos correspondientes
                             echo '<div class="book-card" id="' . htmlspecialchars($libro['isbn']) . '">
                             <img
                                 src="' . htmlspecialchars($libro['imagen']) . '"
@@ -306,6 +306,7 @@
                     }
                 } catch (PDOException $e) {
                     echo '<h4 style="text-align:center;">Error en la consulta: ' . $e->getMessage() . '</h4>';
+                    //En caso de haber algun error se atrapa y se muestra
                 }
                 ?>
             </div>

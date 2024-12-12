@@ -253,6 +253,7 @@
                             $db = new Database();
                             $pdo = $db->getConnection();
                             $idUsuario = $_SESSION['idUsuario'];
+                            //SQL para obtener los nombres y apellidos del administrador actual
                             $sql = "SELECT nombres,apellidos FROM profesores WHERE id_usuario = :idUsuario";
 
                             $stmt = $pdo->prepare($sql);

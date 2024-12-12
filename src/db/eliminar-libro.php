@@ -12,15 +12,16 @@ try {
         $isbnLibro = htmlspecialchars($_POST['isbn-libro']);
 
         
-        $sql = "DELETE FROM  libros WHERE isbn = :isbnLibro";
+        $sql = "DELETE FROM  libros WHERE isbn = :isbnLibro"; //SQL PARA BORRAR EL LIBRO
 
-        $stmt  = $pdo->prepare($sql);
+        $stmt  = $pdo->prepare($sql); //PREPARAMOS EL SQL
 
-        $stmt->bindParam(':isbn', $isbnLibro);
-        if($stmt->execute()){
+        $stmt->bindParam(':isbn', $isbnLibro); //INSERTAMOS LOS DATOS EN  EL SQL
+        if($stmt->execute()){ //SI NOS EJECUTA EL SQL MANDAREMOS UNA RESPUESTA DE EXITO
             $response['exito'] = true;
             $response['mensaje'] = 'El libro se ha eliminado del sistema';
         }else{
+            //SI NO SE EJECUTA MANDAREMOS UNA RESPUESTA DE QUE FALLO
             $response['exito'] = false;
             $response['mensaje'] = 'El libro no se encontro o ya se ha eliminado del sistema';
         }
@@ -29,7 +30,7 @@ try {
     }
 
 
-} catch (PDOException $e) {
+} catch (PDOException $e) { //PARA OTRA CLASE  DE ERRORES QUE ATRAPE EL TRY CATCH , RETORNAREMOS ESTA RESPUESTA
     $response['exito'] = false;
     $response['mensaje'] = 'Error inesperado: ' .$e->getMessage();
 }

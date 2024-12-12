@@ -17,12 +17,12 @@ const modalMostrarLibro_isbn = document.getElementById("isbn-modal-mostrar-libro
 
 const bookCards = document.querySelectorAll(".book-card")
 
-const cacheInfoLibros = {}
+const cacheInfoLibros = {} //Objeto para guardar la informacion de los libros temporalmente, esto para que no tarde tanto
 
 
 // FUNCION PARA CARGAR CON LOS DATOS DEL LIBRO SELECCIONADO EL MODAL MOSTRAR LIBRO
 
-function actualizarModalMostrarLibro(data) {
+function actualizarModalMostrarLibro(data) { //Obtenemos la informacion y se la asignamos al modal de msotrarLibro
     modalMostrarLibro_isbn.value = data.isbn;
     modalMostrarLibro_imagen.setAttribute("src", data.imagen);
     modalMostrarLibro_titulo.innerText = data.titulo;
@@ -34,21 +34,21 @@ function actualizarModalMostrarLibro(data) {
 }
 
 
-bookCards.forEach((card) => {
+bookCards.forEach((card) => { //Por cada carta de libro que exista, tendra cada una un event listener
     card.addEventListener("click", (event) => {
-        const isbnCardBook = event.target.closest(".book-card").id;
-        if (cacheInfoLibros[isbnCardBook]) {
-            actualizarModalMostrarLibro(cacheInfoLibros[isbnCardBook]);
+        const isbnCardBook = event.target.closest(".book-card").id; //Obtendra el isbn que usaremos para despues para buscar informacion de ese libro
+        if (cacheInfoLibros[isbnCardBook]) { //Verifica si la informacion del libro ya existe en el objeto Cache
+            actualizarModalMostrarLibro(cacheInfoLibros[isbnCardBook]); // Si ya existe, de ahi agarrara la informacion , por lo que es mas rapido que hacer un fetch
         } else {
-            fetch(`../../db/info-libro.php?isbn=${isbnCardBook}`)
+            fetch(`../../db/info-libro.php?isbn=${isbnCardBook}`) //Si no esta en el objeto Cache, hara una solicitud a el archivo info-libro.php , mandandole como parametro el isbn del libro
                 .then((response) => response.json())
                 .then((data) => {
-                    actualizarModalMostrarLibro(data);
-                    cacheInfoLibros[isbnCardBook] = data;
+                    actualizarModalMostrarLibro(data); //Con la informacion que nos de el fetch, obtendremos la informacion y la acutalizaremos en el modal Mostra libro
+                    cacheInfoLibros[isbnCardBook] = data; // A su vez ,guardaremos esta informacion en el objeto Cache
                 })
                 .catch((error) => {
                     console.error(
-                        "Error al obtener datos de info-libro.php : ",
+                        "Error al obtener datos de info-libro.php : ", //En caso de error mostraremos por consola del navegador
                         error
                     );
                 });
@@ -77,34 +77,34 @@ openRecomendarLibro.addEventListener("click",()=>{
 
 // FUNCION PARA EL BOTON DE CONFIRMAR RECOMENDACION PARA HACER LA SOLICITUD AL ARCHIVO RECOMENDAR.PHP
 confirmarRecomendar.addEventListener("click",async (event)=>{
-    event.preventDefault();
-    const formDatos = new FormData(formRecomendar)
+    event.preventDefault(); 
+    const formDatos = new FormData(formRecomendar) //Crearemos un formData , el cual lo llenaremos con el formulario de Recomendar (formRecomendar)
     try {
-        const response = await fetch("../../db/recomendar.php",{
-            method: "POST",
-            body: formDatos
+        const response = await fetch("../../db/recomendar.php",{ //Haremos una solicitud al archivo recomendar.php 
+            method: "POST", //Con un metodo POST 
+            body: formDatos // Y el formulario que enviaremos
         })
-        if(!response.ok){
-            const errorText = await response.text();
-            console.error(errorText)
-            throw new Error(`Error!: ${response.status}`)
+        if(!response.ok){ //Retorna un Booleano indicando el estado de la respuesta
+            const errorText = await response.text(); //En caso de que la respuesta no fuera exitosa, obtendremos su mensaje
+            console.error(errorText) //Y lo imprimiremos en consola
+            throw new Error(`Error!: ${response.status}`) //A su vez generaremos un Error, mandando el status de la respuesta, dicho error sera atrapado mas abajo con catch
         }
 
-        const data = await response.json();
-        console.log(data)
-        formRecomendar.style.display = "none";
-        if(data.exito){
-            recomendarRespuestaMensaje.style.display = "flex"
-            recomendarRespuestaMensaje.innerHTML = `<h4 style="color: green;">${data.mensaje}</h4>`
+        const data = await response.json(); //Si todo funciono correctamente, obtendra la respuesta y la convertira en json , guardandola en la variable data
+        console.log(data) //La podemos imprimir en consola para ver lo que contiene (opcional)
+        formRecomendar.style.display = "none"; //Pondremos invisible el formulario de recomendar
+        if(data.exito){ //Si en la respuesta, en el clave de exito, es True
+            recomendarRespuestaMensaje.style.display = "flex" //Pondra visible la respuesta
+            recomendarRespuestaMensaje.innerHTML = `<h4 style="color: green;">${data.mensaje}</h4>` //Y le concatenaras como HTML el valor de la clave mensaje de la respuesta
 
-        }else{
-            recomendarRespuestaMensaje.style.display = "flex"
-            recomendarRespuestaMensaje.innerHTML = `<h4 style="color: red;">${data.mensaje}</h4>`;
+        }else{//De otra forma, si en la clave exito fuera False
+            recomendarRespuestaMensaje.style.display = "flex" //Pondras visible la respuesta
+            recomendarRespuestaMensaje.innerHTML = `<h4 style="color: red;">${data.mensaje}</h4>`;//Y agregaras como HTML el valor de la clave mensaje de la respuesta
         }
     } catch (Error) {
-        console.error("Error al recomendar el libro: ",Error)
-        formRecomendar.style.display = "none";
-        recomendarRespuestaMensaje.innerHTML = `<h4 style="color: red;">Ocurrio un error al intentar recomendar el libro.</h4>`
+        console.error("Error al recomendar el libro: ",Error) //Para otra clase de errores el catch se encargara de atraparlos
+        formRecomendar.style.display = "none"; //De igual forma , ponemos el formulario de recomendar en invisible
+        recomendarRespuestaMensaje.innerHTML = `<h4 style="color: red;">Ocurrio un error al intentar recomendar el libro.</h4>`//Y mostramos el siguiente mensaje
     }
 })
 
@@ -176,19 +176,20 @@ confirmarPrestamo.addEventListener("click",async (event)=>{
 // SALIDAS DE LOS MODAL
 window.addEventListener("click", (event) => {
     switch (event.target) {
-        case modalMostrarLibro:
-            modalMostrarLibro.style.display = "none";
+        case modalMostrarLibro: //EN CASO DE QUE HAYAS DADO CLICK EN EL MODAL MOSTRAR LIBRO
+            modalMostrarLibro.style.display = "none"; //CERRARA EL MODAL MOSTRAR LIBRO
             break;
-        case modalRecomendarLibro:
-            modalRecomendarLibro.style.display = "none"
-            formRecomendar.style.display = "flex"
-            recomendarRespuestaMensaje.style.display = "none"
-            recomendarRespuestaMensaje.innerHTML = ""
+        case modalRecomendarLibro://EN CASO DE QUE HAYAS DADO CLICK EN EL MODAL RECOMENDAR LIBRO
+            modalRecomendarLibro.style.display = "none" //CERRARA EL MODAL RECOMENDAR LIBRO
+            formRecomendar.style.display = "flex" //HABILITARA NUEVAMENTE EL FORMULARIO RECOMENDAR PARA QUE ESTE DISPONIBLE CUANDO SE ABRA OTRA VEZ
+            recomendarRespuestaMensaje.style.display = "none" //EL MENSAJE DE RESPUESTA LO OCULTARA
+            recomendarRespuestaMensaje.innerHTML = "" // Y BORRARA LA INFO DE ESE MENSAJE
             break;
-        case modalTramitarLibro:
-            modalTramitarLibro.style.display = "none"
-            formPrestamo.style.display = "flex"
-            modalTramitarLibro_resultadoMensaje.innerHTML = ""
+        case modalTramitarLibro: //EN CASO DE QUE HAYAS DADO CLICK EN EL MODAL TRAMITAR LIBRO
+            modalTramitarLibro.style.display = "none" //CERRARA EL MODAL TRAMITAR LIBRO
+            formPrestamo.style.display = "flex" // HABILITARA NUEVAMENTE EL FORMULARIO PRESTAMO
+            modalTramitarLibro_resultadoMensaje = "none" // HABILITARA 
+            modalTramitarLibro_resultadoMensaje.innerHTML = "" // BORRARA EL CONTENIDO DEL MENSAJE 
             break;
         
     }

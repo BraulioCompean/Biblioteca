@@ -89,8 +89,8 @@
 
                         $db = new Database();
                         $pdo = $db->getConnection();
+                        //SQL para obtener los datos para la card de los usuarios de la tabla profesores
                         $sqlProfesores = "SELECT id_usuario ,nombres,apellidos , rol FROM profesores";
-
                         $stmt = $pdo->prepare($sqlProfesores);
 
 
@@ -98,13 +98,13 @@
                         
                         $resultados = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         if (count($resultados) > 0) {
-                            foreach ($resultados as $resultado) {
+                            foreach ($resultados as $resultado) { //Por cada resultado de profesor, vamos a crear una card 
                                 $rol;
                                 if($resultado['rol'] == "profesor"){
                                     $rol = "Profesor";
                                 }else{
                                     $rol = "Administrador";
-                                }                             
+                                }                             //Estructura de la Card para profesores y administradores
                                 echo "<div class='usuario-card {$resultado['rol']}'>
                                             <div class='img-usuario-container'>
                                                 <img src='../../assets/{$resultado['rol']}.png'  class='img-usuario'>
@@ -116,7 +116,7 @@
                                             </div>
                                         </div>";
                             }
-                        }
+                        } //SQL para obtener los datos para las cards de los estudiantes
                         $sqlEstudiantes ="SELECT id_usuario ,nombres,apellidos FROM estudiantes";
                         $stmtEstudiantes = $pdo->prepare($sqlEstudiantes);
 
@@ -124,8 +124,8 @@
 
                         $resultadosEstudiantes = $stmtEstudiantes->fetchAll(PDO::FETCH_ASSOC);
                         if(count($resultados)>0){
-                            foreach ($resultadosEstudiantes as $resultadoEstudiante) {
-                                $rol = "Estudiante";
+                            foreach ($resultadosEstudiantes as $resultadoEstudiante) { //Por cada resultado de estudiante, vamos a crear una card 
+                                $rol = "Estudiante"; //Estructura del card ya creado
                                 echo "<div class='usuario-card estudiante'>
                                             <div class='img-usuario-container'>
                                                 <img src='../../assets/student.png'  class='img-usuario'>
