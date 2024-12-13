@@ -72,6 +72,7 @@
                 <form action="../../db/devolver-libro.php" id="form-devolver-libro" method="post">
                     <input type="hidden" id="isbn-devolver-libro-modal" name="isbn-devolver-libro">
                     <input type="hidden" id="id-usuario-devolver-libro" name="id-usuario-devolver-libro" value="<?php echo $_SESSION['idUsuario']; ?>">
+                    
                     <div class="btns-container">
                         <button class="btns-modal" id="confirmar-devolver-btn" type="submit">
                             <span>Confirmar</span>

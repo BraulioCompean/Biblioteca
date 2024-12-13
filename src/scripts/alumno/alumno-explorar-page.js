@@ -89,6 +89,8 @@ openTramitarPrestamo.addEventListener("click",()=>{
 const confirmarPrestamo = document.getElementById("confirmar-prestamo-btn")
 const formPrestamo = document.getElementById("form-prestamo")
 confirmarPrestamo.addEventListener("click",async (event)=>{
+    confirmarPrestamo.style.display = "none";
+
 
     event.preventDefault();
     const formDatos = new FormData(formPrestamo)
@@ -129,6 +131,7 @@ window.addEventListener("click", (event) => {
             modalTramitarLibro.style.display = "none"
             formPrestamo.style.display = "flex"
             modalTramitarLibro_resultadoMensaje.innerHTML = ""
+            confirmarPrestamo.style.display = "flex"
             break;
         
     }
