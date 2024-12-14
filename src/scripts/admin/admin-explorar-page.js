@@ -12,6 +12,40 @@ const modalMostrarLibro_sinopsis = document.getElementById("libro-sinopsis");
 const modalMostrarLibro_isbn = document.getElementById("isbn-modal-mostrar-libro");
 
 
+const botonesCategoria = document.querySelectorAll(".botones-categoria")
+
+const librosContainer = document.getElementById("libros-container")
+botonesCategoria.forEach((botonCategoria)=>{
+    botonCategoria.addEventListener("click",(event)=>{
+        const nombreCategoria = event.target.innerText;
+        // console.log(event.target.innerText)
+        librosContainer.innerHTML = ""
+        fetch(`../../db/info-libro-categoria.php?categoria=${nombreCategoria}`)
+            .then((response)=> response.json())
+            .then((data)=>{
+                console.log(data)
+                data.forEach((libro) => {
+                    librosContainer.innerHTML = librosContainer.innerHTML + `<div class="book-card" id = "${libro.isbn}">
+                                    <img
+                                        src="${libro.imagen}"
+                                        alt=""
+                                        class="img-book-card"
+                                    />
+                                    <div class="book-card-info-container">
+                                        <h4 class="book-name">
+                                            ${libro.titulo}
+                                        </h4>
+                                        <h5>' ${libro.autor}'</h5>
+                                    </div>
+                                </div>`
+                });
+            })
+            .catch((error)=>{
+                console.error(error)
+            })
+    })
+})
+
 
 // BOOK CARDS
 

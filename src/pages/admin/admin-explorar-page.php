@@ -137,7 +137,30 @@
                     <input type="text" placeholder="Buscar libro" name="busqueda">
                 </form>
             </header>
-            <div class="explorar-container">
+            <div class="categorias-botones">
+            <?php
+                    require_once '../../db/Database.php';
+                    try {
+                        $db = new Database();
+                        $pdo = $db->getConnection();
+                        $idUsuario = $_SESSION['idUsuario'];
+                        $sql = "SELECT DISTINCT categoria FROM libros;";
+
+                        $stmt = $pdo->prepare($sql);
+                        $stmt->execute();
+
+                        $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                        if (!empty($resultado)) {
+                            foreach ($resultado as $categoria) {
+                                echo '<button class="botones-categoria"> '.$categoria['categoria'].'</button>';
+                            }
+                        } 
+                    } catch (PDOException $e) {
+                        echo 'Error al obtener las categorias</h1>';
+                    }
+                    ?>
+            </div>
+            <div class="explorar-container" id="libros-container">
 
                 <?php
                 require_once '../../db/Database.php';

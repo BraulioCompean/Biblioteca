@@ -1,25 +1,19 @@
 <?php include '../sesion.php'; ?>
 
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8" />
-    <meta
-        name="viewport"
-        content="width=
-    , initial-scale=1.0" />
-    <link rel="stylesheet" href="../../styles/alumno/alumno-recomendados-page.css" />
-    <title>Libros Recomendados</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mis recomendaciones</title>
+    <link rel="stylesheet" href="../../styles/profesor/profesor-libreria-page.css">
     <link rel="icon" href="../../assets/logo1.webp" />
-    <script src="../../scripts/alumno/alumno-recomendados.js" defer></script>
+    <script src="../../scripts/profesor/profesor-libreria-page.js" defer></script>
 </head>
 
 <body>
-
 
     <!-- VENTANAS MODAL -->
     <!-- ---------------------------------------------------------------- -->
@@ -28,8 +22,6 @@
     <!-- ---------------------------------------------------------------- -->
     <!-- MODAL MOSTRAR LIBRO -->
     <!-- ---------------------------------------------------------------- -->
-
-
 
     <dialog class="modal" id="modal-libro">
 
@@ -43,19 +35,13 @@
                     alt=""
                     id="modal-img-libro" />
                 <div class="modal-btns-interactive">
-                    <button class="btns-modal" id="tramitar-prestamo-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-building-bank">
+                    <button class="btns-modal" id="devolver-libro-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-back-up">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path d="M3 21l18 0" />
-                            <path d="M3 10l18 0" />
-                            <path d="M5 6l7 -3l7 3" />
-                            <path d="M4 10l0 11" />
-                            <path d="M20 10l0 11" />
-                            <path d="M8 14l0 3" />
-                            <path d="M12 14l0 3" />
-                            <path d="M16 14l0 3" />
+                            <path d="M9 14l-4 -4l4 -4" />
+                            <path d="M5 10h11a4 4 0 1 1 0 8h-1" />
                         </svg>
-                        <span>Tramitar prestamo</span>
+                        <span>Devolver libro</span>
                     </button>
                 </div>
             </section>
@@ -79,40 +65,31 @@
         </div>
     </dialog>
 
-    <!-- ---------------------------------------------------------------- -->
-    <!-- MODAL TRAMITAR PRESTAMO -->
-    <!-- ---------------------------------------------------------------- -->
-    <dialog class="modal" id="modal-prestamo">
-        <div class="modal-content" id="modal-content-prestamo">
-            <div class="info-libro-prestamo">
-                <img src="" alt=""
-                    class="modal-img-libro"
-                    id="imagen-libro-prestamo">
-                <h4 id="titulo-libro-prestamo"></h4>
-                <h5 id="autor-libro-prestamo"></h5>
-            </div>
-            <div id="data-container" style="text-align: center; justify-content: center; align-items: center; display: flex; ">
-                <form action="" id="form-prestamo" method="post">
-                    <h1>Vas a tramitar este libro</h1>
-                    <input type="hidden" value="<?php echo $_SESSION['idUsuario']; ?>" id="id-usuario-prestamo-libro" name="id-usuario-prestamo-libro">
-                    <input type="hidden" id="isbn-prestamo-libro" name="isbn-prestamo-libro">
-                    <label for="fecha-esperada-entrega">¿Que dia planeas devolver el libro?</label>
-                    <input type="date" id="fecha-esperada-entrega-input" name="fecha-esperada-entrega" max="2025-12-31" required>
-                    <button id="confirmar-prestamo-btn" class="btns-modal">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-circle-check">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
-                            <path d="M9 12l2 2l4 -4" />
-                        </svg>
-                        <span>Confirmar prestamo</span>
-                    </button>
+    <dialog class="modal" id="modal-devolver-libro">
+        <div class="modal-content" id="modal-content-devolver">
+            <div id="form-container-devolver-libro">
+                <h2>¿Estas seguro que deseas devolver este libro?</h2>
+                <form action="../../db/devolver-libro.php" id="form-devolver-libro" method="post">
+                    <input type="hidden" id="isbn-devolver-libro-modal" name="isbn-devolver-libro">
+                    <input type="hidden" id="id-usuario-devolver-libro" name="id-usuario-devolver-libro" value="<?php echo $_SESSION['idUsuario']; ?>">
+                    <div class="btns-container">
+                        <button class="btns-modal" id="confirmar-devolver-btn" type="submit">
+                            <span>Confirmar</span>
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-settings-check"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M11.445 20.913a1.665 1.665 0 0 1 -1.12 -1.23a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.31 .318 1.643 1.79 .997 2.694" /><path d="M15 19l2 2l4 -4" /><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /></svg>
+                        </button>
+                        <button class="btns-modal" id="cancelar-devolver-btn" type="button">
+                            <span>Cancelar</span>
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-cancel"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M18.364 5.636l-12.728 12.728" /></svg>
+                        </button>
+                    </div>
                 </form>
-                <div id="mensaje-resultado-prestamo"></div>
+            </div>
+            <div id="container-mensaje-devolver-libro">
             </div>
         </div>
+        <div id="container-mensaje-devolver-libro">
+        </div>
     </dialog>
-    <!-- ---------------------------------------------------------------- -->
-
 
     <aside class="aside-nav-section">
         <div class="library-title">
@@ -122,7 +99,7 @@
         <nav class="nav-section">
             <ul class="nav-options-list">
                 <li class="nav-element">
-                    <a href="../alumno/alumno-principal-page.php">
+                    <a href="../profesor/profesor-principal-page.php">
                         <svg id="home-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-home">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                             <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
@@ -133,7 +110,7 @@
                     </a>
                 </li>
                 <li class="nav-element">
-                    <a href="../alumno/alumno-explorar-page.php">
+                    <a href="../profesor/profesor-explorar-page.php">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-world-search">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                             <path d="M21 12a9 9 0 1 0 -9 9" />
@@ -148,7 +125,7 @@
                     </a>
                 </li>
                 <li class="nav-element">
-                    <a href="../alumno/alumno-libreria-page.php">
+                    <a href="../profesor/profesor-libreria-page.php">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-book">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                             <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
@@ -161,16 +138,7 @@
                     </a>
                 </li>
                 <li class="nav-element">
-                    <a href="../alumno/alumno-recomendados-page.php">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-star">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
-                        </svg>
-                        <h4>Recomendados</h4>
-                    </a>
-                </li>
-                <li class="nav-element">
-                    <a href="../alumno/alumno-historial-prestamos-page.php">
+                    <a href="../profesor/profesor-historial-prestamos-page.php">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-building-bank">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                             <path d="M3 21l18 0" />
@@ -186,7 +154,7 @@
                     </a>
                 </li>
                 <li class="nav-element">
-                    <a href="../alumno/alumno-multas-page.php">
+                    <a href="../profesor/profesor-multas-page.php">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-ticket">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                             <path d="M15 5l0 2" />
@@ -201,7 +169,7 @@
             <hr />
             <ul class="user-menu">
                 <li class="nav-element">
-                    <a href="../alumno/alumno-perfil-page.php">
+                    <a href="../profesor/profesor-perfil-page.php">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-user">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                             <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
@@ -225,9 +193,9 @@
         </nav>
     </aside>
     <main>
-        <section class="recomendados">
-            <header class="header-recomendados">
-                <h1>Recomendados</h1>
+        <section class="mi-libreria">
+            <header>
+                <h1>Mi libreria</h1>
             </header>
             <div class="libros-container">
                 <?php
@@ -235,45 +203,94 @@
                 require_once '../../db/Database.php';
                 $db = new Database();
                 $pdo = $db->getConnection();
-
-                $idusuarioactual = "00000001";
-                $sql = "SELECT libro, gusto FROM recomendados WHERE estudiante = :idusuario";
+                $idUsuario = $_SESSION['idUsuario'];
+                // $idusuarioactual = "00000001";
+                $sql = "SELECT libro, gusto, estudiante FROM recomendados WHERE profesor = :idusuario";
 
                 $stmt = $pdo->prepare($sql);
 
-                $stmt->bindParam(":idusuario", $idusuarioactual, PDO::PARAM_STR);
+                $stmt->bindParam(":idusuario", $idUsuario, PDO::PARAM_STR);
                 $stmt->execute();
 
                 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                if (!empty($result)) {
-                    foreach ($result as $row) {
-                        $isbn = $row['libro'];
-                        $gusto = $row['gusto'];
+                if (count($result) > 0) {
+
+                    for ($i = 0; $i < count($result); $i++) {
+                        $isbn = $result[$i]['libro'];
+                        $gusto = $result[$i]['gusto'];
+                        $estudiante = $result[$i]['estudiante'];
                         $sql_datos_libro = "SELECT isbn,titulo,autor,imagen FROM libros WHERE isbn = :isbn";
                         $stmt_libro = $pdo->prepare($sql_datos_libro);
                         $stmt_libro->bindParam(":isbn", $isbn, PDO::PARAM_STR);
                         $stmt_libro->execute();
+
+
                         $libro = $stmt_libro->fetch(PDO::FETCH_ASSOC);
 
                         if ($libro) {
-                            echo '<div class="book-card" id = "' . $libro['isbn'] . '">
+
+                            if ($gusto === FALSE) {
+                                echo '<div class="book-card" id = "' . $libro['isbn'] . '">
                                         <img
                                             src="' . $libro['imagen'] . '"
                                             alt=""
                                             class="img-book-card"
                                         />
-                                        <div class="book-card-info-container">
+                                        <div style="background-color: red" class="book-card-info-container">
+                                        
+                                            <h4 class="book-name">
+                                               ' . $libro['titulo'] .  '
+                                            </h4>
+                                            <h5>' . $libro['autor'] . '</h5>
+                                            <h5>' . $estudiante . '</h5>
+                                        </div>
+                                    </div>';
+                            }
+                            elseif ($gusto === NULL ) {
+                                echo '<div class="book-card" id = "' . $libro['isbn'] . '">
+                                        <img
+                                            src="' . $libro['imagen'] . '"
+                                            alt=""
+                                            class="img-book-card"
+                                        />
+                                        <div style="background-color: #82C8E5" class="book-card-info-container">
+                                        
+                                            <h4 class="book-name">
+                                               ' . $libro['titulo'] .'
+                                            </h4>
+                                            <h5>' . $libro['autor'] . '</h5>
+                                            <h5>' . $estudiante . '</h5>
+                                        </div>
+                                    </div>';
+                            }
+                            
+
+                            elseif ($gusto===TRUE) {
+                                echo '<div class="book-card" id = "' . $libro['isbn'] . '">
+                                        <img
+                                            src="' . $libro['imagen'] . '"
+                                            alt=""
+                                            class="img-book-card"
+                                        />
+                                        <div style="background-color: green" class="book-card-info-container">
+                                        
                                             <h4 class="book-name">
                                                ' . $libro['titulo'] . '
                                             </h4>
                                             <h5>' . $libro['autor'] . '</h5>
+                                            <h5>' . $estudiante . '</h5>
                                         </div>
                                     </div>';
+                            }
                         }
                     }
+                    
                 } else {
-                    echo '<h4>No te han recomendado ningun libro</h4>';
+                    echo '<h4 style>No haz añadido ningun libro a tu libreria</h4>';
                 }
+
+                
+
                 ?>
 
             </div>
