@@ -1,7 +1,6 @@
-<?php include '../sesion.php'; ?>
-
-
-
+<?php include '../sesion.php'; 
+$prestado = "";
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +11,7 @@
         name="viewport"
         content="width=
     , initial-scale=1.0" />
-    <link rel="stylesheet" href="../../styles/alumno/alumno-explorar-page.css" />
+    <link rel="stylesheet" href="../../styles/alumno/explorar.css" />
     <link rel="icon" href="../../assets/logo1.webp" />
     <script src="../../scripts/alumno/alumno-explorar-page.js" defer></script>
     <title>Explorar</title>
@@ -207,7 +206,7 @@
                     </a>
                 </li>
                 <li class="nav-element">
-                    <a href="../login.php">
+                    <a href="../cerrarSesion.php">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-logout-2">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                             <path d="M10 8v-2a2 2 0 0 1 2 -2h7a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-7a2 2 0 0 1 -2 -2v-2" />
@@ -230,57 +229,99 @@
             </header>
             <div class="explorar-container">
 
-                <?php
-                require_once '../../db/Database.php';
-                try {
-                    $db = new Database();
-                    $pdo = $db->getConnection();
+            <?php
 
-                    // Obtener el término de búsqueda, si existe
-                    $busqueda = isset($_GET['busqueda']) ? trim($_GET['busqueda']) : '';
-                    $sql = "SELECT isbn, imagen, titulo, autor FROM libros";
+require_once '../../db/Database.php';
+$db = new Database();
+$pdo = $db->getConnection();
 
-                    // Solo agregar filtro si hay un término de búsqueda
-                    if (!empty($busqueda)) {
-                        $sql .= " WHERE isbn LIKE :busqueda 
-                              OR titulo LIKE :busqueda 
-                              OR autor LIKE :busqueda";
-                    }
+$idUsuario = $_SESSION['idUsuario'];
 
-                    $stmt = $pdo->prepare($sql);
+$sqlPrestamos = "SELECT isbn, fecha_entrega FROM prestamos WHERE id_estudiante = :idUsuario";
+$stmt_prestamos = $pdo->prepare($sqlPrestamos);
+$stmt_prestamos->bindParam(":idUsuario", $idUsuario, PDO::PARAM_STR);
+$stmt_prestamos->execute();
+$prestamos = $stmt_prestamos->fetchAll(PDO::FETCH_ASSOC);
 
-                    // Si hay término de búsqueda, vincular parámetro
-                    if (!empty($busqueda)) {
-                        $searchParam = '%' . $busqueda . '%';
-                        $stmt->bindParam(':busqueda', $searchParam, PDO::PARAM_STR);
-                    }
+$prestamosIsbn = [];
+if (count($prestamos) > 0) {    
+    foreach($prestamos as $prestamo){
+        if ($prestamo['fecha_entrega'] === null) {
+            $prestamosIsbn[] = $prestamo['isbn'];
+        }
+    }
+}
 
-                    $stmt->execute();
-                    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+try {
+    $db = new Database();
+    $pdo = $db->getConnection();
 
-                    if (count($result) == 0) {
-                        echo '<h4 style="text-align:center;">No se encontraron libros</h4>';
-                    } else {
-                        foreach ($result as $libro) {
-                            echo '<div class="book-card" id="' . htmlspecialchars($libro['isbn']) . '">
-                            <img
-                                src="' . htmlspecialchars($libro['imagen']) . '"
-                                alt=""
-                                class="img-book-card"
-                            />
-                            <div class="book-card-info-container">
-                                <h4 class="book-name">
-                                    ' . htmlspecialchars($libro['titulo']) . '
-                                </h4>
-                                <h5>' . htmlspecialchars($libro['autor']) . '</h5>
-                            </div>
-                        </div>';
-                        }
-                    }
-                } catch (PDOException $e) {
-                    echo '<h4 style="text-align:center;">Error en la consulta: ' . $e->getMessage() . '</h4>';
-                }
-                ?>
+    $busqueda = isset($_GET['busqueda']) ? trim($_GET['busqueda']) : '';
+    $sql = "SELECT isbn, imagen, titulo, autor FROM libros";
+    
+    if (!empty($busqueda)) {
+        $sql .= " WHERE isbn LIKE :busqueda 
+              OR titulo LIKE :busqueda 
+              OR autor LIKE :busqueda";
+    }
+
+    $stmt = $pdo->prepare($sql);
+
+    if (!empty($busqueda)) {
+        $searchParam = '%' . $busqueda . '%';
+        $stmt->bindParam(':busqueda', $searchParam, PDO::PARAM_STR);
+    }
+
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    if (count($result) == 0) {
+        echo '<h4 style="text-align:center;">No se encontraron libros</h4>';
+    } else {
+        foreach ($result as $libro) {
+
+            $prestado = in_array($libro['isbn'], $prestamosIsbn) ? "Ya lo tienes" : "";
+
+            if($prestado==="Ya lo tienes"){
+                echo '<div class="book-card-p">
+                <img
+                    src="' . htmlspecialchars($libro['imagen']) . '"
+                    alt=""  
+                    class="img-book-card"    
+                />
+                <div class="book-card-info-container">
+                <h5 id="prestado">' . htmlspecialchars($prestado) . '</h5>
+                    <h4 class="book-name">
+                        ' . htmlspecialchars($libro['titulo']) . '
+                    </h4>
+                    <h5>' . htmlspecialchars($libro['autor']) . '</h5>
+                    
+                </div>
+            </div>';
+            }else{
+                echo '<div class="book-card" id="' . htmlspecialchars($libro['isbn']) . '">
+                <img
+                    src="' . htmlspecialchars($libro['imagen']) . '"
+                    alt=""
+                    class="img-book-card"
+                />
+                <div class="book-card-info-container">
+                <h5 id="prestado">' . htmlspecialchars($prestado) . '</h5>
+                    <h4 class="book-name">
+                        ' . htmlspecialchars($libro['titulo']) . '
+                    </h4>
+                    <h5>' . htmlspecialchars($libro['autor']) . '</h5>
+                    
+                </div>
+            </div>';
+            }
+            
+        }
+    }
+} catch (PDOException $e) {
+    echo '<h4 style="text-align:center;">Error en la consulta: ' . $e->getMessage() . '</h4>';
+}
+?>
             </div>
         </section>
 
