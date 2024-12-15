@@ -152,7 +152,7 @@
                         $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         if (!empty($resultado)) {
                             foreach ($resultado as $categoria) {
-                                echo '<button class="botones-categoria"> '.$categoria['categoria'].'</button>';
+                                echo '<button class="botones-categoria navegar-card-btns"> '.$categoria['categoria'].'</button>';
                             }
                         } 
                     } catch (PDOException $e) {
