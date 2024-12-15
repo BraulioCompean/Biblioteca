@@ -1,0 +1,475 @@
+/* -------------------------------------
+    FUENTES UTILIZADAS
+   -------------------------------------
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+/* 
+
+██████╗░░█████╗░██╗░░░░░███████╗████████╗░█████╗░
+██╔══██╗██╔══██╗██║░░░░░██╔════╝╚══██╔══╝██╔══██╗
+██████╔╝███████║██║░░░░░█████╗░░░░░██║░░░███████║
+██╔═══╝░██╔══██║██║░░░░░██╔══╝░░░░░██║░░░██╔══██║
+██║░░░░░██║░░██║███████╗███████╗░░░██║░░░██║░░██║
+╚═╝░░░░░╚═╝░░╚═╝╚══════╝╚══════╝░░░╚═╝░░░╚═╝░░╚═╝
+    PALETA DE COLORES A UTILIZAR
+*/
+
+:root {
+    --DARK-GOLDENROD: #b08401;
+    --TAN:#d49e8d;
+    --DUST-STORM:#ded1bd;
+    --WHITE-SMOKE:#faf6f2;
+    --VAN-DYKE-BROWN:#683b2b;
+}
+
+/* 
+
+
+
+███████╗██╗░░░░░███████╗███╗░░░███╗███████╗███╗░░██╗████████╗░█████╗░░██████╗
+██╔════╝██║░░░░░██╔════╝████╗░████║██╔════╝████╗░██║╚══██╔══╝██╔══██╗██╔════╝
+█████╗░░██║░░░░░█████╗░░██╔████╔██║█████╗░░██╔██╗██║░░░██║░░░██║░░██║╚█████╗░
+██╔══╝░░██║░░░░░██╔══╝░░██║╚██╔╝██║██╔══╝░░██║╚████║░░░██║░░░██║░░██║░╚═══██╗
+███████╗███████╗███████╗██║░╚═╝░██║███████╗██║░╚███║░░░██║░░░╚█████╔╝██████╔╝
+╚══════╝╚══════╝╚══════╝╚═╝░░░░░╚═╝╚══════╝╚═╝░░╚══╝░░░╚═╝░░░░╚════╝░╚═════╝░
+
+░██████╗░███████╗███╗░░██╗███████╗██████╗░░█████╗░██╗░░░░░███████╗░██████╗
+██╔════╝░██╔════╝████╗░██║██╔════╝██╔══██╗██╔══██╗██║░░░░░██╔════╝██╔════╝
+██║░░██╗░█████╗░░██╔██╗██║█████╗░░██████╔╝███████║██║░░░░░█████╗░░╚█████╗░
+██║░░╚██╗██╔══╝░░██║╚████║██╔══╝░░██╔══██╗██╔══██║██║░░░░░██╔══╝░░░╚═══██╗
+╚██████╔╝███████╗██║░╚███║███████╗██║░░██║██║░░██║███████╗███████╗██████╔╝
+░╚═════╝░╚══════╝╚═╝░░╚══╝╚══════╝╚═╝░░╚═╝╚═╝░░╚═╝╚══════╝╚══════╝╚═════╝░
+                                                                                                 
+        html,body,hS,etc                                                      
+
+
+*/
+
+body {
+    font-family: "Host Grotesk";
+    display: flex;
+    overflow: hidden;
+    background-color: white;
+    overflow-y: hidden;
+    display: flex;
+    margin: 0;
+    background-color: var(--WHITE-SMOKE);
+    border: none;
+}
+
+main {
+    height: 98vh;
+    width: 100%;
+    padding: 20px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total del contenedor */
+    border: 1px solid gray;
+    background-color: var(--DUST-STORM);
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+main::-webkit-scrollbar {
+    width: 5px;
+}
+
+main::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+main::-webkit-scrollbar-thumb {
+    background-color: rgb(155, 149, 149);
+    border-radius: 20px;
+}
+
+
+
+h1,h2,h3,h4,h5,h6 {margin: 0; color: var(--VAN-DYKE-BROWN);}
+/* SCROLL DEL CONTENIDO PRINCIPAL */
+
+
+input{
+    font-size: 19px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    background: none;
+    transition: border 0.5s;
+    
+}
+input:hover{
+    border: 1px solid black;
+}
+/* ------------------------- ------------------------- ------------------------- ------------------------- ------------------------- */
+
+/* 
+░█████╗░░██████╗██╗██████╗░███████╗
+██╔══██╗██╔════╝██║██╔══██╗██╔════╝
+███████║╚█████╗░██║██║░░██║█████╗░░
+██╔══██║░╚═══██╗██║██║░░██║██╔══╝░░
+██║░░██║██████╔╝██║██████╔╝███████╗
+╚═╝░░╚═╝╚═════╝░╚═╝╚═════╝░╚══════╝
+
+
+    ESTILOS PARA LA BARRA DE NAVEGACION LATERAL
+
+*/
+
+.library-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#imgL {
+    text-align: center;
+    margin: 8px;
+    width: 50px;
+    height: 50px;
+}
+
+.aside-nav-section {
+    width: 280px;
+    height: 100vh;
+    border-right: 1px solid gray ;
+}
+
+.nav-element a svg {
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.nav-options-list {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.nav-element {
+    width: fit-content;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 15%;
+    list-style: none;
+}
+
+.nav-element:hover .icon {
+    background-color: var(--DARK-GOLDENROD);
+    stroke: white;
+}
+
+.icon {
+    stroke: black;
+    transition: stroke 0.5s, background-color 0.5s;
+}
+
+.user-menu {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+nav hr {
+    width: 90%;
+}
+
+.nav-element a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.nav-element a h4 {
+    margin: 0;
+}
+
+.nav-element a svg {
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: var(--mountbatten-pink);
+    padding: 5px;
+}
+
+a:visited {
+    color: black;
+}
+
+/* ------------------------- ------------------------- ------------------------- ------------------------- ------------------------- */
+
+.navegar {
+    border: 1px solid var(--black);
+    width: 100%;
+    height: 60px;
+    padding: 10px;
+    /* box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+}
+
+/* ------------------------- ------------------------- ------------------------- ------------------------- ------------------------- */
+
+/* 
+
+███╗░░░███╗░█████╗░██████╗░░█████╗░██╗░░░░░
+████╗░████║██╔══██╗██╔══██╗██╔══██╗██║░░░░░
+██╔████╔██║██║░░██║██║░░██║███████║██║░░░░░
+██║╚██╔╝██║██║░░██║██║░░██║██╔══██║██║░░░░░
+██║░╚═╝░██║╚█████╔╝██████╔╝██║░░██║███████╗
+╚═╝░░░░░╚═╝░╚════╝░╚═════╝░╚═╝░░╚═╝╚══════╝
+
+    ELEMENTOS GENERALES PARA LOS MODAL Y SU CONTENIDO
+*/
+
+.modal {
+    display: none;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    display: flex;
+    margin: auto;
+    background-color: white;
+    height: fit-content;
+    width: fit-content;
+    border: 1px solid gray;
+    padding: 30px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    gap: 30px;
+}
+
+
+.modal-content h1,
+.modal-content h2,
+.modal-content h3,
+.modal-content h4,
+.modal-content h5,
+.modal-content h6{
+    margin: 0;
+}
+
+.modal-btns-interactive{ /* contenedor para los botones en el modal */
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    gap: 15px;
+}
+.btns-modal{  /* estilo general para los botones dentro de los modal*/
+    display: flex;
+    align-items: center;
+    background: none;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1px solid gray;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.btns-modal:hover{background-color: var(--DARK-GOLDENROD); color: white}
+
+.btns-modal:hover svg{ /*cada vez que se pasa el cursor por encima del btn su icono svg se pinta*/
+    stroke: white;
+}
+
+.img-btns-modal{ /*contenedor para los botones del modal y la imagen del lbro*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/*   MODAL MOSTRAR LIBRO*/
+.libro-info-container h2{
+    font-weight: lighter;
+}
+.libro-info-container h3,
+#libro-sinopsis{
+    font-weight:lighter;
+
+}
+#libro-titulo{
+    font-weight: 700;
+}
+
+#libro-sinopsis{
+    width: 100%;
+    text-align: center;
+}
+
+.libro-info-container{
+    width: 400px;
+    height: fit-content;
+    overflow-y: auto;
+    text-align: center;
+}
+
+.libro-info-container::-webkit-scrollbar{
+    width: 5px;
+}
+
+.libro-info-container::-webkit-scrollbar-track{
+    background-color: transparent;
+}
+.libro-info-container::-webkit-scrollbar-thumb{
+    background-color: rgb(155, 149, 149);
+    border-radius: 20px;
+}
+
+.modal-img-libro{
+    width: 250px;
+    height: 400px;  
+}
+
+/* 
+MODAL -> RECOMENDAR LIBRO
+
+*/
+
+
+/* 
+███╗░░░███╗░█████╗░██████╗░░█████╗░██╗░░░░░  ██████╗░██████╗░███████╗░██████╗████████╗░█████╗░███╗░░░███╗░█████╗░
+████╗░████║██╔══██╗██╔══██╗██╔══██╗██║░░░░░  ██╔══██╗██╔══██╗██╔════╝██╔════╝╚══██╔══╝██╔══██╗████╗░████║██╔══██╗
+██╔████╔██║██║░░██║██║░░██║███████║██║░░░░░  ██████╔╝██████╔╝█████╗░░╚█████╗░░░░██║░░░███████║██╔████╔██║██║░░██║
+██║╚██╔╝██║██║░░██║██║░░██║██╔══██║██║░░░░░  ██╔═══╝░██╔══██╗██╔══╝░░░╚═══██╗░░░██║░░░██╔══██║██║╚██╔╝██║██║░░██║
+██║░╚═╝░██║╚█████╔╝██████╔╝██║░░██║███████╗  ██║░░░░░██║░░██║███████╗██████╔╝░░░██║░░░██║░░██║██║░╚═╝░██║╚█████╔╝
+╚═╝░░░░░╚═╝░╚════╝░╚═════╝░╚═╝░░╚═╝╚══════╝  ╚═╝░░░░░╚═╝░░╚═╝╚══════╝╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░░░░╚═╝░╚════╝░
+    MODAL PRESTAMO DE LIBRO
+*/
+
+
+#form-prestamo{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    gap: 30px;
+}
+
+
+
+
+/*  */
+
+/* ------------------------- ------------------------- ------------------------- ------------------------- ------------------------- */
+
+/* ------------------------- ------------------------- ------------------------- ------------------------- ------------------------- */
+
+/* 
+
+██████╗░██████╗░██╗███╗░░██╗░█████╗░██╗██████╗░░█████╗░██╗░░░░░
+██╔══██╗██╔══██╗██║████╗░██║██╔══██╗██║██╔══██╗██╔══██╗██║░░░░░
+██████╔╝██████╔╝██║██╔██╗██║██║░░╚═╝██║██████╔╝███████║██║░░░░░
+██╔═══╝░██╔══██╗██║██║╚████║██║░░██╗██║██╔═══╝░██╔══██║██║░░░░░
+██║░░░░░██║░░██║██║██║░╚███║╚█████╔╝██║██║░░░░░██║░░██║███████╗
+╚═╝░░░░░╚═╝░░╚═╝╚═╝╚═╝░░╚══╝░╚════╝░╚═╝╚═╝░░░░░╚═╝░░╚═╝╚══════╝
+    ESTILOS PARA EL CONTENIDO PRINCIPAL DE EXPLORAR EL CATALOGO
+*/
+
+.header-explorar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-explorar input{
+    width: 400px;
+}
+.explorar-libros{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+.explorar-container{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap;
+    gap: 45px;
+}
+/* ------------------------- ------------------------- ------------------------- ------------------------- ------------------------- */
+/* 
+██████╗░░█████╗░░█████╗░██╗░░██╗  ░█████╗░░█████╗░██████╗░██████╗░
+██╔══██╗██╔══██╗██╔══██╗██║░██╔╝  ██╔══██╗██╔══██╗██╔══██╗██╔══██╗
+██████╦╝██║░░██║██║░░██║█████═╝░  ██║░░╚═╝███████║██████╔╝██║░░██║
+██╔══██╗██║░░██║██║░░██║██╔═██╗░  ██║░░██╗██╔══██║██╔══██╗██║░░██║
+██████╦╝╚█████╔╝╚█████╔╝██║░╚██╗  ╚█████╔╝██║░░██║██║░░██║██████╔╝
+╚═════╝░░╚════╝░░╚════╝░╚═╝░░╚═╝  ░╚════╝░╚═╝░░╚═╝╚═╝░░╚═╝╚═════╝░ 
+    ESTILO GENERAL PARA EL SITIO WEB PARA LOS BOOK CARDS
+*/
+
+
+
+
+.img-book-card {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 150px;
+    border: none;
+    margin: none;
+    margin: 0;
+}
+
+.book-card {
+    width: 150px;
+    max-width: 150px;
+    border: none;
+    height: auto;
+    cursor: pointer;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
+.book-card-info-container h4 {
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.book-card-info-container h5 {
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+    padding: 0;
+}
+
+.book-card-info-container {
+    padding: 0;
+}
+
+.book-card-p{
+    width: 150px;
+    max-width: 150px;
+    border: none;
+    height: auto;
+    cursor: pointer;
+    border: 5px solid rgb(246, 93, 246);
+    border-radius: 10px;
+    box-shadow: 10px 5px 5px rgb(100, 4, 84);
+}
